@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.css"
+        integrity="sha512-gA2Bvu0/hw4oj0Lp8ZHjK+o3S4BE5m8d/wNVy6ktKLhHKPpWLQwv9ixzuWirWOakoJqlBdePq2NhoCaUOQ5npQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <nav class="navbar">
+                <button class="navbar-button">
+                    <svg class="navbar-icon">
+                        <use href="images/icon.svg#hamburger"></use>
+                    </svg>
+                </button>
+                <a href="#" class="logo link">LOGO</a>
+            </nav>
+
+            <form action="javascript:void(0);" class="nav-form">
+                <label class="nav-label">
+                    <input type="text" class="nav-search-bar" placeholder="Search..." required>
+                </label>
+                <button class="nav-form-button">
+                    <svg class="icon">
+                        <use href="images/icon.svg#search"></use>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="dropdown nav-button" tabindex="0">
+                <svg class="icon">
+                    <use href="images/icon.svg#person"></use>
+                </svg>
+
+                <div class="dropdown-content">
+                    <div class="dropdown-container">
+                        <a href="#" class="dropdown-link link">Light mode/ Dark mode</a>
+                        <a href="#" class="dropdown-link link">Login/ Signup</a>
+                        <a href="#" class="dropdown-link link">Bookmarks</a>
+                        <a href="#" class="dropdown-link link">Settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-modal is-hidden">
+            <div class="login-modal-container">
+                <svg class="login-modal-icon">
+                    <use href="images/icon.svg#close"></use>
+                </svg>
+                <h2 class="form-heading">
+                    Login
+                </h2>
+                <div class="form-wrapper">
+                    <form action="javascript: void(0);" method="POST" class="form">
+                        <div class="input-wrapper">
+                            <label for="user-name" class="form-label">
+                                <span>Username</span>
+                            </label>
+                            <input type="text" class="user-name form-input" id="user-name" required>
+                            <svg class="form-icon">
+                                <use href="images/icon.svg#person"></use>
+                            </svg>
+                        </div>
+                        <div class="input-wrapper">
+                            <svg class="form-icon visible">
+                                <use href="images/icon.svg#eye-open"></use>
+                            </svg>
+                            <label for="password" class="form-label">
+                                <span>Password</span>
+                            </label>
+                            <input type="password" class="password form-input" id="password" required>
+                            <svg class="form-icon">
+                                <use href="images/icon.svg#key"></use>
+                            </svg>
+                        </div>
+                        <button class="form-button" type="submit">Submit</button>
+                    </form>
+                </div>
+                <span class="register">Don't have an account yet? <a href="#" class="register-link">Register</a></span>
+            </div>
+        </div>
+
+        <div class="side-nav">
+            <div class="side-nav-container">
+                <nav class="side-navbar">
+                    <ul class="side-navbar-list list">
+                        <li class="side-navbar-item">
+                            <a href="index.html" class="side-navbar-link link">
+                                <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#home"></use>
+                                </svg>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="side-navbar-item">
+                            <a href="manga-list.html" class="side-navbar-link link highlight">
+                                <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#books"></use>
+                                </svg>
+                                <span>Manga</span>
+                            </a>
+                        </li>
+                        <li class="side-navbar-item">
+                            <a href="bookmarks.html" class="side-navbar-link link">
+                                <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#bookmark"></use>
+                                </svg>
+                                <span>Bookmarks</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="side-nav-body">
+                    <ul class="side-navbar-list list">
+                        <li class="side-navbar-item">
+                            <a href="#" class="side-navbar-link link">
+                                <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#person"></use>
+                                </svg>
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        <li class="side-navbar-item">
+                            <a href="#" class="side-navbar-link link">
+                                <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#star"></use>
+                                </svg>
+                                <span>Favorite</span>
+                            </a>
+                        </li>
+                        <li class="side-navbar-item">
+                            <a href="#" class="side-navbar-link link">
+                                <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#history"></use>
+                                </svg>
+                                <span>History</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="manga-directory section container">
+            <div class="table-wrapper">
+                <div class="directory-header">
+                    <h2>Manga Directory</h2>
+                    <svg class="icon">
+                        <use href="images/icon.svg#drawer"></use>
+                    </svg>
+                </div>
+                <div class="table-search-wrapper">
+                    <form action="javascript:void(0);" class="table-search">
+                        <svg class="search-icon">
+                            <use href="images/icon.svg#search"></use>
+                        </svg>
+                        <input type="text" class="table-searchbox">
+                    </form>
+                    <button class="advance-search">
+                        <svg class="icon">
+                            <use href="images/icon.svg#search"></use>
+                        </svg>
+                        Advance Search
+                    </button>
+                    <button class="filter-button">
+                        <svg class="icon">
+                            <use href="images/icon.svg#filter"></use>
+                        </svg>
+                        Filter
+                    </button>
+                </div>
+                
+                <div class="table-filter-wrapper">
+                    <button class="table-filter">
+                        Sort By
+                        <svg class="icon">
+                            <use href="images/icon.svg#down"></use>
+                        </svg>
+                    </button>
+                    <button class="table-filter">
+                        Genre
+                        <svg class="icon">
+                            <use href="images/icon.svg#down"></use>
+                        </svg>
+                    </button>
+                    <button class="table-filter">
+                        Status
+                        <svg class="icon">
+                            <use href="images/icon.svg#down"></use>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="manga-table-wrapper">
+                    <table class="manga-table table">
+                        <thead>
+                            <tr>
+                                <th class="table-header">Title</th>
+                                <th class="table-header">Genre</th>
+                                <th class="table-header">Author</th>
+                                <th class="table-header">Status</th>
+                                <th class="table-header">Released</th>
+                            </tr>
+                        </thead>
+                        <tbody class="small-text">
+                            <tr>
+                                <td class="table-data">
+                                    Something is rising and it's not the Shield Hero
+                                </td>
+                                <td class="table-data">
+                                    Action, Adventure, Comedy, Drama
+                                </td>  
+                                <td class="table-data">Lorem, ipsum dolor</td>
+                                <td class="table-data">On-going</td>
+                                <td class="table-data">2020</td>
+                            </tr>
+                            <tr>
+                                <td class="table-data">
+                                    Legend of Joe: The last warrior of Sugondese
+                                </td>
+                                <td class="table-data">
+                                    Action, Adventure, Comedy, Drama
+                                </td>
+                                <td class="table-data">Lorem, ipsum dolor</td>
+                                <td class="table-data">Completed</td>
+                                <td class="table-data">2000</td>
+                            </tr>
+                            <tr>
+                                <td class="table-data">
+                                    I stubbed my toe on a holy sword, now I'm supposed to save the world!?
+                                </td>
+                                <td class="table-data">
+                                    Action, Adventure, Comedy, Drama
+                                </td>
+                                <td class="table-data">Lorem, ipsum dolor</td>
+                                <td class="table-data">Completed</td>
+                                <td class="table-data">2010</td>
+                            </tr>
+                            <tr>
+                                <td class="table-data">
+                                    Did you know that Joe almost died of ligma at Sugondese???
+                                </td>
+                                <td class="table-data">
+                                    Action, Adventure, Comedy, Drama
+                                </td>
+                                <td class="table-data">Lorem, ipsum dolor</td>
+                                <td class="table-data">Completed</td>
+                                <td class="table-data">2010</td>
+                            </tr>   
+                            <tr>
+                                <td class="table-data">
+                                    Life is not daijoubu
+                                </td>
+                                <td class="table-data">
+                                    Action, Adventure, Comedy, Drama
+                                </td>
+                                <td class="table-data">Lorem, ipsum dolor</td>
+                                <td class="table-data">On-going</td>
+                                <td class="table-data">2010</td>
+                            </tr>
+                            <tr>
+                                <td class="table-data">
+                                    Reincarnated as the MC's friend's distant cousin's cousin
+                                </td>
+                                <td class="table-data">
+                                    Action, Adventure, Comedy, Drama
+                                </td>
+                                <td class="table-data">Lorem, ipsum dolor</td>
+                                <td class="table-data">On-going</td>
+                                <td class="table-data">2013</td>
+                            </tr>
+                            <tr>
+                                <td class="table-data">
+                                    Sumimachine: If I don't collect 7 magical balls the world is going to end???
+                                </td>
+                                <td class="table-data">
+                                    Action, Adventure, Comedy, Drama
+                                </td>
+                                <td class="table-data">Lorem, ipsum dolor</td>
+                                <td class="table-data">Hiatus</td>
+                                <td class="table-data">2010</td>
+                            </tr>
+                            <tr>
+                                <td class="table-data">
+                                    Re:master
+                                </td>
+                                <td class="table-data">
+                                    Action, Adventure, Comedy, Drama
+                                </td>
+                                <td class="table-data">Lorem, ipsum dolor</td>
+                                <td class="table-data">Completed</td>
+                                <td class="table-data">2010</td>
+                            </tr>
+                            <tr>
+                                <td class="table-data">
+                                    Legend of Joe: The last warrior of Sugondese
+                                </td>
+                                <td class="table-data">
+                                    Action, Adventure, Comedy, Drama
+                                </td>
+                                <td class="table-data">Lorem, ipsum dolor</td>
+                                <td class="table-data">Completed</td>
+                                <td class="table-data">2010</td>
+                            </tr>
+                            <tr>
+                                <td class="table-data">
+                                    That day I reincarnated as a martial artist's wooden staff
+                                </td>
+                                <td class="table-data">
+                                    Action, Adventure, Comedy, Drama
+                                </td>
+                                <td class="table-data">Lorem, ipsum dolor</td>
+                                <td class="table-data">Completed</td>
+                                <td class="table-data">2010</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-footer">
+                        <div class="table-entries small-text">
+                            <p>Showing 1 to 10 of 100 entries</p>
+                        </div>
+                        <div class="table-pagination">
+                            <ul class="pagination-list list small-text">
+                                <li class="pagination-item">
+                                    <a href="#" class="pagination-link link">First</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="#" class="pagination-link link">
+                                        <svg class="pagination-icon">
+                                            <use href="images/icon.svg#start"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="#" class="pagination-link link">1</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="#" class="pagination-link link">2</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="#" class="pagination-link link">3</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="#" class="pagination-link link">4</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="#" class="pagination-link link">5</a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="#" class="pagination-link link">
+                                        <svg class="pagination-icon">
+                                            <use href="images/icon.svg#end"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="pagination-item">
+                                    <a href="#" class="pagination-link link">Last</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <section class="footer-container container">
+            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
+        </section>
+    </footer>
+    
+    <div class="goto-top">
+        <a href="#" class="goto-top-link link">
+            <svg class="goto-top-icon">
+                <use href="images/icon.svg#up"></use>
+            </svg>
+        </a>
+    </div>
+</body>
+
+</html>

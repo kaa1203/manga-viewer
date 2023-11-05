@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.css"
+    integrity="sha512-gA2Bvu0/hw4oj0Lp8ZHjK+o3S4BE5m8d/wNVy6ktKLhHKPpWLQwv9ixzuWirWOakoJqlBdePq2NhoCaUOQ5npQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <nav class="navbar">
+                <button class="navbar-button">
+                    <svg class="navbar-icon">
+                        <use href="images/icon.svg#hamburger"></use>
+                    </svg>
+                </button>
+                <a href="#" class="logo link">LOGO</a>
+            </nav>
+            
+            <form action="javascript:void(0);" class="nav-form">
+                <label class="nav-label">
+                    <input type="text" class="nav-search-bar" placeholder="Search..." required>
+                </label>
+                <button class="nav-form-button">
+                    <svg class="icon">
+                        <use href="images/icon.svg#search"></use>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="dropdown nav-button" tabindex="0">
+                <svg class="icon">
+                    <use href="images/icon.svg#person"></use>
+                </svg>
+
+                <div class="dropdown-content">
+                    <div class="dropdown-container">
+                        <a href="#" class="dropdown-link link">Light mode/ Dark mode</a>
+                        <a href="#" class="dropdown-link link">Login/ Signup</a>
+                        <a href="#" class="dropdown-link link">Bookmarks</a>
+                        <a href="#" class="dropdown-link link">Settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="login-modal is-hidden">
+            <div class="login-modal-container">
+                <svg class="login-modal-icon">
+                    <use href="images/icon.svg#close"></use>
+                </svg>
+                <h2 class="form-heading">
+                    Login
+                </h2>
+                <div class="form-wrapper">
+                    <form action="javascript: void(0);" method="POST" class="form">
+                        <div class="input-wrapper">
+                            <label for="user-name" class="form-label">
+                                <span>Username</span>
+                            </label>
+                            <input type="text" class="user-name form-input" id="user-name" required>
+                            <svg class="form-icon">
+                                <use href="images/icon.svg#person"></use>
+                            </svg>
+                        </div>
+                        <div class="input-wrapper">
+                            <svg class="form-icon visible">
+                                <use href="images/icon.svg#eye-open"></use>
+                            </svg>
+                            <label for="password" class="form-label">
+                                <span>Password</span>
+                            </label>
+                            <input type="password" class="password form-input" id="password" required>
+                            <svg class="form-icon">
+                                <use href="images/icon.svg#key"></use>
+                            </svg>
+                        </div>
+                        <button class="form-button" type="submit">Submit</button>
+                    </form>
+                </div>
+                <span class="register">Don't have an account yet? <a href="#" class="register-link">Register</a></span>
+            </div>
+        </div>
+        
+        <div class="side-nav">
+            <div class="side-nav-container">
+                <nav class="side-navbar">
+                    <ul class="side-navbar-list list">
+                        <li class="side-navbar-item">
+                            <a href="#" class="side-navbar-link link highlight"> 
+                               <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#home"></use>
+                               </svg> 
+                               <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="side-navbar-item">
+                            <a href="manga-list.html" class="side-navbar-link link"> 
+                               <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#books"></use>
+                               </svg> 
+                               <span>Manga</span>
+                            </a>
+                        </li>
+                        <li class="side-navbar-item">
+                            <a href="bookmarks.html" class="side-navbar-link link"> 
+                               <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#bookmark"></use>
+                               </svg> 
+                               <span>Bookmarks</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="side-nav-body">
+                    <ul class="side-navbar-list list">
+                        <li class="side-navbar-item">
+                            <a href="#" class="side-navbar-link link">
+                                <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#person"></use>
+                                </svg>
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        <li class="side-navbar-item">
+                            <a href="#" class="side-navbar-link link">
+                                <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#star"></use>
+                                </svg>
+                                <span>Favorite</span>
+                            </a>
+                        </li>
+                        <li class="side-navbar-item">
+                            <a href="#" class="side-navbar-link link">
+                                <svg class="side-navbar-icon">
+                                    <use href="images/icon.svg#history"></use>
+                                </svg>
+                                <span>History</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="carousel-container container">
+            <div class="carousel-wrapper">
+                <h1 class="carousel-heading">Top Rated 
+                    <svg class="icon">
+                        <use href="images/icon.svg#fire"></use>
+                    </svg>
+                </h1>
+                <ul class="carousel-list list">
+                    <li class="carousel-item">
+                        <div class="carousel-manga-details">
+                            <div class="carousel-manga-description">
+                                <h2 class="carousel-manga-title">Manga Title</h2>
+                                <div class="manga-genre">
+                                    <h4>
+                                        Genre:
+                                    </h4>
+                                    <ul class="carousel-genre-list list medium-text">
+                                        <li class="carousel-genre-item">
+                                            <a href="#" class="carousel-genre-link link">Action</a>
+                                        </li>
+                                        <li class="carousel-genre-item">
+                                            <a href="#" class="carousel-genre-link link">Adventure</a>
+                                        </li>
+                                        <li class="carousel-genre-item">
+                                            <a href="#" class="carousel-genre-link link">Fantasy</a>
+                                        </li>
+                                        <li class="carousel-genre-item">
+                                            <a href="#" class="carousel-genre-link link">Martial Arts</a>
+                                        </li>
+                                        <li class="carousel-genre-item">
+                                            <a href="#" class="carousel-genre-link link">Shounen</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="carousel-manga-summary">
+                                    <h4>
+                                        Summary:
+                                    </h4>
+                                    <p class="medium-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est minus impedit repellat molestiae dolore dolorum vitae ea iure quasi quo, mollitia cupiditate! Accusamus, enim aliquid suscipit, iste, dicta molestias ad recusandae corporis perspiciatis architecto officiis veritatis nisi earum repellat quibusdam dolor quae? Vitae omnis quaerat repudiandae quo, id perspiciatis impedit.</p>
+                                </div>
+                                <div class="carousel-manga-author">
+                                    <span>
+                                        <h4>Author:</h4>
+                                        <a href="#" class="author-link link medium-text">Dolorem</a>
+                                    </span>
+                                    <span>
+                                        <h4>Artist:</h4>
+                                        <a href="#" class="author-link link medium-text">Dolor</a>
+                                    </span>
+                                </div>
+                                <div class="carousel-manga-status">
+                                    <span>
+                                        <h4>Status:</h4>
+                                        <p class="medium-text">Ongoing</p>
+                                    </span>
+                                    <span>
+                                        <h4>Released:</h4>
+                                        <p class="medium-text">2020</p>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="carousel-manga-image">
+                                <a href="manga-description.html" class="link">
+                                    <img src="https://fakeimg.pl/200x200?text=manga-image" alt="carousel-image" class="carousel-image image">
+                                </a>
+                                <div class="carousel-rating">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#star"></use>
+                                    </svg>
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#star"></use>
+                                    </svg>
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#star"></use>
+                                    </svg>
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#star"></use>
+                                    </svg>
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#half-star"></use>
+                                    </svg>
+                                    9.5
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="carousel-dot">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-container container section no-padding-top">
+            <div class="content">
+                <span class="content-title">
+                    <h2 class="content-header">Popular Today
+                    </h2>
+                    <svg class="content-icon icon">
+                        <use href="images/icon.svg#book-2"></use>
+                    </svg>
+                </span>
+                <ul class="content-list list">
+                    <li class="content-item">
+                        <div class="content-wrapper">
+                            <a href="manga.html" class="content-link link">
+                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <div class="content-details">
+                                    <h5 class="medium-text manga-title">Sumimachine: If I don't collect 7 magical balls the world is going to end???</h5>
+                                    <p class="small-text content-manga-chapter">Chapter 201</p>
+                                    <span class="content-rating small-text">
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#half-star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#empty-star"></use>
+                                        </svg>
+                                        8.5
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="content-item">
+                        <div class="content-wrapper">
+                            <a href="manga.html" class="content-link link">
+                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <div class="content-details">
+                                    <h5 class="medium-text manga-title">I stubbed my toe on a holy sword, now I'm supposed to save the world!?</h5>
+                                    <p class="small-text content-manga-chapter">Chapter 201</p>
+                                    <span class="content-rating small-text">
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#half-star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#empty-star"></use>
+                                        </svg>
+                                        8.5
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="content-item">
+                        <div class="content-wrapper">
+                            <a href="manga.html" class="content-link link">
+                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <div class="content-details">
+                                    <h5 class="medium-text manga-title">Reincarnated as the MC's friend's distant cousin's cousin</h5>
+                                    <p class="small-text content-manga-chapter">Chapter 201</p>
+                                    <span class="content-rating small-text">
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#half-star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#empty-star"></use>
+                                        </svg>
+                                        8.5
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="content-item">
+                        <div class="content-wrapper">
+                            <a href="manga.html" class="content-link link">
+                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <div class="content-details">
+                                    <h5 class="medium-text manga-title">Did you know that Joe almost died of ligma at Sugondese???</h5>
+                                    <p class="small-text content-manga-chapter">Chapter 201</p>
+                                    <span class="content-rating small-text">
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#half-star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#empty-star"></use>
+                                        </svg>
+                                        8.5
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="content-item">
+                        <div class="content-wrapper">
+                            <a href="manga.html" class="content-link link">
+                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <div class="content-details">
+                                    <h5 class="medium-text manga-title">Something is rising and it's not the Shield Hero</h5>
+                                    <p class="small-text content-manga-chapter">Chapter 201</p>
+                                    <span class="content-rating small-text">
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#half-star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#empty-star"></use>
+                                        </svg>
+                                        8.5
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="content-item">
+                        <div class="content-wrapper">
+                            <a href="manga.html" class="content-link link">
+                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <div class="content-details">
+                                    <h5 class="medium-text manga-title">Screw being a demon lord, I'm gonna farm!</h5>
+                                    <p class="small-text content-manga-chapter">Chapter 201</p>
+                                    <span class="content-rating small-text">
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#half-star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#empty-star"></use>
+                                        </svg>
+                                        8.5
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="content-item">
+                        <div class="content-wrapper">
+                            <a href="manga.html" class="content-link link">
+                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <div class="content-details">
+                                    <h5 class="medium-text manga-title">Legend of Joe: The last warrior of Sugondese</h5>
+                                    <p class="small-text content-manga-chapter">Chapter 201</p>
+                                    <span class="content-rating small-text">
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#half-star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#empty-star"></use>
+                                        </svg>
+                                        8.5
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="content-item">
+                        <div class="content-wrapper">
+                            <a href="manga.html" class="content-link link">
+                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <div class="content-details">
+                                    <h5 class="medium-text manga-title">All according to keikaku(Tl's note: Keikaku means plan)</h5>
+                                    <p class="small-text content-manga-chapter">Chapter 201</p>
+                                    <span class="content-rating small-text">
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#half-star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#empty-star"></use>
+                                        </svg>
+                                        8.5
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="content-item">
+                        <div class="content-wrapper">
+                            <a href="manga.html" class="content-link link">
+                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <div class="content-details">
+                                    <h5 class="medium-text manga-title">That day I reincarnated as a martial artist's wooden staff</h5>
+                                    <p class="small-text content-manga-chapter">Chapter 201</p>
+                                    <span class="content-rating small-text">
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#half-star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#empty-star"></use>
+                                        </svg>
+                                        8.5
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="content-item">
+                        <div class="content-wrapper">
+                            <a href="manga.html" class="content-link link">
+                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <div class="content-details">
+                                    <h5 class="medium-text manga-title">Re:master</h5>
+                                    <p class="small-text content-manga-chapter">Chapter 201</p>
+                                    <span class="content-rating small-text">
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#half-star"></use>
+                                        </svg>
+                                        <svg class="content-icon icon">
+                                            <use href="images/icon.svg#empty-star"></use>
+                                        </svg>
+                                        8.5
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="more-button-wrapper">
+                    <button class="more-button">
+                        <svg class="icon">
+                            <use href="images/icon.svg#next"></use>
+                        </svg>
+                        More
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="latest-update container section no-padding-top">
+            <div class="latest-update-wrapper">
+                <span class="latest-update-title">
+                    <h2 class="latest-updater-heading">Latest Update</h2>
+                    <svg class="icon">
+                        <use href="images/icon.svg#book"></use>
+                    </svg>
+                </span>
+                <ul class="latest-update-list list">
+                    <li class="latest-update-item">
+                        <a href="manga-description.html" class="link">
+                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                        </a>
+                        <div class="latest-manga-wrapper">
+                            <span class="latest-manga-title medium-text">
+                                <a href="manga-description.html" class="link">
+                                    <h5 class="latest-manga-heading">
+                                        Screw being a demon lord, I'm gonna farm!
+                                    </h5>
+                                </a>
+                            </span>
+                            <ul class="latest-manga-list list small-text">
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 67
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 68
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 69
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="latest-update-item">
+                        <a href="manga-description.html" class="link">
+                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                        </a>
+                        <div class="latest-manga-wrapper">
+                            <span class="latest-manga-title medium-text">
+                                <a href="manga-description.html" class="link">
+                                 <h5 class="latest-manga-heading">
+                                        Sumimachine: If I don't collect 7 magical balls the world is going to end???
+                                    </h5>
+                                </a>
+                            </span>
+                            <ul class="latest-manga-list list small-text">
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 67
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 68
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 69
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="latest-update-item">
+                        <a href="manga-description.html" class="link">
+                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                        </a>
+                        <div class="latest-manga-wrapper">
+                            <span class="latest-manga-title medium-text">
+                                <a href="manga-description.html" class="link">
+                                    <h5 class="latest-manga-heading">
+                                        I stubbed my toe on a holy sword, now I'm supposed to save the world!?
+                                    </h5>
+                                </a>
+                            </span>
+                            <ul class="latest-manga-list list small-text">
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 67
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 68
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 69
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="latest-update-item">
+                        <a href="manga-description.html" class="link">
+                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                        </a>
+                        <div class="latest-manga-wrapper">
+                            <span class="latest-manga-title medium-text">
+                                <a href="manga-description.html" class="link">
+                                    <h5 class="latest-manga-heading">
+                                        That day I reincarnated as a martial artist's wooden staff
+                                    </h5>
+                                </a>
+                            </span>
+                            <ul class="latest-manga-list list small-text">
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 67
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 68
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 69
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="latest-update-item">
+                        <a href="manga-description.html" class="link">
+                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                        </a>
+                        <div class="latest-manga-wrapper">
+                            <span class="latest-manga-title medium-text">
+                                <a href="manga-description.html" class="link">
+                                    <h5 class="latest-manga-heading">
+                                        Legend of Joe: The last warrior of Sugondese
+                                    </h5>
+                                </a>
+                            </span>
+                            <ul class="latest-manga-list list small-text">
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 67
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 68
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 69
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="latest-update-item">
+                        <a href="manga-description.html" class="link">
+                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                        </a>
+                        <div class="latest-manga-wrapper">
+                            <span class="latest-manga-title medium-text">
+                                <a href="manga-description.html" class="link">
+                                    <h5 class="latest-manga-heading">
+                                        All according to keikaku(Tl's note: Keikaku means plan)
+                                    </h5>
+                                </a>
+                            </span>
+                            <ul class="latest-manga-list list small-text">
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 67
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 68
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 69
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="latest-update-item">
+                        <a href="manga-description.html" class="link">
+                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                        </a>
+                        <div class="latest-manga-wrapper">
+                            <span class="latest-manga-title medium-text">
+                                <a href="manga-description.html" class="link">
+                                    <h5 class="latest-manga-heading">
+                                        Something is rising and it's not the Shield Hero
+                                    </h5>
+                                </a>
+                            </span>
+                            <ul class="latest-manga-list list small-text">
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 67
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 68
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 69
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="latest-update-item">
+                        <a href="manga-description.html" class="link">
+                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                        </a>
+                        <div class="latest-manga-wrapper">
+                            <span class="latest-manga-title medium-text">
+                                <a href="manga-description.html" class="link">
+                                    <h5 class="latest-manga-heading">
+                                        Life is not daijoubu
+                                    </h5>
+                                </a>
+                            </span>
+                            <ul class="latest-manga-list list small-text">
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 67
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 68
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 69
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="latest-update-item">
+                        <a href="manga-description.html" class="link">
+                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                        </a>
+                        <div class="latest-manga-wrapper">
+                            <span class="latest-manga-title medium-text">
+                                <a href="manga-description.html" class="link">
+                                    <h5 class="latest-manga-heading">
+                                        Did you know that Joe almost died of ligma at Sugondese???
+                                    </h5>
+                                </a>
+                            </span>
+                            <ul class="latest-manga-list list small-text">
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 67
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 68
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 69
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="latest-update-item">
+                        <a href="manga-description.html" class="link">
+                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                        </a>
+                        <div class="latest-manga-wrapper">
+                            <span class="latest-manga-title medium-text">
+                                <a href="manga-description.html" class="link">
+                                    <h5 class="latest-manga-heading">
+                                        AriGO: Arigathanks Gosaimuch
+                                    </h5>
+                                </a>
+                            </span>
+                            <ul class="latest-manga-list list small-text">
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 67
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 68
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                                <li class="latest-manga-item">
+                                    <a href="manga.html" class="latest-manga-link link">
+                                        <span>
+                                            Chapter 69
+                                        </span>
+                                        <span class="time-updated">8 hours ago</span>
+                                    </a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </li> 
+                </ul>
+                <div class="more-button-wrapper">
+                    <button class="more-button">
+                        <svg class="icon">
+                            <use href="images/icon.svg#next"></use>
+                        </svg>
+                        More
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section class="footer-container container">
+            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
+        </section>
+    </footer>
+
+    <div class="goto-top">
+        <a href="#" class="goto-top-link link">
+            <svg class="goto-top-icon">
+                <use href="images/icon.svg#up"></use>
+            </svg>
+        </a>
+    </div>
+</body>
+</html>
