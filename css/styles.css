@@ -1112,13 +1112,21 @@ body::-webkit-scrollbar {
     color: var(--Light-red);
 }
 
-.reply-dropdown.open .icon {
-    transform: rotate(180deg);
+.post-replies {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 10px;
 }
-
 .post-replies-wrapper {
     display: flex;
     gap: 10px;
+}
+
+.reply-user {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
 
 .post-reply-container {

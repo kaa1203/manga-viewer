@@ -578,26 +578,26 @@
                         </div>
                         <div class="toolbar">
                             <form action="javascript:void(0);" class="toolbar-form">
-                                <label for="upvote">
-                                    <input id="upvote" class="upvote-radio" type="radio" name="vote" value="1" checked> 
+                                <div class="upvote-wrapper">
+                                    <input class="upvote-radio" type="radio" name="vote" value="1" checked> 
                                     <svg class="upvote icon">
                                         <use href="images/icon.svg#upvote"></use>
                                     </svg>                        
-                                </label>
+                                </div>
                                 <p>69</p>
-                                <label for="downvote">
-                                    <input id="downvote" class="downvote-radio" type="radio" name="vote" value="2">
+                                <div class="downvote-wrapper">
+                                    <input class="downvote-radio" type="radio" name="vote" value="2">
                                     <svg class="downvote icon">
                                         <use href="images/icon.svg#downvote"></use>
                                     </svg>                        
-                                </label>     
+                                </div>    
                                 <p>0</p>
                                 <button class="tool-reply reply">Reply</button>
                             </form>                        
                         </div>
                         <div class="user-reply-wrapper">
                             <div class="user">
-                                <img src="https://fakeimg.pl/200x200" alt="User Profile" class="user image">
+                                <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
                             </div>
                             <div class="user-reply">
                                 <input type="text" class="user-reply-textbox" placeholder="Comment...">
@@ -609,11 +609,121 @@
                         </div>
                         <div class="reply-dropdown">
                             <p class="rep-num">
-                                <svg class="icon">
+                                <svg class="dd-icon icon">
                                     <use href="images/icon.svg#dropdown-arrow"></use>
                                 </svg>
-                                5 replies
+                                2 replies
                             </p>
+                        </div>
+                        <div class="post-replies">
+                            <div class="post-replies-wrapper">
+                                <div class="user">
+                                    <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
+                                </div>
+                                <div class="user-comment medium-text">
+                                    <span class="user-profile">
+                                        <a href="#" class="user-profile link">Dolor</a>
+                                        <span class="small-text">5 months ago</span>
+                                    </span>
+                                    <div class="user-comment">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto, voluptatum
+                                            quo
+                                            ullam possimus quos. Ut tempora dignissimos doloremque sed magni, accusantium, commodi dolorum qui
+                                            quia
+                                            sunt quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis expedita facilis
+                                            praesentium
+                                            consequuntur ratione quis. Eligendi modi sapiente consequatur iusto.
+                                        </p>
+                                    </div>
+                        
+                                    <div class="toolbar">
+                                        <form action="javascript:void(0);" class="toolbar-form">
+                                            <div class="upvote-wrapper">
+                                                <input class="upvote-radio" type="radio" name="vote" value="1">
+                                                <svg class="upvote icon">
+                                                    <use href="images/icon.svg#upvote"></use>
+                                                </svg>
+                                            </div>
+                                            <p>10</p>
+                                            <div class="downvote-wrapper">
+                                                <input class="downvote-radio" type="radio" name="vote" value="2" checked>
+                                                <svg class="downvote icon">
+                                                    <use href="images/icon.svg#downvote"></use>
+                                                </svg>
+                                            </div>
+                                            <p>1</p>
+                                            <button class="post-reply reply">Reply</button>
+                                        </form>
+                                    </div>
+                                    <div class="post-reply-container">
+                                        <div class="user">
+                                            <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
+                                        </div>
+                                        <div class="post-reply-wrapper">
+                                            <input type="text" class="post-reply-textbox" placeholder="Comment...">
+                                            <div class="post-reply-buttons">
+                                                <button class="post-reply-button post-cancel">Cancel</button>
+                                                <button class="post-reply-button post-submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-replies-wrapper">
+                                <div class="user">
+                                    <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
+                                </div>
+                                <div class="user-comment medium-text">
+                                    <span class="user-profile">
+                                        <a href="#" class="user-profile link">Dolor</a>
+                                        <span class="small-text">5 months ago</span>
+                                    </span>
+                                    <div class="user-comment">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto, voluptatum
+                                            quo
+                                            ullam possimus quos. Ut tempora dignissimos doloremque sed magni, accusantium, commodi dolorum qui
+                                            quia
+                                            sunt quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis expedita facilis
+                                            praesentium
+                                            consequuntur ratione quis. Eligendi modi sapiente consequatur iusto.
+                                        </p>
+                                    </div>
+                        
+                                    <div class="toolbar">
+                                        <form action="javascript:void(0);" class="toolbar-form">
+                                            <div class="upvote-wrapper">
+                                                <input class="upvote-radio" type="radio" name="vote" value="1">
+                                                <svg class="upvote icon">
+                                                    <use href="images/icon.svg#upvote"></use>
+                                                </svg>
+                                            </div>
+                                            <p>0</p>
+                                            <div class="downvote-wrapper">
+                                                <input class="downvote-radio" type="radio" name="vote" value="2" checked>
+                                                <svg class="downvote icon">
+                                                    <use href="images/icon.svg#downvote"></use>
+                                                </svg>
+                                            </div>
+                                            <p>1</p>
+                                            <button class="post-reply reply">Reply</button>
+                                        </form>
+                                    </div>
+                                    <div class="post-reply-container">
+                                        <div class="user">
+                                            <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
+                                        </div>
+                                        <div class="post-reply-wrapper">
+                                            <input type="text" class="post-reply-textbox" placeholder="Comment...">
+                                            <div class="post-reply-buttons">
+                                                <button class="post-reply-button post-cancel">Cancel</button>
+                                                <button class="post-reply-button post-submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -640,19 +750,19 @@
 
                         <div class="toolbar">
                             <form action="javascript:void(0);" class="toolbar-form">
-                                <label for="upvote1">
-                                    <input id="upvote1" class="upvote-radio" type="radio" name="vote" value="1" checked> 
+                                <div class="upvote-wrapper">
+                                    <input class="upvote-radio" type="radio" name="vote" value="1" checked> 
                                     <svg class="upvote icon">
                                         <use href="images/icon.svg#upvote"></use>
                                     </svg>                        
-                                </label>
+                                </div>
                                 <p>35</p>
-                                <label for="downvote1">
-                                    <input id="downvote1" class="downvote-radio" type="radio" name="vote" value="2">
+                                <div class="downvote-wrapper">
+                                    <input class="downvote-radio" type="radio" name="vote" value="2">
                                     <svg class="downvote icon">
                                         <use href="images/icon.svg#downvote"></use>
                                     </svg>                        
-                                </label>     
+                                </div>     
                                 <p>0</p>
                                 <button class="tool-reply reply">Reply</button>
                             </form>                        
@@ -660,7 +770,7 @@
 
                         <div class="user-reply-wrapper" id="userReply1">
                             <div class="user">
-                                <img src="https://fakeimg.pl/200x200" alt="User Profile" class="user image">
+                                <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
                             </div>
                             <div class="user-reply">
                                 <input type="text" class="user-reply-textbox" placeholder="Comment...">
@@ -671,19 +781,19 @@
                             </div>
                         </div>
 
-                        <div class="reply-dropdown open">
+                        <div class="reply-dropdown">
                             <p class="rep-num">
-                                <svg class="icon">
+                                <svg class="dd-icon icon">
                                     <use href="images/icon.svg#dropdown-arrow"></use>
                                 </svg>
-                                1 reply
+                                2 replies
                             </p>
                         </div>
 
                         <div class="post-replies">
                             <div class="post-replies-wrapper">
                                 <div class="user">
-                                    <img src="https://fakeimg.pl/200x200" alt="User Profile" class="user image">
+                                    <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
                                 </div>
                                 <div class="user-comment medium-text">
                                     <span class="user-profile">
@@ -701,26 +811,77 @@
                             
                                     <div class="toolbar">
                                         <form action="javascript:void(0);" class="toolbar-form">
-                                            <label for="upvote2">
-                                                <input id="upvote2" class="upvote-radio" type="radio" name="vote" value="1">
+                                            <div class="upvote-wrapper">
+                                                <input class="upvote-radio" type="radio" name="vote" value="1">
                                                 <svg class="upvote icon">
                                                     <use href="images/icon.svg#upvote"></use>
                                                 </svg>
-                                            </label>
-                                            <p>0</p>
-                                            <label for="downvote2">
-                                                <input id="downvote2" class="downvote-radio" type="radio" name="vote" value="2" checked>
+                                            </div>
+                                            <p>10</p>
+                                            <div class="downvote-wrapper">
+                                                <input class="downvote-radio" type="radio" name="vote" value="2" checked>
                                                 <svg class="downvote icon">
                                                     <use href="images/icon.svg#downvote"></use>
                                                 </svg>
-                                            </label>
+                                            </div>
                                             <p>1</p>
                                             <button class="post-reply reply">Reply</button>
                                         </form>
                                     </div>
                                     <div class="post-reply-container">
                                         <div class="user">
-                                            <img src="https://fakeimg.pl/200x200" alt="User Profile" class="user image">
+                                            <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
+                                        </div>
+                                        <div class="post-reply-wrapper">
+                                            <input type="text" class="post-reply-textbox" placeholder="Comment...">
+                                            <div class="post-reply-buttons">
+                                                <button class="post-reply-button post-cancel">Cancel</button>
+                                                <button class="post-reply-button post-submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-replies-wrapper">
+                                <div class="user">
+                                    <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
+                                </div>
+                                <div class="user-comment medium-text">
+                                    <span class="user-profile">
+                                        <a href="#" class="user-profile link">Dolor</a>
+                                        <span class="small-text">5 months ago</span>
+                                    </span>
+                                    <div class="user-comment">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto, voluptatum quo
+                                            ullam possimus quos. Ut tempora dignissimos doloremque sed magni, accusantium, commodi dolorum qui quia
+                                            sunt quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis expedita facilis praesentium
+                                            consequuntur ratione quis. Eligendi modi sapiente consequatur iusto.
+                                        </p>
+                                    </div>
+                            
+                                    <div class="toolbar">
+                                        <form action="javascript:void(0);" class="toolbar-form">
+                                            <div class="upvote-wrapper">
+                                                <input class="upvote-radio" type="radio" name="vote" value="1">
+                                                <svg class="upvote icon">
+                                                    <use href="images/icon.svg#upvote"></use>
+                                                </svg>
+                                            </div>
+                                            <p>0</p>
+                                            <div class="downvote-wrapper">
+                                                <input class="downvote-radio" type="radio" name="vote" value="2" checked>
+                                                <svg class="downvote icon">
+                                                    <use href="images/icon.svg#downvote"></use>
+                                                </svg>
+                                            </div>
+                                            <p>1</p>
+                                            <button class="post-reply reply">Reply</button>
+                                        </form>
+                                    </div>
+                                    <div class="post-reply-container">
+                                        <div class="user">
+                                            <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
                                         </div>
                                         <div class="post-reply-wrapper">
                                             <input type="text" class="post-reply-textbox" placeholder="Comment...">
