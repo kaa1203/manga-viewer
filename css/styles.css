@@ -32,6 +32,12 @@ body {
     letter-spacing: 0.32px;
     color: var(--White);
     background-color: var(--Blue);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 .medium-text {
@@ -55,6 +61,10 @@ body {
     background-color: var(--Dark-grey);
 }
 
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
 .list {
     list-style: none;
 }
@@ -232,6 +242,7 @@ body {
     width: 15%;
     position: fixed;
     top: 0;
+    overflow: hidden;
 }
 
 .side-nav-container {
@@ -290,12 +301,12 @@ body {
 
 .login-modal-container {
     position: relative;
-    top: 20%;
+    top: 15%;
     left: 40%;
     width: 500px;
     background: var(--Dark-grey); 
     border-radius: 15px; 
-    border: 1px solid var(--Dark-grey-transparent);
+    border: 1px solid var(--White-transparent);
     padding: 20px;
 }
 
@@ -309,6 +320,10 @@ body {
     border-radius: 50%;
     border: 1px solid var(--White);
     cursor: pointer;
+}
+
+.login-modal-icon:hover {
+    background-color: var(--Grey);
 }
 
 .form-heading {
@@ -360,8 +375,7 @@ body {
     cursor: pointer;
 }
 
-.form-button:hover,
-.login-modal-icon:hover {
+.form-button:hover {
     background-color: var(--Light-red);
     color: var(--White);
 }
@@ -498,7 +512,8 @@ body {
     cursor: pointer;
 }
 
-.dot:hover {
+.dot:hover,
+.active {
     background-color: var(--White-transparent);
 }
 
@@ -518,6 +533,10 @@ body {
     padding: 10px 0;
     row-gap: 15px;
     column-gap: 10px;
+}
+
+.content-item {
+    width: calc(100% / 5 - 10px);
 }
 
 .content-title {
@@ -627,7 +646,8 @@ body {
 .latest-update-item {
     display: flex;
     column-gap: 15px;
-    width: 48%;
+    /* width: 48%; */
+    width: calc(100% / 2 - 25px);
     overflow: hidden;
     padding: 10px;
     border: 1px solid var(--White);
@@ -651,6 +671,7 @@ body {
 }
 
 .latest-manga-heading {
+    display: block;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -707,7 +728,8 @@ body {
 }
 
 .bookmark-button {
-    align-self: start;
+    display: flex;
+    justify-content: center;
     padding: 8px;
     border-radius: 4px;
     border: 1px solid var(--Dark-grey);
@@ -715,6 +737,10 @@ body {
     background-color: var(--Grey);
     width: 100%;
     cursor: pointer;
+}
+
+.bookmark-checkbox {
+    display: none;
 }
 
 .bookmark-icon {
@@ -726,7 +752,7 @@ body {
     fill: currentColor;
 }
 
-.bookmark-button:hover {
+.bookmark-checkbox:checked~.bookmark-button {
     color: var(--Light-red);
     background-color: var(--Dark-grey);
     border: 1px solid var(--Grey);
@@ -850,7 +876,7 @@ body {
     border: 1px solid var(--White-transparent);
 }
 
-.chapter-item span {
+.chapter-item div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -996,8 +1022,46 @@ body {
     gap: 10px;
 }
 
-.toolbar {
+.user-reply-wrapper {
+    display: none;
+    align-items: stretch;
+    justify-content: start;
+    gap: 10px;
+}
+
+.user-reply {
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: end;
+    gap: 10px;
+}
+
+.user-reply-textbox {
+    padding: 8px 0 4px 0;
+    color: var(--White);
+    background-color: var(--Dark-grey);
+    border-bottom: 1px solid var(--White);
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    width: 100%;
+}
+
+.user-reply-button,
+.post-reply-button {
+    padding: 5px;
+    color: var(--White);
+    background-color: var(--Dark-grey);
+    border: 1px solid var(--Grey);
+    border-radius: 4px;
+}
+
+.user-reply-button:hover,
+.post-reply-button:hover {
+    cursor: pointer;
+    background-color: var(--Grey);
+    border: 1px solid var(--White);
 }
 
 .toolbar-form {
@@ -1037,21 +1101,52 @@ body {
     background-color: var(--Grey);
 }
 
-.reply-dropdown {
+.rep-num {
     display: flex;
-    justify-content: start;
     align-items: center;
+    width: 10%;
+}
+
+.rep-num:hover {
     cursor: pointer;
+    color: var(--Light-red);
 }
 
 .reply-dropdown.open .icon {
     transform: rotate(180deg);
 }
 
-.replies-wrapper {
+.post-replies-wrapper {
     display: flex;
     gap: 10px;
 }
+
+.post-reply-container {
+    display: none;
+    align-items: stretch;
+    justify-content: start;
+    gap: 10px;
+}
+
+.post-reply-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: end;
+    gap: 10px;
+}
+
+.post-reply-textbox {
+    padding: 8px 0 4px 0;
+    color: var(--White);
+    background-color: var(--Dark-grey);
+    border-bottom: 1px solid var(--White);
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    width: 100%;
+}
+
 /* End of Manga Description */
 
 /* Manga List Page */
@@ -1065,6 +1160,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     row-gap: 15px;
     margin: 0 25px;
 }
@@ -1097,6 +1193,16 @@ td {
 
 .table-data {
     padding: 8px;
+}
+
+.table-link {
+    display: block;
+    width: 100%;
+    padding: 2px;
+}
+
+.table-link:hover {
+    color: var(--Light-red);
 }
 
 tbody tr:nth-child(even) {
@@ -1144,7 +1250,7 @@ tr td:first-child {
     
 }
 
-.advance-search {
+.advance-search-button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -1157,16 +1263,142 @@ tr td:first-child {
     background-color: var(--Dark-grey);
 }
 
-.advance-search:hover,
-.advance-search:focus,
+.advance-search-button:hover,
+.advance-search-button:focus,
 .filter-button:focus,
 .filter-button:hover, 
 .pagination-link:hover,
 .pagination-link:focus {
-    /* color: var(--Light-red); */
     border: 1px solid var(--White-transparent);
     background-color: var(--Grey);
     cursor: pointer;
+}
+
+.advance-search {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0.1%;
+    width: 91.4%;
+    padding: 10px;
+    border: 1px solid var(--White-transparent);
+    background-color: var(--Dark-grey);
+    z-index: 2;
+}
+
+.section-heading {
+    text-align: center;
+    border: 1px solid var(--White-transparent);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.search-genre {
+    display: none;
+}
+
+.search-genre-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 5px;
+    padding: 8px 0;
+    border: 1px solid var(--White-transparent);
+    border-top: none;
+    border-bottom: none;
+}
+.search-genre-wrapper {
+    width: calc(100% / 4 - 8px);
+}
+
+.genre-checkbox,
+.search-genre-label .icon {
+    display: none;
+}
+
+.search-genre-label:hover,
+.genre-checkbox:checked ~ .search-genre-label {
+    color: var(--Light-red);
+    border: 1px solid var(--White-transparent);
+}
+
+.genre-checkbox:checked~.search-genre-label .icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.search-genre-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--Grey);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.search-manga {
+    display: block;
+    padding: 8px;
+    border: 1px solid var(--White-transparent);
+    border-top: none;
+}
+
+.section-heading:hover {
+    color: var(--Light-red);
+    background-color: var(--Grey);
+
+}
+.search-manga-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-box {
+    position: relative;
+    width: calc(100% / 2 - 10px);
+}
+
+.search-box .icon {
+    position: absolute;
+    top: 25%;
+    left: 10px;
+    color: currentColor;
+}
+
+.text-box {
+    color: var(--White);
+    background-color: var(--Dark-grey);
+    border: 1px solid var(--Grey);
+    width: 100%;
+    padding: 8px 8px 8px 35px;  
+}
+
+.text-box:hover,  
+.text-box:focus  {
+    background-color: var(--Grey);
+    border: 1px solid var(--White-transparent);
+}
+.section-three {
+    margin-top: 8px;
+    text-align: right;
+}
+
+.adv-search-button {
+    padding: 5px 10px;
+    cursor: pointer;
+    color: var(--White);
+    background-color: var(--Dark-grey);
+    border-radius: 4px;
+    border: 1px solid var(--Grey);
+}
+
+.adv-search-button:hover {
+    background-color: var(--Grey);
+    border: 1px solid var(--White-transparent);
 }
 
 .filter-button {
@@ -1182,15 +1414,16 @@ tr td:first-child {
 }
 
 .table-filter-wrapper {
+    display: none;
     width: 100%;
-    display: flex;
+    position: relative;
     justify-content: space-evenly;
     border: 1px solid var(--Grey);
     padding: 10px;
     column-gap: 15px;
 }
 
-.table-filter {
+.table-filter-button {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1201,10 +1434,75 @@ tr td:first-child {
     border: 1px solid var(--Grey);
 }
 
-.table-filter:hover {
+.table-filter-button:hover {
     background-color: var(--Grey);
     border: 1px solid var(--White-transparent);
     cursor: pointer;
+}
+
+.table-filter {
+    display: none;
+    margin: 10px;
+    padding: 10px;
+    width: 31.8%;
+    height: 280%;
+    overflow-x: auto;
+    position: absolute;
+    top: 40px;
+    background-color: var(--Dark-grey);
+    border: 1px solid var(--Grey);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.table-filter::-webkit-scrollbar {
+    display: none;
+}
+.sort-filter {    
+    left: 0;
+}
+
+.genre-filter {    
+    left: 33.2%;
+}
+
+.status-filter {    
+    left: 66.35%;
+}
+
+.table-filter-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+}
+
+.table-filter-item label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.table-filter-item:hover,
+.filter-radio:checked ~ .table-filter.item.label {
+    color: var(--Light-red);
+    background-color: var(--Grey-transparent);    
+}
+
+.filter-checkbox, 
+.filter-radio {
+    display: none;
+}
+
+.filter-checkbox:checked ~ .icon.check,
+.filter-radio:checked ~ .icon.check {
+    visibility: visible;
+}
+
+.icon.check {
+    visibility: hidden;
 }
 
 .table-footer {
@@ -1275,6 +1573,10 @@ tr td:first-child {
 
 .bookmark {
     display: none;
+}
+
+.bookmark:checked ~ .bookmark-label {
+    color: var(--Light-red);
 }
 
 .bookmark-label {
@@ -1417,4 +1719,8 @@ tr td:first-child {
     fill: currentColor;
     width: 32px;
     height: 32px;
+}
+
+@media (min-width: 768px) and (max-width: 1157px) {
+
 }

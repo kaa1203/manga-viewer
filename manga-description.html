@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manga Viewer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.css"
         integrity="sha512-gA2Bvu0/hw4oj0Lp8ZHjK+o3S4BE5m8d/wNVy6ktKLhHKPpWLQwv9ixzuWirWOakoJqlBdePq2NhoCaUOQ5npQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
@@ -19,7 +18,7 @@
     <header>
         <div class="nav-container">
             <nav class="navbar">
-                <button class="navbar-button">
+                <button class="navbar-button" id="navMenu">
                     <svg class="navbar-icon">
                         <use href="images/icon.svg#hamburger"></use>
                     </svg>
@@ -54,9 +53,9 @@
             </div>
         </div>
 
-        <div class="login-modal is-hidden">
+        <div class="login-modal is-hidden" id="loginModal">
             <div class="login-modal-container">
-                <svg class="login-modal-icon">
+                <svg class="login-modal-icon" id="closeIcon">
                     <use href="images/icon.svg#close"></use>
                 </svg>
                 <h2 class="form-heading">
@@ -65,17 +64,17 @@
                 <div class="form-wrapper">
                     <form action="javascript: void(0);" method="POST" class="form">
                         <div class="input-wrapper">
-                            <label for="user-name" class="form-label">
+                            <label for="userName" class="form-label">
                                 <span>Username</span>
                             </label>
-                            <input type="text" class="user-name form-input" id="user-name" required>
+                            <input type="text" class="user-name form-input" id="userName" required>
                             <svg class="form-icon">
                                 <use href="images/icon.svg#person"></use>
                             </svg>
                         </div>
                         <div class="input-wrapper">
-                            <svg class="form-icon visible">
-                                <use href="images/icon.svg#eye-open"></use>
+                            <svg class="form-icon visible" id="visible">
+                                <use href="images/icon.svg#eye-open" id="passwordIcon"></use>
                             </svg>
                             <label for="password" class="form-label">
                                 <span>Password</span>
@@ -88,11 +87,12 @@
                         <button class="form-button" type="submit">Submit</button>
                     </form>
                 </div>
-                <span class="register">Don't have an account yet? <a href="#" class="register-link">Register</a></span>
+                <span class="register">Don't have an account yet? <a href="#" class="register-link"
+                        id="register">Register</a></span>
             </div>
         </div>
 
-        <div class="side-nav">
+        <div class="side-nav" id="sideNav">
             <div class="side-nav-container">
                 <nav class="side-navbar">
                     <ul class="side-navbar-list list">
@@ -126,7 +126,7 @@
                 <div class="side-nav-body">
                     <ul class="side-navbar-list list">
                         <li class="side-navbar-item">
-                            <a href="#" class="side-navbar-link link">
+                            <a href="#" class="side-navbar-link link" id="openliModal">
                                 <svg class="side-navbar-icon">
                                     <use href="images/icon.svg#person"></use>
                                 </svg>
@@ -160,13 +160,14 @@
         <section class="container manga-container">
             <div class="manga-description-wrapper">
                 <div class="manga-description-image">
-                    <img src="https://fakeimg.pl/100x100?text=Manga Image" alt="Manga Image" class="image">
-                    <button class="bookmark-button">
-                        <svg class="bookmark-icon">
-                            <use href="images/icon.svg#bookmark-2"></use>
-                        </svg>
-                        Bookmark
-                    </button>
+                    <img src="https://fakeimg.pl/100x100?text=Manga-Image" alt="Manga Image" class="image">
+                    <input type="checkbox" class="bookmark-checkbox" id="bookmarkCB" checked>
+                        <label for="bookmarkCB" class="bookmark-button">
+                            <svg class="bookmark-icon">
+                                <use href="images/icon.svg#bookmark-2"></use>
+                            </svg>
+                            Bookmark
+                        </label>
                     <div class="manga-rating">
                         <svg class="icon">
                             <use href="images/icon.svg#star"></use>
@@ -221,7 +222,7 @@
                                 <a href="#" class="genre-link link">Martial Arts</a>
                             </li>
                             <li class="genre-item">
-                                <a href="#" class="genre-link link">School Life</a>
+                                <a href="#" class="genre-link link">Slice of Life</a>
                             </li>
                             <li class="genre-item">
                                 <a href="#" class="genre-link link">Shounen</a>
@@ -232,24 +233,24 @@
                         </ul>
                     </div>
                     <div class="manga-author">
-                        <span>
+                        <div>
                             <h4>Author:</h4>
                             <a href="#" class="author-link link">Dolorem</a>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <h4>Artist:</h4>
                             <a href="#" class="author-link link">Dolor</a>
-                        </span>
+                        </div>
                     </div>
                     <div class="manga-status">
-                        <span>
+                        <div>
                             <h4>Status:</h4>
                             <a href="#" class="status-link link"> Ongoing</a>
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                             <h4>Released:</h4>
                             <p>2023</p>
-                        </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -270,162 +271,162 @@
                     <ul class="chapter-list list medium-text">
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 1</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 2</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 3</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 4</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 5</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 6</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 7</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 8</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 9</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 10</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 11</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
-                                   <p>Chapter 12</p> 
+                            <div>
+                                    <p>Chapter 12</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
-                                   <p>Chapter 13</p> 
+                            <div>
+                                    <p>Chapter 13</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 14</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 15</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 16</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 17</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 18</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 19</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                         <li class="chapter-item">
                             <a href="manga.html" class="chapter-link link">
-                            <span>
+                            <div>
                                    <p>Chapter 20</p> 
                                     <p class="chapter-date small-text">October 31. 2023</p>
-                            </span>
+                            </div>
                             </a>
                         </li>                        
                     </ul>
@@ -440,7 +441,7 @@
             <div class="rec-wrapper">
                 <div class="image-wrapper">
                     <a href="#" class="rec-link link">
-                        <img src="https://fakeimg.pl/100x100?text=Manga Image" alt="Recommended Series" class="image">
+                        <img src="https://fakeimg.pl/100x100?text=Manga-Image" alt="Recommended Series" class="image">
                         <div class="rec-details-wrapper">
                             <h3 class="rec-title medium-text">All according to keikaku(Tl's note: Keikaku means plan)</h3>
                             <span class="rec-rating small-text">
@@ -466,7 +467,7 @@
                 </div>
                 <div class="image-wrapper">
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="rec-link link" target="_blank">
-                        <img src="https://fakeimg.pl/100x100?text=Manga Image" alt="Recommended Series" class="image">
+                        <img src="https://fakeimg.pl/100x100?text=Manga-Image" alt="Recommended Series" class="image">
                         <div class="rec-details-wrapper">
                             <h3 class="rec-title medium-text">DO NOT CLICK THIS!!!!</h3>
                             <span class="rec-rating small-text">
@@ -492,7 +493,7 @@
                 </div>
                 <div class="image-wrapper">
                     <a href="#" class="rec-link link">
-                        <img src="https://fakeimg.pl/100x100?text=Manga Image" alt="Recommended Series" class="image">
+                        <img src="https://fakeimg.pl/100x100?text=Manga-Image" alt="Recommended Series" class="image">
                         <div class="rec-details-wrapper">
                             <h3 class="rec-title medium-text">All according to keikaku(Tl's note: Keikaku means plan)</h3>
                             <span class="rec-rating small-text">
@@ -518,7 +519,7 @@
                 </div>
                 <div class="image-wrapper">
                     <a href="#" class="rec-link link">
-                        <img src="https://fakeimg.pl/100x100?text=Manga Image" alt="Recommended Series" class="image">
+                        <img src="https://fakeimg.pl/100x100?text=Manga-Image" alt="Recommended Series" class="image">
                         <div class="rec-details-wrapper">
                             <h3 class="rec-title medium-text">Did you know that Joe almost died of ligma at Sugondese???</h3>
                             <span class="rec-rating small-text">
@@ -568,10 +569,12 @@
                             <span class="small-text">5 months ago</span>
                                 
                         </span>
-                        <div class="user-comment">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto, voluptatum quo
+                        <div class="user-post">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto, voluptatum quo
                                 ullam possimus quos. Ut tempora dignissimos doloremque sed magni, accusantium, commodi dolorum qui quia
-                                sunt quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis expedita facilis praesentium consequuntur ratione quis. Eligendi modi sapiente consequatur iusto.</p>
+                                sunt quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis expedita facilis praesentium consequuntur ratione quis. Eligendi modi sapiente consequatur iusto.
+                            </p>
                         </div>
                         <div class="toolbar">
                             <form action="javascript:void(0);" class="toolbar-form">
@@ -589,14 +592,28 @@
                                     </svg>                        
                                 </label>     
                                 <p>0</p>
+                                <button class="tool-reply reply">Reply</button>
                             </form>                        
-                            <button class="reply">Reply</button>
+                        </div>
+                        <div class="user-reply-wrapper">
+                            <div class="user">
+                                <img src="https://fakeimg.pl/200x200" alt="User Profile" class="user image">
+                            </div>
+                            <div class="user-reply">
+                                <input type="text" class="user-reply-textbox" placeholder="Comment...">
+                                <div class="user-reply-buttons">
+                                    <button class="user-reply-button cancel">Cancel</button>
+                                    <button class="user-reply-button submit">Submit</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="reply-dropdown">
-                            <svg class="icon">
-                                <use href="images/icon.svg#dropdown-arrow"></use>
-                            </svg>
-                            5 replies
+                            <p class="rep-num">
+                                <svg class="icon">
+                                    <use href="images/icon.svg#dropdown-arrow"></use>
+                                </svg>
+                                5 replies
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -608,76 +625,111 @@
                     <div class="user-comment medium-text">
                         <span class="user-profile">
                             <a href="#" class="user-profile link">Dolor</a>
-                            <span class="small-text">5 months ago</span>
-                                
+                            <span class="small-text">5 months ago</span>      
                         </span>
-                    <div class="user-comment">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto, voluptatum quo
-                            ullam possimus quos. Ut tempora dignissimos doloremque sed magni, accusantium, commodi dolorum qui quia
-                            sunt quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis expedita facilis praesentium consequuntur ratione quis. Eligendi modi sapiente consequatur iusto.</p>
-                    </div>
+                        <div class="user-post">
+                            <p>
+                                aLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto, voluptatum quo
+                                ullam possimus quos. Ut tempora dignissimos doloremque sed magni, accusantium, commodi dolorum qui quia
+                                sunt quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis expedita facilis praesentium consequuntur ratione quis. Eligendi modi sapiente consequatur iusto.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto, voluptatum quo
+                                ullam possimus quos. Ut tempora dignissimos doloremque sed magni, accusantium, commodi dolorum qui quia
+                                sunt quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis expedita facilis praesentium consequuntur
+                                ratione quis. Eligendi modi sapiente consequatur iusto.
+                            </p>
+                        </div>
 
-                    <div class="toolbar">
-                        <form action="javascript:void(0);" class="toolbar-form">
-                            <label for="upvote1">
-                                <input id="upvote1" class="upvote-radio" type="radio" name="vote" value="1" checked> 
-                                <svg class="upvote icon">
-                                    <use href="images/icon.svg#upvote"></use>
-                                </svg>                        
-                            </label>
-                            <p>35</p>
-                            <label for="downvote1">
-                                <input id="downvote1" class="downvote-radio" type="radio" name="vote" value="2">
-                                <svg class="downvote icon">
-                                    <use href="images/icon.svg#downvote"></use>
-                                </svg>                        
-                            </label>     
-                            <p>0</p>
-                        </form>                        
-                        <button class="reply">Reply</button>
-                    </div>
-                    <div class="reply-dropdown open">
-                        <svg class="icon">
-                            <use href="images/icon.svg#dropdown-arrow"></use>
-                        </svg>
-                        1 reply
-                    </div>
+                        <div class="toolbar">
+                            <form action="javascript:void(0);" class="toolbar-form">
+                                <label for="upvote1">
+                                    <input id="upvote1" class="upvote-radio" type="radio" name="vote" value="1" checked> 
+                                    <svg class="upvote icon">
+                                        <use href="images/icon.svg#upvote"></use>
+                                    </svg>                        
+                                </label>
+                                <p>35</p>
+                                <label for="downvote1">
+                                    <input id="downvote1" class="downvote-radio" type="radio" name="vote" value="2">
+                                    <svg class="downvote icon">
+                                        <use href="images/icon.svg#downvote"></use>
+                                    </svg>                        
+                                </label>     
+                                <p>0</p>
+                                <button class="tool-reply reply">Reply</button>
+                            </form>                        
+                        </div>
 
-                    <div class="replies">
-                        <div class="replies-wrapper">
+                        <div class="user-reply-wrapper" id="userReply1">
                             <div class="user">
                                 <img src="https://fakeimg.pl/200x200" alt="User Profile" class="user image">
                             </div>
-                            <div class="user-comment medium-text">
-                                <span class="user-profile">
-                                    <a href="#" class="user-profile link">Dolor</a>
-                                    <span class="small-text">5 months ago</span>
-                            
-                                </span>
-                                <div class="user-comment">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto, voluptatum quo
-                                        ullam possimus quos. Ut tempora dignissimos doloremque sed magni, accusantium, commodi dolorum qui quia
-                                        sunt quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis expedita facilis praesentium
-                                        consequuntur ratione quis. Eligendi modi sapiente consequatur iusto.</p>
+                            <div class="user-reply">
+                                <input type="text" class="user-reply-textbox" placeholder="Comment...">
+                                <div class="user-reply-buttons">
+                                    <button class="user-reply-button cancel">Cancel</button>
+                                    <button class="user-reply-button submit">Submit</button>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="reply-dropdown open">
+                            <p class="rep-num">
+                                <svg class="icon">
+                                    <use href="images/icon.svg#dropdown-arrow"></use>
+                                </svg>
+                                1 reply
+                            </p>
+                        </div>
+
+                        <div class="post-replies">
+                            <div class="post-replies-wrapper">
+                                <div class="user">
+                                    <img src="https://fakeimg.pl/200x200" alt="User Profile" class="user image">
+                                </div>
+                                <div class="user-comment medium-text">
+                                    <span class="user-profile">
+                                        <a href="#" class="user-profile link">Dolor</a>
+                                        <span class="small-text">5 months ago</span>
+                                    </span>
+                                    <div class="user-comment">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto, voluptatum quo
+                                            ullam possimus quos. Ut tempora dignissimos doloremque sed magni, accusantium, commodi dolorum qui quia
+                                            sunt quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis expedita facilis praesentium
+                                            consequuntur ratione quis. Eligendi modi sapiente consequatur iusto.
+                                        </p>
+                                    </div>
                             
-                                <div class="toolbar">
-                                    <form action="javascript:void(0);" class="toolbar-form">
-                                        <label for="upvote2">
-                                            <input id="upvote2" class="upvote-radio" type="radio" name="vote" value="1">
-                                            <svg class="upvote icon">
-                                                <use href="images/icon.svg#upvote"></use>
-                                            </svg>
-                                        </label>
-                                        <p>0</p>
-                                        <label for="downvote2">
-                                            <input id="downvote2" class="downvote-radio" type="radio" name="vote" value="2" checked>
-                                            <svg class="downvote icon">
-                                                <use href="images/icon.svg#downvote"></use>
-                                            </svg>
-                                        </label>
-                                        <p>1</p>
-                                    </form>
+                                    <div class="toolbar">
+                                        <form action="javascript:void(0);" class="toolbar-form">
+                                            <label for="upvote2">
+                                                <input id="upvote2" class="upvote-radio" type="radio" name="vote" value="1">
+                                                <svg class="upvote icon">
+                                                    <use href="images/icon.svg#upvote"></use>
+                                                </svg>
+                                            </label>
+                                            <p>0</p>
+                                            <label for="downvote2">
+                                                <input id="downvote2" class="downvote-radio" type="radio" name="vote" value="2" checked>
+                                                <svg class="downvote icon">
+                                                    <use href="images/icon.svg#downvote"></use>
+                                                </svg>
+                                            </label>
+                                            <p>1</p>
+                                            <button class="post-reply reply">Reply</button>
+                                        </form>
+                                    </div>
+                                    <div class="post-reply-container">
+                                        <div class="user">
+                                            <img src="https://fakeimg.pl/200x200" alt="User Profile" class="user image">
+                                        </div>
+                                        <div class="post-reply-wrapper">
+                                            <input type="text" class="post-reply-textbox" placeholder="Comment...">
+                                            <div class="post-reply-buttons">
+                                                <button class="post-reply-button post-cancel">Cancel</button>
+                                                <button class="post-reply-button post-submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -687,12 +739,6 @@
         </section>
     </main>
 
-    <footer>
-        <section class="footer-container container">
-            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
-        </section>
-    </footer>
-
     <div class="goto-top">
         <a href="#" class="goto-top-link link">
             <svg class="goto-top-icon">
@@ -700,6 +746,15 @@
             </svg>
         </a>
     </div>
-</body>
 
+    <footer>
+        <section class="footer-container container">
+            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
+        </section>
+    </footer>
+
+    <script src="js/login.js"></script>
+    <script src="js/comment.js"></script>
+    <script src="js/hamburger.js"></script>
+</body>
 </html>

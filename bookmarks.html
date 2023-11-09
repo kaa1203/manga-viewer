@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manga Viewer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.css"
         integrity="sha512-gA2Bvu0/hw4oj0Lp8ZHjK+o3S4BE5m8d/wNVy6ktKLhHKPpWLQwv9ixzuWirWOakoJqlBdePq2NhoCaUOQ5npQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
@@ -19,7 +18,7 @@
     <header>
         <div class="nav-container">
             <nav class="navbar">
-                <button class="navbar-button">
+                <button class="navbar-button" id="navMenu">
                     <svg class="navbar-icon">
                         <use href="images/icon.svg#hamburger"></use>
                     </svg>
@@ -54,9 +53,9 @@
             </div>
         </div>
 
-        <div class="login-modal is-hidden">
+        <div class="login-modal is-hidden" id="loginModal">
             <div class="login-modal-container">
-                <svg class="login-modal-icon">
+                <svg class="login-modal-icon" id="closeIcon">
                     <use href="images/icon.svg#close"></use>
                 </svg>
                 <h2 class="form-heading">
@@ -65,17 +64,17 @@
                 <div class="form-wrapper">
                     <form action="javascript: void(0);" method="POST" class="form">
                         <div class="input-wrapper">
-                            <label for="user-name" class="form-label">
+                            <label for="userName" class="form-label">
                                 <span>Username</span>
                             </label>
-                            <input type="text" class="user-name form-input" id="user-name" required>
+                            <input type="text" class="user-name form-input" id="userName" required>
                             <svg class="form-icon">
                                 <use href="images/icon.svg#person"></use>
                             </svg>
                         </div>
                         <div class="input-wrapper">
-                            <svg class="form-icon visible">
-                                <use href="images/icon.svg#eye-open"></use>
+                            <svg class="form-icon visible" id="visible">
+                                <use href="images/icon.svg#eye-open" id="passwordIcon"></use>
                             </svg>
                             <label for="password" class="form-label">
                                 <span>Password</span>
@@ -88,11 +87,12 @@
                         <button class="form-button" type="submit">Submit</button>
                     </form>
                 </div>
-                <span class="register">Don't have an account yet? <a href="#" class="register-link">Register</a></span>
+                <span class="register">Don't have an account yet? <a href="#" class="register-link"
+                        id="register">Register</a></span>
             </div>
         </div>
 
-        <div class="side-nav">
+        <div class="side-nav" id="sideNav">
             <div class="side-nav-container">
                 <nav class="side-navbar">
                     <ul class="side-navbar-list list">
@@ -126,7 +126,7 @@
                 <div class="side-nav-body">
                     <ul class="side-navbar-list list">
                         <li class="side-navbar-item">
-                            <a href="#" class="side-navbar-link link">
+                            <a href="#" class="side-navbar-link link" id="openliModal">
                                 <svg class="side-navbar-icon">
                                     <use href="images/icon.svg#person"></use>
                                 </svg>
@@ -159,14 +159,14 @@
     <main>
         <section class="bookmark-container container section">
             <div class="bookmark-wrapper">
-                <span class="bookmark-header">
+                <div class="bookmark-header">
                     <h2 class="bookmark-heading">
                         <svg class="icon">
                             <use href="images/icon.svg#bookmark"></use>
                         </svg>
                         Bookmarks
                     </h2>
-                </span>
+                </div>
                 <div class="bm-manga-wrapper">
                     <div class="bm-image">
                         <img src="https://fakeimg.pl/200x200" alt="Manga Image" class="image">
@@ -303,12 +303,6 @@
         </section>
     </main>
 
-    <footer>
-        <section class="footer-container container">
-            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
-        </section>
-    </footer>
-
     <div class="goto-top">
         <a href="#" class="goto-top-link link">
             <svg class="goto-top-icon">
@@ -316,6 +310,15 @@
             </svg>
         </a>
     </div>
+
+    <footer>
+        <section class="footer-container container">
+            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
+        </section>
+    </footer>
+
+    <script src="js/login.js"></script>
+    <script src="js/hamburger.js"></script>
 </body>
 
 </html>

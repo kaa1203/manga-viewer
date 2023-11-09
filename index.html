@@ -6,7 +6,7 @@
     <title>Manga Viewer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.css"
     integrity="sha512-gA2Bvu0/hw4oj0Lp8ZHjK+o3S4BE5m8d/wNVy6ktKLhHKPpWLQwv9ixzuWirWOakoJqlBdePq2NhoCaUOQ5npQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
@@ -17,7 +17,7 @@
     <header>
         <div class="nav-container">
             <nav class="navbar">
-                <button class="navbar-button">
+                <button class="navbar-button" id="navMenu">
                     <svg class="navbar-icon">
                         <use href="images/icon.svg#hamburger"></use>
                     </svg>
@@ -52,9 +52,9 @@
             </div>
         </div>
         
-        <div class="login-modal is-hidden">
+        <div class="login-modal is-hidden" id="loginModal">
             <div class="login-modal-container">
-                <svg class="login-modal-icon">
+                <svg class="login-modal-icon" id="closeIcon">
                     <use href="images/icon.svg#close"></use>
                 </svg>
                 <h2 class="form-heading">
@@ -63,17 +63,17 @@
                 <div class="form-wrapper">
                     <form action="javascript: void(0);" method="POST" class="form">
                         <div class="input-wrapper">
-                            <label for="user-name" class="form-label">
+                            <label for="userName" class="form-label">
                                 <span>Username</span>
                             </label>
-                            <input type="text" class="user-name form-input" id="user-name" required>
+                            <input type="text" class="user-name form-input" id="userName" required>
                             <svg class="form-icon">
                                 <use href="images/icon.svg#person"></use>
                             </svg>
                         </div>
                         <div class="input-wrapper">
-                            <svg class="form-icon visible">
-                                <use href="images/icon.svg#eye-open"></use>
+                            <svg class="form-icon visible" id="visible">
+                                <use href="images/icon.svg#eye-open" id="passwordIcon"></use>
                             </svg>
                             <label for="password" class="form-label">
                                 <span>Password</span>
@@ -86,11 +86,11 @@
                         <button class="form-button" type="submit">Submit</button>
                     </form>
                 </div>
-                <span class="register">Don't have an account yet? <a href="#" class="register-link">Register</a></span>
+                <span class="register">Don't have an account yet? <a href="#" class="register-link" id="register">Register</a></span>
             </div>
         </div>
         
-        <div class="side-nav">
+        <div class="side-nav" id="sideNav">
             <div class="side-nav-container">
                 <nav class="side-navbar">
                     <ul class="side-navbar-list list">
@@ -124,7 +124,7 @@
                 <div class="side-nav-body">
                     <ul class="side-navbar-list list">
                         <li class="side-navbar-item">
-                            <a href="#" class="side-navbar-link link">
+                            <a href="javascript:void(0)" class="side-navbar-link link" id="openliModal">
                                 <svg class="side-navbar-icon">
                                     <use href="images/icon.svg#person"></use>
                                 </svg>
@@ -149,7 +149,6 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </header>
@@ -196,24 +195,24 @@
                                     <p class="medium-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est minus impedit repellat molestiae dolore dolorum vitae ea iure quasi quo, mollitia cupiditate! Accusamus, enim aliquid suscipit, iste, dicta molestias ad recusandae corporis perspiciatis architecto officiis veritatis nisi earum repellat quibusdam dolor quae? Vitae omnis quaerat repudiandae quo, id perspiciatis impedit.</p>
                                 </div>
                                 <div class="carousel-manga-author">
-                                    <span>
+                                    <div>
                                         <h4>Author:</h4>
                                         <a href="#" class="author-link link medium-text">Dolorem</a>
-                                    </span>
-                                    <span>
+                                    </div>
+                                    <div>
                                         <h4>Artist:</h4>
                                         <a href="#" class="author-link link medium-text">Dolor</a>
-                                    </span>
+                                    </div>
                                 </div>
                                 <div class="carousel-manga-status">
-                                    <span>
+                                    <div>
                                         <h4>Status:</h4>
                                         <p class="medium-text">Ongoing</p>
-                                    </span>
-                                    <span>
+                                    </div>
+                                    <div>
                                         <h4>Released:</h4>
                                         <p class="medium-text">2020</p>
-                                    </span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="carousel-manga-image">
@@ -244,7 +243,7 @@
                 </ul>
 
                 <div class="carousel-dot">
-                    <span class="dot"></span>
+                    <span class="dot active"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
@@ -254,18 +253,18 @@
 
         <section class="content-container container section no-padding-top">
             <div class="content">
-                <span class="content-title">
+                <div class="content-title">
                     <h2 class="content-header">Popular Today
                     </h2>
                     <svg class="content-icon icon">
                         <use href="images/icon.svg#book-2"></use>
                     </svg>
-                </span>
+                </div>
                 <ul class="content-list list">
                     <li class="content-item">
                         <div class="content-wrapper">
                             <a href="manga.html" class="content-link link">
-                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Content Image" class="content-image image">
                                 <div class="content-details">
                                     <h5 class="medium-text manga-title">Sumimachine: If I don't collect 7 magical balls the world is going to end???</h5>
                                     <p class="small-text content-manga-chapter">Chapter 201</p>
@@ -294,7 +293,7 @@
                     <li class="content-item">
                         <div class="content-wrapper">
                             <a href="manga.html" class="content-link link">
-                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Content Image" class="content-image image">
                                 <div class="content-details">
                                     <h5 class="medium-text manga-title">I stubbed my toe on a holy sword, now I'm supposed to save the world!?</h5>
                                     <p class="small-text content-manga-chapter">Chapter 201</p>
@@ -323,7 +322,7 @@
                     <li class="content-item">
                         <div class="content-wrapper">
                             <a href="manga.html" class="content-link link">
-                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Content Image" class="content-image image">
                                 <div class="content-details">
                                     <h5 class="medium-text manga-title">Reincarnated as the MC's friend's distant cousin's cousin</h5>
                                     <p class="small-text content-manga-chapter">Chapter 201</p>
@@ -352,7 +351,7 @@
                     <li class="content-item">
                         <div class="content-wrapper">
                             <a href="manga.html" class="content-link link">
-                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Content Image" class="content-image image">
                                 <div class="content-details">
                                     <h5 class="medium-text manga-title">Did you know that Joe almost died of ligma at Sugondese???</h5>
                                     <p class="small-text content-manga-chapter">Chapter 201</p>
@@ -381,7 +380,7 @@
                     <li class="content-item">
                         <div class="content-wrapper">
                             <a href="manga.html" class="content-link link">
-                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Content Image" class="content-image image">
                                 <div class="content-details">
                                     <h5 class="medium-text manga-title">Something is rising and it's not the Shield Hero</h5>
                                     <p class="small-text content-manga-chapter">Chapter 201</p>
@@ -410,7 +409,7 @@
                     <li class="content-item">
                         <div class="content-wrapper">
                             <a href="manga.html" class="content-link link">
-                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Content Image" class="content-image image">
                                 <div class="content-details">
                                     <h5 class="medium-text manga-title">Screw being a demon lord, I'm gonna farm!</h5>
                                     <p class="small-text content-manga-chapter">Chapter 201</p>
@@ -439,7 +438,7 @@
                     <li class="content-item">
                         <div class="content-wrapper">
                             <a href="manga.html" class="content-link link">
-                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Content Image" class="content-image image">
                                 <div class="content-details">
                                     <h5 class="medium-text manga-title">Legend of Joe: The last warrior of Sugondese</h5>
                                     <p class="small-text content-manga-chapter">Chapter 201</p>
@@ -468,7 +467,7 @@
                     <li class="content-item">
                         <div class="content-wrapper">
                             <a href="manga.html" class="content-link link">
-                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Content Image" class="content-image image">
                                 <div class="content-details">
                                     <h5 class="medium-text manga-title">All according to keikaku(Tl's note: Keikaku means plan)</h5>
                                     <p class="small-text content-manga-chapter">Chapter 201</p>
@@ -497,7 +496,7 @@
                     <li class="content-item">
                         <div class="content-wrapper">
                             <a href="manga.html" class="content-link link">
-                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Content Image" class="content-image image">
                                 <div class="content-details">
                                     <h5 class="medium-text manga-title">That day I reincarnated as a martial artist's wooden staff</h5>
                                     <p class="small-text content-manga-chapter">Chapter 201</p>
@@ -526,7 +525,7 @@
                     <li class="content-item">
                         <div class="content-wrapper">
                             <a href="manga.html" class="content-link link">
-                                <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Content Image" class="content-image image">
+                                <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Content Image" class="content-image image">
                                 <div class="content-details">
                                     <h5 class="medium-text manga-title">Re:master</h5>
                                     <p class="small-text content-manga-chapter">Chapter 201</p>
@@ -567,23 +566,23 @@
 
         <section class="latest-update container section no-padding-top">
             <div class="latest-update-wrapper">
-                <span class="latest-update-title">
+                <div class="latest-update-title">
                     <h2 class="latest-updater-heading">Latest Update</h2>
                     <svg class="icon">
                         <use href="images/icon.svg#book"></use>
                     </svg>
-                </span>
+                </div>
                 <ul class="latest-update-list list">
                     <li class="latest-update-item">
                         <a href="manga-description.html" class="link">
-                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                            <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Latest Manga" class="latest-update-image image">
                         </a>
                         <div class="latest-manga-wrapper">
-                            <span class="latest-manga-title medium-text">
+                            <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <h5 class="latest-manga-heading">
+                                    <span class="latest-manga-heading">
                                         Screw being a demon lord, I'm gonna farm!
-                                    </h5>
+                                    </span>
                                 </a>
                             </span>
                             <ul class="latest-manga-list list small-text">
@@ -616,14 +615,14 @@
                     </li>
                     <li class="latest-update-item">
                         <a href="manga-description.html" class="link">
-                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                            <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Latest Manga" class="latest-update-image image">
                         </a>
                         <div class="latest-manga-wrapper">
-                            <span class="latest-manga-title medium-text">
+                            <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                 <h5 class="latest-manga-heading">
-                                        Sumimachine: If I don't collect 7 magical balls the world is going to end???
-                                    </h5>
+                                    <span class="latest-manga-heading">
+                                            Sumimachine: If I don't collect 7 magical balls the world is going to end???
+                                    </span>
                                 </a>
                             </span>
                             <ul class="latest-manga-list list small-text">
@@ -656,14 +655,14 @@
                     </li>
                     <li class="latest-update-item">
                         <a href="manga-description.html" class="link">
-                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                            <img src="https://fakeimg.pl/200x200?text=Manga%20Image" alt="Latest Manga" class="latest-update-image image">
                         </a>
                         <div class="latest-manga-wrapper">
-                            <span class="latest-manga-title medium-text">
+                            <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <h5 class="latest-manga-heading">
+                                    <span class="latest-manga-heading">
                                         I stubbed my toe on a holy sword, now I'm supposed to save the world!?
-                                    </h5>
+                                    </span>
                                 </a>
                             </span>
                             <ul class="latest-manga-list list small-text">
@@ -696,14 +695,14 @@
                     </li>
                     <li class="latest-update-item">
                         <a href="manga-description.html" class="link">
-                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                            <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Latest Manga" class="latest-update-image image">
                         </a>
                         <div class="latest-manga-wrapper">
-                            <span class="latest-manga-title medium-text">
+                            <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <h5 class="latest-manga-heading">
+                                    <span class="latest-manga-heading">
                                         That day I reincarnated as a martial artist's wooden staff
-                                    </h5>
+                                    </span>
                                 </a>
                             </span>
                             <ul class="latest-manga-list list small-text">
@@ -736,14 +735,14 @@
                     </li>
                     <li class="latest-update-item">
                         <a href="manga-description.html" class="link">
-                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                            <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Latest Manga" class="latest-update-image image">
                         </a>
                         <div class="latest-manga-wrapper">
-                            <span class="latest-manga-title medium-text">
+                            <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <h5 class="latest-manga-heading">
+                                    <span class="latest-manga-heading">
                                         Legend of Joe: The last warrior of Sugondese
-                                    </h5>
+                                    </span>
                                 </a>
                             </span>
                             <ul class="latest-manga-list list small-text">
@@ -776,14 +775,14 @@
                     </li>
                     <li class="latest-update-item">
                         <a href="manga-description.html" class="link">
-                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                            <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Latest Manga" class="latest-update-image image">
                         </a>
                         <div class="latest-manga-wrapper">
-                            <span class="latest-manga-title medium-text">
+                            <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <h5 class="latest-manga-heading">
+                                    <span class="latest-manga-heading">
                                         All according to keikaku(Tl's note: Keikaku means plan)
-                                    </h5>
+                                    </span>
                                 </a>
                             </span>
                             <ul class="latest-manga-list list small-text">
@@ -816,14 +815,14 @@
                     </li>
                     <li class="latest-update-item">
                         <a href="manga-description.html" class="link">
-                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                            <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Latest Manga" class="latest-update-image image">
                         </a>
                         <div class="latest-manga-wrapper">
-                            <span class="latest-manga-title medium-text">
+                            <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <h5 class="latest-manga-heading">
+                                    <span class="latest-manga-heading">
                                         Something is rising and it's not the Shield Hero
-                                    </h5>
+                                    </span>
                                 </a>
                             </span>
                             <ul class="latest-manga-list list small-text">
@@ -856,14 +855,14 @@
                     </li>
                     <li class="latest-update-item">
                         <a href="manga-description.html" class="link">
-                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                            <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Latest Manga" class="latest-update-image image">
                         </a>
                         <div class="latest-manga-wrapper">
-                            <span class="latest-manga-title medium-text">
+                            <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <h5 class="latest-manga-heading">
+                                    <span class="latest-manga-heading">
                                         Life is not daijoubu
-                                    </h5>
+                                    </span>
                                 </a>
                             </span>
                             <ul class="latest-manga-list list small-text">
@@ -896,14 +895,14 @@
                     </li>
                     <li class="latest-update-item">
                         <a href="manga-description.html" class="link">
-                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                            <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Latest Manga" class="latest-update-image image">
                         </a>
                         <div class="latest-manga-wrapper">
-                            <span class="latest-manga-title medium-text">
+                            <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <h5 class="latest-manga-heading">
+                                    <span class="latest-manga-heading">
                                         Did you know that Joe almost died of ligma at Sugondese???
-                                    </h5>
+                                    </span>
                                 </a>
                             </span>
                             <ul class="latest-manga-list list small-text">
@@ -936,14 +935,14 @@
                     </li>
                     <li class="latest-update-item">
                         <a href="manga-description.html" class="link">
-                            <img src="https://fakeimg.pl/200x200?text=Manga Image" alt="Latest Manga" class="latest-update-image image">
+                            <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Latest Manga" class="latest-update-image image">
                         </a>
                         <div class="latest-manga-wrapper">
-                            <span class="latest-manga-title medium-text">
+                            <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <h5 class="latest-manga-heading">
+                                    <span class="latest-manga-heading">
                                         AriGO: Arigathanks Gosaimuch
-                                    </h5>
+                                    </span>
                                 </a>
                             </span>
                             <ul class="latest-manga-list list small-text">
@@ -986,13 +985,7 @@
             </div>
         </section>
     </main>
-
-    <footer>
-        <section class="footer-container container">
-            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
-        </section>
-    </footer>
-
+    
     <div class="goto-top">
         <a href="#" class="goto-top-link link">
             <svg class="goto-top-icon">
@@ -1000,5 +993,14 @@
             </svg>
         </a>
     </div>
+
+    <footer>
+        <section class="footer-container container">
+            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
+        </section>
+    </footer>
+
+    <script src="js/hamburger.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>

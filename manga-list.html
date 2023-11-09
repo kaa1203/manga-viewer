@@ -19,7 +19,7 @@
     <header>
         <div class="nav-container">
             <nav class="navbar">
-                <button class="navbar-button">
+                <button class="navbar-button" id="navMenu">
                     <svg class="navbar-icon">
                         <use href="images/icon.svg#hamburger"></use>
                     </svg>
@@ -54,9 +54,9 @@
             </div>
         </div>
 
-        <div class="login-modal is-hidden">
+        <div class="login-modal is-hidden" id="loginModal">
             <div class="login-modal-container">
-                <svg class="login-modal-icon">
+                <svg class="login-modal-icon" id="closeIcon">
                     <use href="images/icon.svg#close"></use>
                 </svg>
                 <h2 class="form-heading">
@@ -65,17 +65,17 @@
                 <div class="form-wrapper">
                     <form action="javascript: void(0);" method="POST" class="form">
                         <div class="input-wrapper">
-                            <label for="user-name" class="form-label">
+                            <label for="userName" class="form-label">
                                 <span>Username</span>
                             </label>
-                            <input type="text" class="user-name form-input" id="user-name" required>
+                            <input type="text" class="user-name form-input" id="userName" required>
                             <svg class="form-icon">
                                 <use href="images/icon.svg#person"></use>
                             </svg>
                         </div>
                         <div class="input-wrapper">
-                            <svg class="form-icon visible">
-                                <use href="images/icon.svg#eye-open"></use>
+                            <svg class="form-icon visible" id="visible">
+                                <use href="images/icon.svg#eye-open" id="passwordIcon"></use>
                             </svg>
                             <label for="password" class="form-label">
                                 <span>Password</span>
@@ -88,11 +88,12 @@
                         <button class="form-button" type="submit">Submit</button>
                     </form>
                 </div>
-                <span class="register">Don't have an account yet? <a href="#" class="register-link">Register</a></span>
+                <span class="register">Don't have an account yet? <a href="#" class="register-link"
+                        id="register">Register</a></span>
             </div>
         </div>
 
-        <div class="side-nav">
+        <div class="side-nav" id="sideNav">
             <div class="side-nav-container">
                 <nav class="side-navbar">
                     <ul class="side-navbar-list list">
@@ -126,7 +127,7 @@
                 <div class="side-nav-body">
                     <ul class="side-navbar-list list">
                         <li class="side-navbar-item">
-                            <a href="#" class="side-navbar-link link">
+                            <a href="#" class="side-navbar-link link" id="openliModal">
                                 <svg class="side-navbar-icon">
                                     <use href="images/icon.svg#person"></use>
                                 </svg>
@@ -170,15 +171,171 @@
                         <svg class="search-icon">
                             <use href="images/icon.svg#search"></use>
                         </svg>
-                        <input type="text" class="table-searchbox">
+                        <input type="text" class="table-searchbox" id="tableSearch">
                     </form>
-                    <button class="advance-search">
+                    <button class="advance-search-button" id="searchButton">
                         <svg class="icon">
                             <use href="images/icon.svg#search"></use>
                         </svg>
                         Advance Search
                     </button>
-                    <button class="filter-button">
+                    <div class="advance-search" id="advSearch">
+                        <section class="section-one">
+                            <div class="section-heading">
+                                <h3> Advance Search</h3>
+                            </div>
+                            <div class="search-genre">
+                                <div class="search-genre-container">
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre1">
+                                        <label class="search-genre-label" for="searchGenre1">
+                                            Action
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre2">
+                                        <label class="search-genre-label" for="searchGenre2">
+                                            Adventure
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre3">
+                                        <label class="search-genre-label" for="searchGenre3">
+                                            Comedy
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre4">
+                                        <label class="search-genre-label" for="searchGenre4">
+                                            Drama
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre5">
+                                        <label class="search-genre-label" for="searchGenre5">
+                                            Ecchi
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre6">
+                                        <label class="search-genre-label" for="searchGenre6">
+                                            Fantasy
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre7">
+                                        <label class="search-genre-label" for="searchGenre7">
+                                            Isekai
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre8">
+                                        <label class="search-genre-label" for="searchGenre8">
+                                            Martial Arts
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre9">
+                                        <label class="search-genre-label" for="searchGenre9">
+                                            Mecha
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre10">
+                                        <label class="search-genre-label" for="searchGenre10">
+                                            Slice of Life
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre11">
+                                        <label class="search-genre-label" for="searchGenre11">
+                                            Shounen
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                    <div class="search-genre-wrapper medium-text">
+                                        <input type="checkbox" class="genre-checkbox" id="searchGenre12">
+                                        <label class="search-genre-label" for="searchGenre12">
+                                            Shoujo
+                                            <svg class="icon">
+                                                <use href="images/icon.svg#check"></use>
+                                            </svg>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="section-two">
+                            <div class="section-heading">
+                                <h3>Search Manga</h3>
+                            </div>
+                            <div class="search-manga">
+                                <div class="search-manga-wrapper medium-text">
+                                    <div class="search-box">
+                                        <svg class="icon">
+                                            <use href="images/icon.svg#search"></use>
+                                        </svg>
+                                        <input type="text" class="search-title text-box" id="searchTitle" placeholder="Search By Title">
+                                    </div>
+                                    <div class="search-box">
+                                        <svg class="icon">
+                                            <use href="images/icon.svg#search"></use>
+                                        </svg>
+                                        <input type="text" class="search-author text-box" id="searchAuthor" placeholder="Search By Author">
+                                    </div>
+                                    <div class="search-box">
+                                        <svg class="icon">
+                                            <use href="images/icon.svg#search"></use>
+                                        </svg>
+                                        <input type="text" class="search-release text-box" id="searchReleased" placeholder="Search By Released">
+                                    </div>
+                                    <div class="search-box">
+                                        <svg class="icon">
+                                            <use href="images/icon.svg#search"></use>
+                                        </svg>
+                                        <input type="text" class="search-status text-box" id="searchStatus" placeholder="Search By Status">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="section-three">
+                            <button class="adv-search-button" id="closeButton"> Close</button>
+                            <button class="adv-search-button" id="submitButton"> Apply</button>
+                        </section>
+                    </div>
+                    <button class="filter-button" id="filterButton">
                         <svg class="icon">
                             <use href="images/icon.svg#filter"></use>
                         </svg>
@@ -186,25 +343,289 @@
                     </button>
                 </div>
                 
-                <div class="table-filter-wrapper">
-                    <button class="table-filter">
+                <div class="table-filter-wrapper" id="filterWrapper" >
+                    <button class="table-filter-button">
                         Sort By
                         <svg class="icon">
                             <use href="images/icon.svg#down"></use>
                         </svg>
                     </button>
-                    <button class="table-filter">
+                    <div class="table-filter sort-filter">
+                        <ul class="table-filter-list list">
+                            <li class="table-filter-item">
+                                <label for="sortCB1">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#a-z"></use>
+                                    </svg>
+                                    Ascending
+                                </label>
+                                <input type="radio" name="alphabetical" class="filter-radio" id="sortCB1">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="sortCB2">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#z-a"></use>
+                                    </svg>
+                                    Descending
+                                </label>
+                                <input type="radio" name="alphabetical" class="filter-radio" id="sortCB2">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="sortCB3">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#star"></use>
+                                    </svg>
+                                    Popularity (All Time)
+                                </label>
+                                <input type="radio" name="popular" class="filter-radio" id="sortCB3">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="sortCB4">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#star"></use>
+                                    </svg>
+                                    Popularity (Monthly)
+                                </label>
+                                <input type="radio" name="popular" class="filter-radio" id="sortCB4">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="sortCB5">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#fire"></use>
+                                    </svg>
+                                    Recently Released Chapter
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="sortCB5">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="table-filter-button">
                         Genre
                         <svg class="icon">
                             <use href="images/icon.svg#down"></use>
                         </svg>
                     </button>
-                    <button class="table-filter">
+                    <div class="table-filter genre-filter">
+                        <ul class="table-filter-list list">
+                            <li class="table-filter-item">
+                                <label for="genCB1">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#tag"></use>
+                                    </svg>
+                                    Action
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="genCB1">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="genCB2">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#tag"></use>
+                                    </svg>
+                                    Adventure
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="genCB2">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="genCB3">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#tag"></use>
+                                    </svg>
+                                    Comedy
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="genCB3">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="genCB4">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#tag"></use>
+                                    </svg>
+                                    Drama
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="genCB4">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="genCB5">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#tag"></use>
+                                    </svg>
+                                    Ecchi
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="genCB5">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="genCB6">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#tag"></use>
+                                    </svg>
+                                    Fantasy
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="genCB6">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="genCB7">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#tag"></use>
+                                    </svg>
+                                    Isekai
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="genCB7">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="genCB8">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#tag"></use>
+                                    </svg>
+                                    Martial Arts
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="genCB8">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="genCB9">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#tag"></use>
+                                    </svg>
+                                    Slice of Life
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="genCB9">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="genCB10">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#tag"></use>
+                                    </svg>
+                                    Shounen
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="genCB10">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="genCB11">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#tag"></use>
+                                    </svg>
+                                    Supernatural
+                                </label>
+                                <input type="checkbox" class="filter-checkbox" id="genCB11">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="table-filter-button">
                         Status
                         <svg class="icon">
                             <use href="images/icon.svg#down"></use>
                         </svg>
                     </button>
+                    <div class="table-filter status-filter">
+                        <ul class="table-filter-list list">
+                            <li class="table-filter-item">
+                                <label for="statRAD1">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#play"></use>
+                                    </svg>
+                                    Any
+                                </label>
+                                <input type="radio" class="filter-radio" name="status" id="statRAD1">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="statRAD2">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#cancel"></use>
+                                    </svg>
+                                    Canceled
+                                </label>
+                                <input type="radio" class="filter-radio" name="status" id="statRAD2">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="statRAD3">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#check-2"></use>
+                                    </svg>
+                                    Completed
+                                </label>
+                                <input type="radio" class="filter-radio" name="status" id="statRAD3">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="statRAD4">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#pause"></use>
+                                    </svg>
+                                    Hiatus
+                                </label>
+                                <input type="radio" class="filter-radio" name="status" id="statRAD4">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                            <li class="table-filter-item">
+                                <label for="statRAD5">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#forward"></use>
+                                    </svg>
+                                    On-going
+                                </label>
+                                <input type="radio" class="filter-radio" name="status" id="statRAD5">
+                                <svg class="icon check">
+                                    <use href="images/icon.svg#check"></use>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="manga-table-wrapper">
@@ -221,7 +642,9 @@
                         <tbody class="small-text">
                             <tr>
                                 <td class="table-data">
-                                    Something is rising and it's not the Shield Hero
+                                    <a href="manga-description.html" class="table-link link">
+                                        Something is rising and it's not the Shield Hero
+                                    </a>
                                 </td>
                                 <td class="table-data">
                                     Action, Adventure, Comedy, Drama
@@ -232,7 +655,9 @@
                             </tr>
                             <tr>
                                 <td class="table-data">
-                                    Legend of Joe: The last warrior of Sugondese
+                                    <a href="manga-description.html" class="table-link link">
+                                        Legend of Joe: The last warrior of Sugondese
+                                    </a>
                                 </td>
                                 <td class="table-data">
                                     Action, Adventure, Comedy, Drama
@@ -243,7 +668,9 @@
                             </tr>
                             <tr>
                                 <td class="table-data">
-                                    I stubbed my toe on a holy sword, now I'm supposed to save the world!?
+                                    <a href="manga-description.html" class="table-link link">
+                                        I stubbed my toe on a holy sword, now I'm supposed to save the world!?
+                                    </a>
                                 </td>
                                 <td class="table-data">
                                     Action, Adventure, Comedy, Drama
@@ -254,7 +681,9 @@
                             </tr>
                             <tr>
                                 <td class="table-data">
-                                    Did you know that Joe almost died of ligma at Sugondese???
+                                    <a href="manga-description.html" class="table-link link">
+                                        Did you know that Joe almost died of ligma at Sugondese???
+                                    </a>
                                 </td>
                                 <td class="table-data">
                                     Action, Adventure, Comedy, Drama
@@ -265,7 +694,9 @@
                             </tr>   
                             <tr>
                                 <td class="table-data">
-                                    Life is not daijoubu
+                                    <a href="manga-description.html" class="table-link link">
+                                        Life is not daijoubu
+                                    </a>
                                 </td>
                                 <td class="table-data">
                                     Action, Adventure, Comedy, Drama
@@ -276,7 +707,9 @@
                             </tr>
                             <tr>
                                 <td class="table-data">
-                                    Reincarnated as the MC's friend's distant cousin's cousin
+                                    <a href="manga-description.html" class="table-link link">
+                                        Reincarnated as the MC's friend's distant cousin's cousin
+                                    </a>
                                 </td>
                                 <td class="table-data">
                                     Action, Adventure, Comedy, Drama
@@ -287,7 +720,9 @@
                             </tr>
                             <tr>
                                 <td class="table-data">
-                                    Sumimachine: If I don't collect 7 magical balls the world is going to end???
+                                    <a href="manga-description.html" class="table-link link">
+                                        Sumimachine: If I don't collect 7 magical balls the world is going to end???
+                                    </a>
                                 </td>
                                 <td class="table-data">
                                     Action, Adventure, Comedy, Drama
@@ -298,7 +733,9 @@
                             </tr>
                             <tr>
                                 <td class="table-data">
-                                    Re:master
+                                    <a href="manga-description.html" class="table-link link">
+                                        Re:master
+                                    </a>
                                 </td>
                                 <td class="table-data">
                                     Action, Adventure, Comedy, Drama
@@ -309,7 +746,9 @@
                             </tr>
                             <tr>
                                 <td class="table-data">
-                                    Legend of Joe: The last warrior of Sugondese
+                                    <a href="manga-description.html" class="table-link link">
+                                        Legend of Joe: The last warrior of Sugondese
+                                    </a>
                                 </td>
                                 <td class="table-data">
                                     Action, Adventure, Comedy, Drama
@@ -320,7 +759,9 @@
                             </tr>
                             <tr>
                                 <td class="table-data">
-                                    That day I reincarnated as a martial artist's wooden staff
+                                    <a href="manga-description.html" class="table-link link">
+                                        That day I reincarnated as a martial artist's wooden staff
+                                    </a>
                                 </td>
                                 <td class="table-data">
                                     Action, Adventure, Comedy, Drama
@@ -380,12 +821,6 @@
         </section>
     </main>
     
-    <footer>
-        <section class="footer-container container">
-            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
-        </section>
-    </footer>
-    
     <div class="goto-top">
         <a href="#" class="goto-top-link link">
             <svg class="goto-top-icon">
@@ -393,6 +828,15 @@
             </svg>
         </a>
     </div>
-</body>
 
+    <footer>
+        <section class="footer-container container">
+            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
+        </section>
+    </footer>
+
+    <script src="js/hamburger.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/login.js"></script>
+</body>
 </html>

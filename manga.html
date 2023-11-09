@@ -19,7 +19,7 @@
     <header>
         <div class="nav-container">
             <nav class="navbar">
-                <button class="navbar-button">
+                <button class="navbar-button" id="navMenu">
                     <svg class="navbar-icon">
                         <use href="images/icon.svg#hamburger"></use>
                     </svg>
@@ -54,9 +54,9 @@
             </div>
         </div>
 
-        <div class="login-modal is-hidden">
+        <div class="login-modal is-hidden" id="loginModal">
             <div class="login-modal-container">
-                <svg class="login-modal-icon">
+                <svg class="login-modal-icon" id="closeIcon">
                     <use href="images/icon.svg#close"></use>
                 </svg>
                 <h2 class="form-heading">
@@ -65,17 +65,17 @@
                 <div class="form-wrapper">
                     <form action="javascript: void(0);" method="POST" class="form">
                         <div class="input-wrapper">
-                            <label for="user-name" class="form-label">
+                            <label for="userName" class="form-label">
                                 <span>Username</span>
                             </label>
-                            <input type="text" class="user-name form-input" id="user-name" required>
+                            <input type="text" class="user-name form-input" id="userName" required>
                             <svg class="form-icon">
                                 <use href="images/icon.svg#person"></use>
                             </svg>
                         </div>
                         <div class="input-wrapper">
-                            <svg class="form-icon visible">
-                                <use href="images/icon.svg#eye-open"></use>
+                            <svg class="form-icon visible" id="visible">
+                                <use href="images/icon.svg#eye-open" id="passwordIcon"></use>
                             </svg>
                             <label for="password" class="form-label">
                                 <span>Password</span>
@@ -88,11 +88,12 @@
                         <button class="form-button" type="submit">Submit</button>
                     </form>
                 </div>
-                <span class="register">Don't have an account yet? <a href="#" class="register-link">Register</a></span>
+                <span class="register">Don't have an account yet? <a href="#" class="register-link"
+                        id="register">Register</a></span>
             </div>
         </div>
 
-        <div class="side-nav">
+        <div class="side-nav" id="sideNav">
             <div class="side-nav-container">
                 <nav class="side-navbar">
                     <ul class="side-navbar-list list">
@@ -126,7 +127,7 @@
                 <div class="side-nav-body">
                     <ul class="side-navbar-list list">
                         <li class="side-navbar-item">
-                            <a href="#" class="side-navbar-link link">
+                            <a href="javascript: void(0);" class="side-navbar-link link" id="openliModal">
                                 <svg class="side-navbar-icon">
                                     <use href="images/icon.svg#person"></use>
                                 </svg>
@@ -196,22 +197,22 @@
 
             <div class="manga-page-wrapper">
                 <div class="manga-page">
-                    <img src="https://fakeimg.pl/200x200?text=Page One" alt="Page One" class="manga-page-image">
+                    <img src="https://fakeimg.pl/200x200?text=Page-One" alt="Page One" class="manga-page-image">
                 </div>
                 <div class="manga-page">
-                    <img src="https://fakeimg.pl/200x200?text=Page Two" alt="Page One" class="manga-page-image">
+                    <img src="https://fakeimg.pl/200x200?text=Page-Two" alt="Page One" class="manga-page-image">
                 </div>
                 <div class="manga-page">
-                    <img src="https://fakeimg.pl/200x200?text=Page Three" alt="Page One" class="manga-page-image">
+                    <img src="https://fakeimg.pl/200x200?text=Page-Three" alt="Page One" class="manga-page-image">
                 </div>
                 <div class="manga-page">
-                    <img src="https://fakeimg.pl/200x200?text=Page Four" alt="Page One" class="manga-page-image">
+                    <img src="https://fakeimg.pl/200x200?text=Page-Four" alt="Page One" class="manga-page-image">
                 </div>
                 <div class="manga-page">
-                    <img src="https://fakeimg.pl/200x200?text=Page Five" alt="Page One" class="manga-page-image">
+                    <img src="https://fakeimg.pl/200x200?text=Page-Five" alt="Page One" class="manga-page-image">
                 </div>
                 <div class="manga-page">
-                    <img src="https://fakeimg.pl/200x200?text=Page Six" alt="Page One" class="manga-page-image">
+                    <img src="https://fakeimg.pl/200x200?text=Page-Six" alt="Page One" class="manga-page-image">
                 </div>
             </div>
         </section>
@@ -223,7 +224,7 @@
             <div class="rec-wrapper">
                 <div class="image-wrapper">
                     <a href="#" class="rec-link link">
-                        <img src="https://fakeimg.pl/100x100?text=Manga Image" alt="Recommended Series" class="image">
+                        <img src="https://fakeimg.pl/100x100?text=Manga-Image" alt="Recommended Series" class="image">
                         <div class="rec-details-wrapper">
                             <h3 class="rec-title medium-text">All according to keikaku(Tl's note: Keikaku means plan)</h3>
                             <span class="rec-rating small-text">
@@ -249,7 +250,7 @@
                 </div>
                 <div class="image-wrapper">
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="rec-link link" target="_blank">
-                        <img src="https://fakeimg.pl/100x100?text=Manga Image" alt="Recommended Series" class="image">
+                        <img src="https://fakeimg.pl/100x100?text=Manga-Image" alt="Recommended Series" class="image">
                         <div class="rec-details-wrapper">
                             <h3 class="rec-title medium-text">DO NOT CLICK THIS!!!!</h3>
                             <span class="rec-rating small-text">
@@ -275,7 +276,7 @@
                 </div>
                 <div class="image-wrapper">
                     <a href="#" class="rec-link link">
-                        <img src="https://fakeimg.pl/100x100?text=Manga Image" alt="Recommended Series" class="image">
+                        <img src="https://fakeimg.pl/100x100?text=Manga-Image" alt="Recommended Series" class="image">
                         <div class="rec-details-wrapper">
                             <h3 class="rec-title medium-text">All according to keikaku(Tl's note: Keikaku means plan)</h3>
                             <span class="rec-rating small-text">
@@ -301,7 +302,7 @@
                 </div>
                 <div class="image-wrapper">
                     <a href="#" class="rec-link link">
-                        <img src="https://fakeimg.pl/100x100?text=Manga Image" alt="Recommended Series" class="image">
+                        <img src="https://fakeimg.pl/100x100?text=Manga-Image" alt="Recommended Series" class="image">
                         <div class="rec-details-wrapper">
                             <h3 class="rec-title medium-text">Did you know that Joe almost died of ligma at Sugondese???</h3>
                             <span class="rec-rating small-text">
@@ -389,13 +390,7 @@
             </div>
         </section>
     </main>
-
-    <footer>
-        <section class="footer-container container">
-            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
-        </section>
-    </footer>
-
+    
     <div class="goto-top">
         <a href="#" class="goto-top-link link">
             <svg class="goto-top-icon">
@@ -403,6 +398,14 @@
             </svg>
         </a>
     </div>
-</body>
 
+    <footer>
+        <section class="footer-container container">
+            <p>Copyright &copy; LOGO 2023. All rights reserve.</p>
+        </section>
+    </footer>
+
+    <script src="js/login.js"></script>
+    <script src="js/hamburger.js"></script>
+</body>
 </html>
