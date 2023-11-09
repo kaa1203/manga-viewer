@@ -1024,9 +1024,9 @@ body::-webkit-scrollbar {
 
 .user-reply-wrapper {
     display: none;
-    align-items: stretch;
+    align-items: center;
     justify-content: start;
-    gap: 10px;
+    gap: 5px;
 }
 
 .user-reply {
@@ -1131,9 +1131,9 @@ body::-webkit-scrollbar {
 
 .post-reply-container {
     display: none;
-    align-items: stretch;
+    align-items: center;
     justify-content: start;
-    gap: 10px;
+    gap: 5px;
 }
 
 .post-reply-wrapper {

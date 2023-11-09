@@ -57,7 +57,6 @@ for (let i = 0; i < postRep.length; i++) {
         }
     }
 }
-
 // Radios
 for (let i = 0; i < upIcon.length; i++) {
     
