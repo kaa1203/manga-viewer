@@ -32,11 +32,32 @@ body {
     letter-spacing: 0.32px;
     color: var(--White);
     background-color: var(--Blue);
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    /* -ms-overflow-style: none;
+    scrollbar-width: none; */
 }
 
-body::-webkit-scrollbar {
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--Grey);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--White-transparent);
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--Dark-grey);
+}
+
+.no-scroll-bar::-webkit-scrollbar {
     display: none;
 }
 
@@ -61,10 +82,6 @@ body::-webkit-scrollbar {
     background-color: var(--Dark-grey);
 }
 
-.centered {
-    margin-left: auto;
-    margin-right: auto;
-}
 .list {
     list-style: none;
 }
@@ -119,7 +136,7 @@ body::-webkit-scrollbar {
     font-weight: 600;
     line-height: 1.7;
     color: var(--White);
-    margin: 25px;
+    margin: 20px;
 }
 
 .navbar-button {
@@ -182,57 +199,145 @@ body::-webkit-scrollbar {
     width: 450px;
 }
 
-.nav-button {
+.nav-button-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 20px;
+}
+
+.bell.icon {
     width: 40px;
     height: 40px;
-    color: var(--White);
-    border: 1px solid var(--Grey);
+    padding: 7px;
     border-radius: 50%;
+    background-color: var(--Dark-Grey);
+    border: 1px solid var(--Grey-transparent);
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.profile-picture:hover,
+.bell.icon:hover {
+    background-color: var(--Grey);
+    border-color: var(--White);
     cursor: pointer;
 }
 
-.dropdown:focus .dropdown-content {
-    display: block;
-}
-
-.dropdown:focus,
-.nav-button:hover {
-    background-color: var(--White);
-    color: var(--Grey);
-}
-
-.dropdown-content {
-    display: none;
-    width: 300px;
-    position: absolute;
-    top: 65px;
-    right: 55px;
-    z-index: 2;
-    border-radius: 4px;
-    color: var(--White);
-    box-shadow: 5px 5px 5px 2px var(--Dark-grey);
-    background-color: var(--Grey);
-}
-
-.dropdown-container {
-    padding: 8px;
-}
-
-.dropdown-link {
+.profile-list {
     display: flex;
-    justify-content: start;
-    align-items: center;
-    padding: 10px 25px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    row-gap: 10px;
 }
 
-.dropdown-link:hover {
+.profile-item {
+    padding: 8px;
+    width: 100%;
+}
+
+.profile-item:first-child {
+    background-color: var(--Grey-transparent);
+    border-radius: 10px;
+}
+
+.profile-item:not(:first-child):hover {
+    background-color: var(--Grey);
+    cursor: pointer;
+}
+
+.profile-container {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    position: fixed;
+    top: 8%;
+    right: 3.5%;
+    width: 20%;
+    z-index: 5;
+    padding: 20px;
+    border-radius: 10px;
     background-color: var(--Dark-grey);
-    color: var(--Light-red);
+    border: 1px solid var(--Grey-transparent);
 }
 
+.profile-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-settings {
+    display: flex;
+    margin-left: 16px;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-display-mode {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 15px;
+    width: 95%;
+}
+
+.profile-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-display .icon {
+    width: 22px;
+    height: 22px;
+}
+
+.profile-theme {
+    position: relative;
+    width: 60px;
+    height: 26px;
+    border-radius: 20px;
+    background-color: var(--White-transparent);
+    cursor: pointer;
+}
+
+.profile-theme::after {
+    content: "";
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    width: 30%;
+    height: 75%;
+    padding: 12px;
+    background-color: var(--Dark-grey);
+    transition: transform 250ms ease-in;
+}
+
+.profile-checkbox:checked ~ .profile-theme::after {
+    transform: translateX(100%);
+}
+
+.profile-checkbox {
+    display: none;
+}
+
+.profile-logout {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 20px;
+}
+/* End of Navbar */
 /* Side Nav */
 .side-nav {
     padding-top: 90px;
@@ -287,10 +392,11 @@ body::-webkit-scrollbar {
 
 /* Login Modal */
 .is-hidden {
-    display: none;
+    visibility: hidden;
 }
 
-.login-modal {
+.login-modal,
+.register-modal {
     position: fixed;
     top: 0;
     background-color: var(--Dark-grey-transparent);
@@ -299,39 +405,56 @@ body::-webkit-scrollbar {
     z-index: 5;
 }
 
-.login-modal-container {
-    position: relative;
-    top: 15%;
-    left: 40%;
-    width: 500px;
+.login-modal-container,
+.register-modal-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    min-width: 550px;
     background: var(--Dark-grey); 
     border-radius: 15px; 
     border: 1px solid var(--White-transparent);
-    padding: 20px;
+    transform: translate(-50%, -50%) scale(1);
 }
 
-.login-modal-icon {
+.login-modal-icon, 
+.register-modal-icon {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
     width: 24px;
     height: 24px;
     fill: currentColor;
     border-radius: 50%;
-    border: 1px solid var(--White);
+    border: 1px solid var(--White-transparent);
     cursor: pointer;
 }
 
-.login-modal-icon:hover {
+.login-modal-icon:hover,
+.register-modal-icon:hover,
+.accordion.icon:hover {
     background-color: var(--Grey);
+    border: 1px solid var(--White);
 }
 
 .form-heading {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: var(--Grey-transparent);
+    padding: 15px 0 5px 0;
+}
+
+.form-heading .icon {
+    width: 25px;
+    height: 25px;
 }
 
 .form-wrapper {
-  margin-top: 30px;
+  padding: 20px 20px 15px 20px;
 }
 
 .input-wrapper {
@@ -343,8 +466,7 @@ body::-webkit-scrollbar {
     top: 37px;
     left: 15px;
     width: 20px;
-    height: 20px;
-    fill: var(--Dark-grey-transparent);
+    height: 20px;    
 }
 
 .form-icon.visible {
@@ -359,15 +481,18 @@ body::-webkit-scrollbar {
     width: 100%;
     padding: 9px 45px;
     margin: 5px 0;
-    border: 1px solid var(--Dark-grey-transparent);
+    color: var(--White);
+    background-color: var(--Dark-Grey);
+    border: 1px solid var(--White-transparent);
     border-radius: 4px;
 }
 
-.form-input:focus + .form-icon,
+.reg-visible:hover,
 .form-input:focus,
+.form-input:focus ~ .form-icon,
 .form-icon.visible:hover {
-    fill: var(--Light-red);
-    border-color: var(--Light-red);
+    color: var(--White-transparent);
+    border-color: var(--White);
 }
 
 .form-button {
@@ -376,21 +501,187 @@ body::-webkit-scrollbar {
 }
 
 .form-button:hover {
-    background-color: var(--Light-red);
-    color: var(--White);
+    background-color: var(--Grey);
+    color: var(--White-transparent);
+}
+
+.register-modal {
+    visibility: hidden;
 }
 
 .register {
     display: flex;
     justify-content: center;
     column-gap: 8px;
-    margin: 5px 0 8px 2px;
+    margin: 5px 0 10px 2px;
+}
+
+.register-link {
+    color: var(--White-transparent);
 }
 
 .register-link:hover {
-    color: var(--Light-red);
+    color: var(--Dark-Grey);
 }
 
+.reg-visible {
+    position: absolute;
+    left: 90%;
+    cursor: pointer;
+}
+
+.password-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 3px;
+}
+
+.password-wrapper .input-wrapper {
+    width: calc(100% / 2 - 3px);
+}
+
+/* Accordion Modal */
+.accordion-modal {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Dark-grey-transparent);
+    z-index: 5;
+}
+
+.accordion-modal-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 70%;
+    background: var(--Dark-grey);
+    border-radius: 15px;
+    border: 1px solid var(--White-transparent);
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.accordion-modal-container::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: var(--Grey-transparent);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.accordion-modal-header {
+    width: 100%;
+    height: 45px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    padding: 10px;
+    background-color: var(--Grey-transparent);
+}
+
+.accordion.icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--White-transparent);
+    cursor: pointer;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 10px 1px 10px;
+    background-color: var(--Grey);
+    border: 1px solid var(--White-transparent);
+    cursor: pointer;
+}
+
+.accordion-header.his{
+    margin-top: 0;
+}
+
+.accordion-content {
+    border: 1px solid var(--Grey);
+    border-top: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin: 0 10px 10px 10px;
+    height: 100px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.accordion-content::-webkit-scrollbar {
+    display: none;
+}
+
+.accordion-content.fav {
+    border-radius: 0;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.accordion-content.his {
+    height: 0;
+    visibility: hidden;
+}
+
+.accordion-content-item {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    margin: 5px 0;
+    gap: 10px;
+}
+
+.fav-manga-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fav-manga-chapter,
+.fav-manga-status {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fav-manga-buttons {
+    align-self: center;
+    padding: 5px;
+}
+
+.fav-manga-button {
+    background-color: var(--Grey);
+    color: var(--White);
+    cursor: pointer;
+    border: 1px solid var(--White-transparent);
+    padding: 4px;
+    margin: 0 20px 0 20px;
+}
+
+.accordion-content-item:nth-child(odd) {
+    background-color: var(--Grey-transparent);
+}
+
+.plus.icon {
+    position: absolute;
+    /* top: 0; */
+    right: 20px;
+}
+
+.his.icon {
+    width: 25px;
+    height: 25px;
+}
 /* Showcase section */
 .carousel-container {
     margin-top: 8%;
@@ -411,7 +702,6 @@ body::-webkit-scrollbar {
     align-items: center;
     column-gap: 8px;
 }
-
 
 .carousel-list {
     padding: 20px;
@@ -468,7 +758,7 @@ body::-webkit-scrollbar {
 .carousel-manga-status {
     display: flex;
     justify-content: space-between;
-    width: 54%;
+    width: 50%;
 }
 
 .carousel-manga-image {
@@ -596,27 +886,24 @@ body::-webkit-scrollbar {
     color: var(--Light-red);
 }
 
-.more-button-wrapper {
-    align-self: end;
-    margin-right: 10px;
-}
-
 .more-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: 5px;
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 4px;
     color: var(--White);
     border: 1px solid var(--Grey);
     background-color: var(--Dark-grey);
+    width: 100%;
 }
 
 .more-button:hover {
     border: 1px solid var(--White);
     background-color: var(--Grey);
+}
+
+.more-content,
+.more-latest {
+    display: none;
 }
 
 /* Latest Update Section */
@@ -1020,6 +1307,7 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
 }
 
 .user-reply-wrapper {
@@ -1041,7 +1329,7 @@ body::-webkit-scrollbar {
     padding: 8px 0 4px 0;
     color: var(--White);
     background-color: var(--Dark-grey);
-    border-bottom: 1px solid var(--White);
+    border-bottom: 1px solid var(--White-transparent);
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
@@ -1055,11 +1343,11 @@ body::-webkit-scrollbar {
     background-color: var(--Dark-grey);
     border: 1px solid var(--Grey);
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .user-reply-button:hover,
 .post-reply-button:hover {
-    cursor: pointer;
     background-color: var(--Grey);
     border: 1px solid var(--White);
 }
@@ -1073,7 +1361,7 @@ body::-webkit-scrollbar {
 .upvote:hover,
 .downvote:hover {
     cursor: pointer;
-    color: var(--Light-red);
+    color: var(--Light-red-transparent);
 }
 
 .upvote-radio,
@@ -1139,7 +1427,7 @@ body::-webkit-scrollbar {
 .post-reply-wrapper {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 95%;
     justify-content: end;
     gap: 10px;
 }
@@ -1148,11 +1436,19 @@ body::-webkit-scrollbar {
     padding: 8px 0 4px 0;
     color: var(--White);
     background-color: var(--Dark-grey);
-    border-bottom: 1px solid var(--White);
+    border-bottom: 1px solid var(--White-transparent);
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
     width: 100%;
+}
+
+.post-reply-textbox:focus,
+.user-reply-textbox:focus {
+    border: 1px solid var(--White);
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
 }
 
 /* End of Manga Description */
@@ -1709,7 +2005,7 @@ tr td:first-child {
 
 .goto-top {
     position: fixed;
-    bottom: 10%;
+    bottom: 2%;
     right: 2%;
     display: flex;
     align-items: center;
@@ -1729,6 +2025,27 @@ tr td:first-child {
     height: 32px;
 }
 
-@media (min-width: 768px) and (max-width: 1157px) {
+@media (min-width: 480px){
+    /* body {
+        background-color: yellow;
+    } */
+}
 
+@media (min-width: 768px) {
+   /* body {
+       background-color: red;
+
+   }
+
+   .side-nav {
+
+   } */
+}
+
+@media (min-width: 1024px) {
+    /* body {
+        background-color: green;
+     
+    }  */
+    
 }
