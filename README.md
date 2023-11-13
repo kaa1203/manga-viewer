@@ -6,3 +6,5 @@ Some basic js
 converted .onclick to addevenlister('click', function(){});
 12/10/2023
 finished the themes function
+13/10/2023
+finished tablet size

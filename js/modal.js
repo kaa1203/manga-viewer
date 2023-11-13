@@ -154,6 +154,12 @@ window.addEventListener('click', function (event) {
         loginModal.classList.toggle('is-hidden');
         pWord.value = ('');
         uName.value = ('');
+    } else if (event.target == regModal) {
+        regModal.style.visibility = "hidden";
+        loginModal.classList.add('is-hidden');
+        if (input.value != null) {
+            input.value = ('');
+        }
     } 
 });
 

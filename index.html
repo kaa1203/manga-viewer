@@ -37,7 +37,7 @@
             </form>
 
             <div class="nav-button-wrapper">
-                <div class="notification-wrapper">
+                <div class="notification-wrapper" id="notificationBell">
                     <svg class="icon bell">
                         <use href="images/icon.svg#notif"></use>
                     </svg>
@@ -73,7 +73,7 @@
                             <svg class="icon">
                                 <use href="images/icon.svg#dark"></use>
                             </svg>
-                            Dark Mode
+                           <p>Dark Mode</p> 
                         </div>
                         <label class="profile-theme" for="profileCB">
                         </label>
@@ -92,6 +92,165 @@
             </ul>
         </div>
         
+        <div class="notif-container" id="notifContainer">
+            <div class="notif-header">
+                <h3>Notification</h3>
+                <svg class="icon more" id="moreIcon">
+                    <use href="images/icon.svg#more"></use>
+                </svg>
+            </div>
+            <div class="notif-more-wrapper" id="moreWrapper">
+                <div class="notif-more">
+                    <svg class="icon">
+                        <use href="images/icon.svg#check"></use>
+                    </svg>
+                    Mark all as read
+                </div>
+                <div class="notif-more">
+                    <svg class="icon">
+                        <use href="images/icon.svg#settings"></use>
+                    </svg>
+                    Notification Settings
+                </div>
+            </div>
+            <div class="notif-filter">
+                <button class="notif-button all">All</button>
+                <button class="notif-button unread">Unread</button>
+            </div>
+            <ul class="notif-list list">
+                <li class="notif-item">
+                    <a href="javascript:void(0);" class="notif-link link">
+                        <span class="notif-image-wrapper">
+                            <img src="https://fakeimg.pl/200x200?text=Notif-Image" alt="Notification Image" class="image notif-image">
+                        </span>
+                        <span class="notif-details medium-text">
+                            Dolor mentioned you in a comment.
+                            <span class="small-text notif-posted">
+                                4 hours ago
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="notif-item">
+                    <a href="javascript:void(0);" class="notif-link link">
+                        <span class="notif-image-wrapper">
+                            <img src="https://fakeimg.pl/200x200?text=Notif-Image" alt="Notification Image" class="image notif-image">
+                        </span>
+                        <span class="notif-details medium-text">
+                            Dolor upvoted your comment.
+                            <span class="small-text notif-posted">
+                                4 hours ago
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="notif-item">
+                    <a href="javascript:void(0);" class="notif-link link">
+                        <span class="notif-image-wrapper">
+                            <img src="https://fakeimg.pl/200x200?text=Notif-Image" alt="Notification Image" class="image notif-image">
+                        </span>
+                        <span class="notif-details medium-text">
+                            Something is rising and it's not the Shield Hero. Chapter 69 is up now!
+                            <span class="small-text notif-posted">
+                                4 hours ago
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="notif-item">
+                    <a href="javascript:void(0);" class="notif-link link">
+                        <span class="notif-image-wrapper">
+                            <img src="https://fakeimg.pl/200x200?text=Notif-Image" alt="Notification Image" class="image notif-image">
+                        </span>
+                        <span class="notif-details medium-text">
+                            Legend of Joe: The last warrior of Sugondese. Chapter 60 is up now!
+                            <span class="small-text notif-posted">
+                                4 hours ago
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="notif-item">
+                    <a href="javascript:void(0);" class="notif-link link">
+                        <span class="notif-image-wrapper">
+                            <img src="https://fakeimg.pl/200x200?text=Notif-Image" alt="Notification Image" class="image notif-image">
+                        </span>
+                        <span class="notif-details medium-text">
+                            I stubbed my toe on a holy sword, now I'm supposed to save the world!? Chapter 36 is up now!
+                            <span class="small-text notif-posted">
+                                4 hours ago
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="notif-item">
+                    <a href="javascript:void(0);" class="notif-link link">
+                        <span class="notif-image-wrapper">
+                            <img src="https://fakeimg.pl/200x200?text=Notif-Image" alt="Notification Image" class="image notif-image">
+                        </span>
+                        <span class="notif-details medium-text">
+                            Lorem mentioned you in a comment.
+                            <span class="small-text notif-posted">
+                                4 hours ago
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="notif-item">
+                    <a href="javascript:void(0);" class="notif-link link">
+                        <span class="notif-image-wrapper">
+                            <img src="https://fakeimg.pl/200x200?text=Notif-Image" alt="Notification Image" class="image notif-image">
+                        </span>
+                        <span class="notif-details medium-text">
+                            Dolor mentioned you in a comment.
+                            <span class="small-text notif-posted">
+                                4 hours ago
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="notif-item">
+                    <a href="javascript:void(0);" class="notif-link link">
+                        <span class="notif-image-wrapper">
+                            <img src="https://fakeimg.pl/200x200?text=Notif-Image" alt="Notification Image" class="image notif-image">
+                        </span>
+                        <span class="notif-details medium-text">
+                            That day I reincarnated as a martial artist's wooden staff. Chapter 102 is up now!
+                            <span class="small-text notif-posted">
+                                4 hours ago
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="notif-item">
+                    <a href="javascript:void(0);" class="notif-link link">
+                        <span class="notif-image-wrapper">
+                            <img src="https://fakeimg.pl/200x200?text=Notif-Image" alt="Notification Image" class="image notif-image">
+                        </span>
+                        <span class="notif-details medium-text">
+                            Wilbert mentioned you in a comment.
+                            <span class="small-text notif-posted">
+                                4 hours ago
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="notif-item">
+                    <a href="javascript:void(0);" class="notif-link link">
+                        <span class="notif-image-wrapper">
+                            <img src="https://fakeimg.pl/200x200?text=Notif-Image" alt="Notification Image" class="image notif-image">
+                        </span>
+                        <span class="notif-details medium-text">
+                            Joe upvoted your comment.
+                            <span class="small-text notif-posted">
+                                4 hours ago
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
         <div class="login-modal is-hidden" id="loginModal">
             <div class="login-modal-container">
                 <svg class="login-modal-icon icon" id="closeIcon">
@@ -129,7 +288,7 @@
                         <button class="form-button" type="submit">Login</button>
                     </form>
                 </div>
-                <span class="register">Don't have an account yet? <a href="#" class="register-link" id="register">Register</a></span>
+                <span class="register">Don't have an account yet? <a href="javascript: void(0);" class="register-link" id="register">Register</a></span>
             </div>
         </div>
         
@@ -221,332 +380,6 @@
                             <button class="accordion-filter-two">Status</button>
                         </div>
                         <ul class="accordion-content-list list">
-                            <li class="accordion-content-item">
-                                <div class="fav-manga-image">
-                                    <a href="manga.html" class="accordion-content-link link">
-                                        <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Manga Image" class="image">
-                                    </a>
-                                </div>
-                                <div class="fav-manga-details">
-                                    <div class="fav-manga-title">
-                                        <h4>
-                                            Manga Title
-                                        </h4>
-                                        <p class="medium-text">
-                                            Somethings is rising and it's not the Shield Hero!!!
-                                        </p>
-                                    </div>
-                                    <div class="fav-manga-chapter">
-                                        <div>
-                                            <h4>Last Read</h4>
-                                            <p class="medium-text">Chapter 32</p>
-                                        </div>
-                                        <div>
-                                            <h4>Latest Chapter</h4>
-                                            <p class="medium-text">Chapter 33</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-status">
-                                        <div>
-                                            <h4>Status</h4>
-                                            <p class="medium-text">Currently Reading</p>
-                                        </div>
-                                        <div>
-                                            <h4>Time Posted</h4>
-                                            <p class="medium-text">Just Now</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-buttons">
-                                        <button class="fav-manga-button">Unfavorite</button><button class="fav-manga-button">Reading</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="accordion-content-item">
-                                <div class="fav-manga-image">
-                                    <a href="manga.html" class="accordion-content-link link">
-                                        <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Manga Image" class="image">
-                                    </a>
-                                </div>
-                                <div class="fav-manga-details">
-                                    <div class="fav-manga-title">
-                                        <h4>
-                                            Manga Title
-                                        </h4>
-                                        <p class="medium-text">
-                                            Somethings is rising and it's not the Shield Hero!!!
-                                        </p>
-                                    </div>
-                                    <div class="fav-manga-chapter">
-                                        <div>
-                                            <h4>Last Read</h4>
-                                            <p class="medium-text">Chapter 32</p>
-                                        </div>
-                                        <div>
-                                            <h4>Latest Chapter</h4>
-                                            <p class="medium-text">Chapter 33</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-status">
-                                        <div>
-                                            <h4>Status</h4>
-                                            <p class="medium-text">Currently Reading</p>
-                                        </div>
-                                        <div>
-                                            <h4>Time Posted</h4>
-                                            <p class="medium-text">Just Now</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-buttons">
-                                        <button class="fav-manga-button">Unfavorite</button><button class="fav-manga-button">Reading</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="accordion-content-item">
-                                <a href="manga.html" class="accordion-content-link link">
-                                    Something is rising and it's not the Shield Hero!!!
-                                </a>
-                                <p>Chapter 69</p>
-                            </li>
-                            <li class="accordion-content-item">
-                                <div class="fav-manga-image">
-                                    <a href="manga.html" class="accordion-content-link link">
-                                        <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Manga Image" class="image">
-                                    </a>
-                                </div>
-                                <div class="fav-manga-details">
-                                    <div class="fav-manga-title">
-                                        <h4>
-                                            Manga Title
-                                        </h4>
-                                        <p class="medium-text">
-                                            Somethings is rising and it's not the Shield Hero!!!
-                                        </p>
-                                    </div>
-                                    <div class="fav-manga-chapter">
-                                        <div>
-                                            <h4>Last Read</h4>
-                                            <p class="medium-text">Chapter 32</p>
-                                        </div>
-                                        <div>
-                                            <h4>Latest Chapter</h4>
-                                            <p class="medium-text">Chapter 33</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-status">
-                                        <div>
-                                            <h4>Status</h4>
-                                            <p class="medium-text">Currently Reading</p>
-                                        </div>
-                                        <div>
-                                            <h4>Time Posted</h4>
-                                            <p class="medium-text">Just Now</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-buttons">
-                                        <button class="fav-manga-button">Unfavorite</button><button class="fav-manga-button">Reading</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="accordion-content-item">
-                                <div class="fav-manga-image">
-                                    <a href="manga.html" class="accordion-content-link link">
-                                        <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Manga Image" class="image">
-                                    </a>
-                                </div>
-                                <div class="fav-manga-details">
-                                    <div class="fav-manga-title">
-                                        <h4>
-                                            Manga Title
-                                        </h4>
-                                        <p class="medium-text">
-                                            Somethings is rising and it's not the Shield Hero!!!
-                                        </p>
-                                    </div>
-                                    <div class="fav-manga-chapter">
-                                        <div>
-                                            <h4>Last Read</h4>
-                                            <p class="medium-text">Chapter 32</p>
-                                        </div>
-                                        <div>
-                                            <h4>Latest Chapter</h4>
-                                            <p class="medium-text">Chapter 33</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-status">
-                                        <div>
-                                            <h4>Status</h4>
-                                            <p class="medium-text">Currently Reading</p>
-                                        </div>
-                                        <div>
-                                            <h4>Time Posted</h4>
-                                            <p class="medium-text">Just Now</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-buttons">
-                                        <button class="fav-manga-button">Unfavorite</button><button class="fav-manga-button">Reading</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="accordion-content-item">
-                                <div class="fav-manga-image">
-                                    <a href="manga.html" class="accordion-content-link link">
-                                        <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Manga Image" class="image">
-                                    </a>
-                                </div>
-                                <div class="fav-manga-details">
-                                    <div class="fav-manga-title">
-                                        <h4>
-                                            Manga Title
-                                        </h4>
-                                        <p class="medium-text">
-                                            Somethings is rising and it's not the Shield Hero!!!
-                                        </p>
-                                    </div>
-                                    <div class="fav-manga-chapter">
-                                        <div>
-                                            <h4>Last Read</h4>
-                                            <p class="medium-text">Chapter 32</p>
-                                        </div>
-                                        <div>
-                                            <h4>Latest Chapter</h4>
-                                            <p class="medium-text">Chapter 33</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-status">
-                                        <div>
-                                            <h4>Status</h4>
-                                            <p class="medium-text">Currently Reading</p>
-                                        </div>
-                                        <div>
-                                            <h4>Time Posted</h4>
-                                            <p class="medium-text">Just Now</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-buttons">
-                                        <button class="fav-manga-button">Unfavorite</button><button class="fav-manga-button">Reading</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="accordion-content-item">
-                                <div class="fav-manga-image">
-                                    <a href="manga.html" class="accordion-content-link link">
-                                        <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Manga Image" class="image">
-                                    </a>
-                                </div>
-                                <div class="fav-manga-details">
-                                    <div class="fav-manga-title">
-                                        <h4>
-                                            Manga Title
-                                        </h4>
-                                        <p class="medium-text">
-                                            Somethings is rising and it's not the Shield Hero!!!
-                                        </p>
-                                    </div>
-                                    <div class="fav-manga-chapter">
-                                        <div>
-                                            <h4>Last Read</h4>
-                                            <p class="medium-text">Chapter 32</p>
-                                        </div>
-                                        <div>
-                                            <h4>Latest Chapter</h4>
-                                            <p class="medium-text">Chapter 33</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-status">
-                                        <div>
-                                            <h4>Status</h4>
-                                            <p class="medium-text">Currently Reading</p>
-                                        </div>
-                                        <div>
-                                            <h4>Time Posted</h4>
-                                            <p class="medium-text">Just Now</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-buttons">
-                                        <button class="fav-manga-button">Unfavorite</button><button class="fav-manga-button">Reading</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="accordion-content-item">
-                                <div class="fav-manga-image">
-                                    <a href="manga.html" class="accordion-content-link link">
-                                        <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Manga Image" class="image">
-                                    </a>
-                                </div>
-                                <div class="fav-manga-details">
-                                    <div class="fav-manga-title">
-                                        <h4>
-                                            Manga Title
-                                        </h4>
-                                        <p class="medium-text">
-                                            Somethings is rising and it's not the Shield Hero!!!
-                                        </p>
-                                    </div>
-                                    <div class="fav-manga-chapter">
-                                        <div>
-                                            <h4>Last Read</h4>
-                                            <p class="medium-text">Chapter 32</p>
-                                        </div>
-                                        <div>
-                                            <h4>Latest Chapter</h4>
-                                            <p class="medium-text">Chapter 33</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-status">
-                                        <div>
-                                            <h4>Status</h4>
-                                            <p class="medium-text">Currently Reading</p>
-                                        </div>
-                                        <div>
-                                            <h4>Time Posted</h4>
-                                            <p class="medium-text">Just Now</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-buttons">
-                                        <button class="fav-manga-button">Unfavorite</button><button class="fav-manga-button">Reading</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="accordion-content-item">
-                                <div class="fav-manga-image">
-                                    <a href="manga.html" class="accordion-content-link link">
-                                        <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Manga Image" class="image">
-                                    </a>
-                                </div>
-                                <div class="fav-manga-details">
-                                    <div class="fav-manga-title">
-                                        <h4>
-                                            Manga Title
-                                        </h4>
-                                        <p class="medium-text">
-                                            Somethings is rising and it's not the Shield Hero!!!
-                                        </p>
-                                    </div>
-                                    <div class="fav-manga-chapter">
-                                        <div>
-                                            <h4>Last Read</h4>
-                                            <p class="medium-text">Chapter 32</p>
-                                        </div>
-                                        <div>
-                                            <h4>Latest Chapter</h4>
-                                            <p class="medium-text">Chapter 33</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-status">
-                                        <div>
-                                            <h4>Status</h4>
-                                            <p class="medium-text">Currently Reading</p>
-                                        </div>
-                                        <div>
-                                            <h4>Time Posted</h4>
-                                            <p class="medium-text">Just Now</p>
-                                        </div>
-                                    </div>
-                                    <div class="fav-manga-buttons">
-                                        <button class="fav-manga-button">Unfavorite</button><button class="fav-manga-button">Reading</button>
-                                    </div>
-                                </div>
-                            </li>
                             <li class="accordion-content-item">
                                 <div class="fav-manga-image">
                                     <a href="manga.html" class="accordion-content-link link">
@@ -724,7 +557,7 @@
     <main>
         <section class="carousel-container container">
             <div class="carousel-wrapper">
-                <h1 class="carousel-heading">Top Rated 
+                <h1 class="text-center">Top Rated 
                     <svg class="icon">
                         <use href="images/icon.svg#fire"></use>
                     </svg>
@@ -811,10 +644,10 @@
                 </ul>
 
                 <div class="carousel-dot">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
                 </div>
             </div>
         </section>
@@ -1442,7 +1275,7 @@
                         <div class="latest-manga-wrapper">
                             <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <span class="latest-manga-heading">
+                                    <span class="latest-manga-heading medium-text">
                                         Screw being a demon lord, I'm gonna farm!
                                     </span>
                                 </a>
@@ -1482,7 +1315,7 @@
                         <div class="latest-manga-wrapper">
                             <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <span class="latest-manga-heading">
+                                    <span class="latest-manga-heading medium-text">
                                             Sumimachine: If I don't collect 7 magical balls the world is going to end???
                                     </span>
                                 </a>
@@ -1522,7 +1355,7 @@
                         <div class="latest-manga-wrapper">
                             <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <span class="latest-manga-heading">
+                                    <span class="latest-manga-heading medium-text">
                                         I stubbed my toe on a holy sword, now I'm supposed to save the world!?
                                     </span>
                                 </a>
@@ -1562,7 +1395,7 @@
                         <div class="latest-manga-wrapper">
                             <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <span class="latest-manga-heading">
+                                    <span class="latest-manga-heading medium-text">
                                         That day I reincarnated as a martial artist's wooden staff
                                     </span>
                                 </a>
@@ -1602,7 +1435,7 @@
                         <div class="latest-manga-wrapper">
                             <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <span class="latest-manga-heading">
+                                    <span class="latest-manga-heading medium-text">
                                         Legend of Joe: The last warrior of Sugondese
                                     </span>
                                 </a>
@@ -1642,7 +1475,7 @@
                         <div class="latest-manga-wrapper">
                             <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <span class="latest-manga-heading">
+                                    <span class="latest-manga-heading medium-text">
                                         All according to keikaku(Tl's note: Keikaku means plan)
                                     </span>
                                 </a>
@@ -1682,7 +1515,7 @@
                         <div class="latest-manga-wrapper">
                             <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <span class="latest-manga-heading">
+                                    <span class="latest-manga-heading medium-text">
                                         Something is rising and it's not the Shield Hero
                                     </span>
                                 </a>
@@ -1722,47 +1555,7 @@
                         <div class="latest-manga-wrapper">
                             <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <span class="latest-manga-heading">
-                                        Life is not daijoubu
-                                    </span>
-                                </a>
-                            </span>
-                            <ul class="latest-manga-list list small-text">
-                                <li class="latest-manga-item">
-                                    <a href="manga.html" class="latest-manga-link link">
-                                        <span>
-                                            Chapter 67
-                                        </span>
-                                        <span class="time-updated">8 hours ago</span>
-                                    </a> 
-                                </li>
-                                <li class="latest-manga-item">
-                                    <a href="manga.html" class="latest-manga-link link">
-                                        <span>
-                                            Chapter 68
-                                        </span>
-                                        <span class="time-updated">8 hours ago</span>
-                                    </a> 
-                                </li>
-                                <li class="latest-manga-item">
-                                    <a href="manga.html" class="latest-manga-link link">
-                                        <span>
-                                            Chapter 69
-                                        </span>
-                                        <span class="time-updated">8 hours ago</span>
-                                    </a> 
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="latest-update-item">
-                        <a href="manga-description.html" class="link">
-                            <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Latest Manga" class="latest-update-image image">
-                        </a>
-                        <div class="latest-manga-wrapper">
-                            <span class="latest-manga-title small-text">
-                                <a href="manga-description.html" class="link">
-                                    <span class="latest-manga-heading">
+                                    <span class="latest-manga-heading medium-text">
                                         Did you know that Joe almost died of ligma at Sugondese???
                                     </span>
                                 </a>
@@ -1802,7 +1595,7 @@
                         <div class="latest-manga-wrapper">
                             <span class="latest-manga-title small-text">
                                 <a href="manga-description.html" class="link">
-                                    <span class="latest-manga-heading">
+                                    <span class="latest-manga-heading medium-text">
                                         AriGO: Arigathanks Gosaimuch
                                     </span>
                                 </a>
@@ -1850,7 +1643,7 @@
                             <div class="latest-manga-wrapper">
                                 <span class="latest-manga-title small-text">
                                     <a href="manga-description.html" class="link">
-                                        <span class="latest-manga-heading">
+                                        <span class="latest-manga-heading medium-text">
                                             Screw being a demon lord, I'm gonna farm!
                                         </span>
                                     </a>
@@ -1890,7 +1683,7 @@
                             <div class="latest-manga-wrapper">
                                 <span class="latest-manga-title small-text">
                                     <a href="manga-description.html" class="link">
-                                        <span class="latest-manga-heading">
+                                        <span class="latest-manga-heading medium-text">
                                             Sumimachine: If I don't collect 7 magical balls the world is going to end???
                                         </span>
                                     </a>
@@ -1931,7 +1724,7 @@
                             <div class="latest-manga-wrapper">
                                 <span class="latest-manga-title small-text">
                                     <a href="manga-description.html" class="link">
-                                        <span class="latest-manga-heading">
+                                        <span class="latest-manga-heading medium-text">
                                             I stubbed my toe on a holy sword, now I'm supposed to save the world!?
                                         </span>
                                     </a>
@@ -1971,7 +1764,7 @@
                             <div class="latest-manga-wrapper">
                                 <span class="latest-manga-title small-text">
                                     <a href="manga-description.html" class="link">
-                                        <span class="latest-manga-heading">
+                                        <span class="latest-manga-heading medium-text">
                                             That day I reincarnated as a martial artist's wooden staff
                                         </span>
                                     </a>
@@ -2011,7 +1804,7 @@
                             <div class="latest-manga-wrapper">
                                 <span class="latest-manga-title small-text">
                                     <a href="manga-description.html" class="link">
-                                        <span class="latest-manga-heading">
+                                        <span class="latest-manga-heading medium-text">
                                             Legend of Joe: The last warrior of Sugondese
                                         </span>
                                     </a>
@@ -2051,7 +1844,7 @@
                             <div class="latest-manga-wrapper">
                                 <span class="latest-manga-title small-text">
                                     <a href="manga-description.html" class="link">
-                                        <span class="latest-manga-heading">
+                                        <span class="latest-manga-heading medium-text">
                                             All according to keikaku(Tl's note: Keikaku means plan)
                                         </span>
                                     </a>
@@ -2091,7 +1884,7 @@
                             <div class="latest-manga-wrapper">
                                 <span class="latest-manga-title small-text">
                                     <a href="manga-description.html" class="link">
-                                        <span class="latest-manga-heading">
+                                        <span class="latest-manga-heading medium-text">
                                             Something is rising and it's not the Shield Hero
                                         </span>
                                     </a>
@@ -2131,47 +1924,7 @@
                             <div class="latest-manga-wrapper">
                                 <span class="latest-manga-title small-text">
                                     <a href="manga-description.html" class="link">
-                                        <span class="latest-manga-heading">
-                                            Life is not daijoubu
-                                        </span>
-                                    </a>
-                                </span>
-                                <ul class="latest-manga-list list small-text">
-                                    <li class="latest-manga-item">
-                                        <a href="manga.html" class="latest-manga-link link">
-                                            <span>
-                                                Chapter 67
-                                            </span>
-                                            <span class="time-updated">8 hours ago</span>
-                                        </a>
-                                    </li>
-                                    <li class="latest-manga-item">
-                                        <a href="manga.html" class="latest-manga-link link">
-                                            <span>
-                                                Chapter 68
-                                            </span>
-                                            <span class="time-updated">8 hours ago</span>
-                                        </a>
-                                    </li>
-                                    <li class="latest-manga-item">
-                                        <a href="manga.html" class="latest-manga-link link">
-                                            <span>
-                                                Chapter 69
-                                            </span>
-                                            <span class="time-updated">8 hours ago</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="latest-update-item">
-                            <a href="manga-description.html" class="link">
-                                <img src="https://fakeimg.pl/200x200?text=Manga-Image" alt="Latest Manga" class="latest-update-image image">
-                            </a>
-                            <div class="latest-manga-wrapper">
-                                <span class="latest-manga-title small-text">
-                                    <a href="manga-description.html" class="link">
-                                        <span class="latest-manga-heading">
+                                        <span class="latest-manga-heading medium-text">
                                             Did you know that Joe almost died of ligma at Sugondese???
                                         </span>
                                     </a>
@@ -2211,7 +1964,7 @@
                             <div class="latest-manga-wrapper">
                                 <span class="latest-manga-title small-text">
                                     <a href="manga-description.html" class="link">
-                                        <span class="latest-manga-heading">
+                                        <span class="latest-manga-heading medium-text">
                                             AriGO: Arigathanks Gosaimuch
                                         </span>
                                     </a>

@@ -2,7 +2,7 @@ const popBttn = document.getElementsByClassName('pop-button');
 const moreCont = document.getElementsByClassName('more-content');
 const upBttn = document.getElementsByClassName('up-button');
 const moreUp = document.getElementsByClassName('more-latest');
-
+const manga = document.getElementsByClassName('content-item');
 
 for (let i = 0; i < popBttn.length; i++) {
     const pop = popBttn[i];
@@ -30,3 +30,8 @@ for (let i = 0; i < upBttn.length; i++) {
     });
 }
 
+// if (window.innerWidth >= 768) {
+//     console.log(true);
+// } else {
+//     console.log(false);
+// }
