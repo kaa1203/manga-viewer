@@ -1,3 +1,4 @@
+// Login
 const openModal = document.getElementById('openliModal');
 const loginModal = document.getElementById('loginModal');
 const closeBtn = document.getElementById('closeIcon');
@@ -80,31 +81,36 @@ his.addEventListener('click', function (){
     icon[0].setAttribute("href", "images/icon.svg#minus");
 }) ;
 
+let hisIcon = (hisHeader.children[2].children);
+let favIcon = (favHeader.children[2].children);
 
 favHeader.addEventListener('click', function (){
-    let icon = (favHeader.children[2].children);
     if (favCon.style.visibility == "visible") {
         favCon.style.visibility = "hidden";
         favCon.style.height = "0";
-        icon[0].setAttribute("href", "images/icon.svg#plus");
+        favIcon[0].setAttribute("href", "images/icon.svg#plus");
     } else {
         favCon.style.visibility = "visible";
         favCon.style.height = "310px";
-        icon[0].setAttribute("href", "images/icon.svg#minus");
+        hisCon.style.height = "0";
+        hisCon.style.visibility = "hidden";
+        favIcon[0].setAttribute("href", "images/icon.svg#minus");
+        hisIcon[0].setAttribute("href", "images/icon.svg#plus");
     }
 });
 
-
 hisHeader.addEventListener('click', function (){
-    let icon = (hisHeader.children[2].children);
     if (hisCon.style.visibility == "visible") {
         hisCon.style.visibility = "hidden";
         hisCon.style.height = "0";
-        icon[0].setAttribute("href", "images/icon.svg#plus");        
+        hisIcon[0].setAttribute("href", "images/icon.svg#plus");        
     } else {
         hisCon.style.visibility = "visible";
         hisCon.style.height = "310px";
-        icon[0].setAttribute("href", "images/icon.svg#minus");
+        favCon.style.height = "0";
+        favCon.style.visibility = "hidden";
+        hisIcon[0].setAttribute("href", "images/icon.svg#minus");
+        favIcon[0].setAttribute("href", "images/icon.svg#plus");
     }
 });
 
@@ -140,6 +146,7 @@ for (let i = 0; i < regIcon.length; i++) {
         }
     });
 }
+
 
 window.addEventListener('click', function (event) {
     if (event.target == modal) {
