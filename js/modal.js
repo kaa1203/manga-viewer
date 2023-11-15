@@ -151,7 +151,7 @@ for (let i = 0; i < regIcon.length; i++) {
 window.addEventListener('click', function (event) {
     if (event.target == modal) {
         let favIcon = (favHeader.children[2].children),
-        hisIcon = (hisHeader.children[2].children);
+            hisIcon = (hisHeader.children[2].children);
         modal.style.visibility = "hidden";
         hisCon.style.visibility = "hidden";
         favCon.style.visibility = "hidden";
@@ -167,7 +167,7 @@ window.addEventListener('click', function (event) {
         if (input.value != null) {
             input.value = ('');
         }
-    } 
+    }
 });
 
 

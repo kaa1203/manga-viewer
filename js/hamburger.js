@@ -37,7 +37,6 @@ navMenu.addEventListener('click', function () {
 toggle.addEventListener('click', function () {
     const icon = theme.nextElementSibling.childNodes[1].childNodes[1];
     const text = document.getElementsByClassName('profile-display');
-    // console.log(text[0].childNodes[2].innerText = "Light Mode");
     if (theme.checked == false) {
         theme.checked = true; 
         icon.setAttribute('href', 'images/icon.svg#light');
@@ -87,3 +86,4 @@ window.addEventListener('scroll', function () {
     toTop.style.display = "none";
   }
 }); 
+

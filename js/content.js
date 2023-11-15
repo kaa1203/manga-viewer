@@ -3,6 +3,8 @@ const moreCont = document.getElementsByClassName('more-content');
 const upBttn = document.getElementsByClassName('up-button');
 const moreUp = document.getElementsByClassName('more-latest');
 const manga = document.getElementsByClassName('content-item');
+const latest = document.getElementsByClassName('latest-update-item');
+
 
 for (let i = 0; i < popBttn.length; i++) {
     const pop = popBttn[i];
@@ -30,8 +32,20 @@ for (let i = 0; i < upBttn.length; i++) {
     });
 }
 
-// if (window.innerWidth >= 768) {
-//     console.log(true);
-// } else {
-//     console.log(false);
-// }
+navMenu.addEventListener('click', function () {
+    for (let i = 0; i < manga.length; i++) {
+        if (cont[1].offsetWidth <= 1144) {
+            manga[i].style.width = "calc(100% / 5 - 10px)";
+        } else {
+            manga[i].style.width = "calc(100% / 4 - 10px)";
+        }
+
+    }
+    for (let i = 0; i < latest.length; i++) {
+        if (cont[2].offsetWidth <= 1144) {
+            latest[i].style.width = "calc(100% / 3 - 10px)";
+        } else {
+            latest[i].style.width = "calc(100% / 2 - 10px)";
+        }
+    }
+});
