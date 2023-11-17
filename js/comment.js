@@ -13,6 +13,11 @@ const downIcon = document.getElementsByClassName('downvote');
 const repDrp = document.getElementsByClassName('rep-num');
 const replies = document.getElementsByClassName('post-replies');
 const icon = document.getElementsByClassName('dd-icon');
+const comMoreBttn = document.getElementsByClassName('com-more');
+const comMoreCon = document.getElementsByClassName('comments-more');
+const repMoreBttn = document.getElementsByClassName('rep-more');
+const repMoreCon = document.getElementsByClassName('rep-comments-more');
+
 
 // Open/Close reply
 for (let i = 0; i < repBttn.length; i++) { 
@@ -91,6 +96,29 @@ for (let i = 0; i < repDrp.length; i++) {
         } else {
             replies[i].style.display = "flex";
             icon[i].style.transform = "rotate(180deg)";
+        }
+    });
+}
+
+for (let i = 0; i < comMoreBttn.length; i++) {
+    const comBttn = comMoreBttn[i];
+    comBttn.addEventListener('click', function () {
+        if (comMoreCon[i].style.visibility != 'visible') {
+            comMoreCon[i].style.visibility = 'visible';
+        } else {
+            comMoreCon[i].style.visibility = 'hidden';
+        }
+    });
+    
+}
+
+for (let i = 0; i < repMoreBttn.length; i++) {
+    const repBttn = repMoreBttn[i];
+    repBttn.addEventListener('click', function () {
+        if (repMoreCon[i].style.visibility != 'visible') {
+            repMoreCon[i].style.visibility = 'visible';
+        } else {
+            repMoreCon[i].style.visibility = 'hidden';
         }
     });
 }

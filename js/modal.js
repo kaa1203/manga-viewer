@@ -23,14 +23,18 @@ const regInput = document.getElementsByName("reg-input");
 const regIcon = document.getElementsByClassName('reg-visible');
 
 // Trigger this funtion when Login link is clicked
-openModal.addEventListener('click', function (){
-    loginModal.classList.toggle('is-hidden');
+openModal.addEventListener('click', function () {
+    if (loginModal.style.visibility != "visible") {
+        loginModal.style.visibility = "visible";
+    } else {
+        loginModal.style.visibility = "hidden";
+    }
 });
 
 
 // Close the modal on click and clear it's field
 closeBtn.addEventListener('click', function (){
-    loginModal.classList.toggle('is-hidden');
+    loginModal.style.visibility = "hidden";
     pWord.value = ('');
     uName.value = ('');
 });
@@ -116,9 +120,9 @@ hisHeader.addEventListener('click', function (){
 
 // Register Modal
 for (let i = 0; i < regInput.length; i++) {
-        const input = regInput[i];
+    const input = regInput[i];
     openReg.addEventListener('click', function () {
-        loginModal.classList.add('is-hidden');
+        loginModal.style.visibility = "hidden";
         pWord.value = ('');
         uName.value = ('');
         regModal.style.visibility = "visible";
@@ -126,7 +130,7 @@ for (let i = 0; i < regInput.length; i++) {
 
     regClose.addEventListener('click', function () {
         regModal.style.visibility = "hidden";
-        loginModal.classList.add('is-hidden');
+        loginModal.style.visibility = "hidden";
         input.value = ('');
     });
 }
@@ -158,16 +162,15 @@ window.addEventListener('click', function (event) {
         favIcon[0].setAttribute("href", "images/icon.svg#plus");
         hisIcon[0].setAttribute("href", "images/icon.svg#plus");
     } else if (event.target == loginModal) {
-        loginModal.classList.toggle('is-hidden');
+        loginModal.style.visibility = "hidden";
         pWord.value = ('');
         uName.value = ('');
     } else if (event.target == regModal) {
         regModal.style.visibility = "hidden";
-        loginModal.classList.add('is-hidden');
-        if (input.value != null) {
-            input.value = ('');
-        }
+        loginModal.style.visibility = "hidden";
+        regInput[0].value = ('');
+        regInput[1].value = ('');
+        regInput[2].value = ('');
+        regInput[3].value = ('');
     }
 });
-
-

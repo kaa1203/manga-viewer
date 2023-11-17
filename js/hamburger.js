@@ -60,7 +60,7 @@ profilePic.addEventListener('click', function () {
 });
 
 // Notification
-notifBell.addEventListener('click', function () {
+notifBell.addEventListener('click', function (event) {
     if (notifCont.style.visibility !== 'visible') {
         notifCont.style.visibility = 'visible';
         profileCont.style.visibility = "hidden";
@@ -73,7 +73,7 @@ notifBell.addEventListener('click', function () {
 // Notifaction More Button
 moreIcon.addEventListener('click', function () {
     if (moreWrapper.style.visibility !== 'visible') {
-        moreWrapper.style.visibility = 'visible';       
+        moreWrapper.style.visibility = 'visible'; 
     } else {
         moreWrapper.style.visibility = 'hidden'; 
     }    
@@ -87,3 +87,17 @@ window.addEventListener('scroll', function () {
   }
 }); 
 
+// check if the user is clicking outside of element. Not my ideal solution but if it works it's not stupid i guess... ¯\_(ツ)_/¯ i dont know how to exclude the trigger button on the code so I put an event inside of it too
+document.addEventListener('click', function (event) {
+    if (notifCont.contains(event.target) || notifBell.contains(event.target)) {
+        return;
+    } else {
+        notifCont.style.visibility = "hidden";
+        moreWrapper.style.visibility = "hidden";
+    }
+    if (profileCont.contains(event.target) || profilePic.contains(event.target)) {
+    } else {
+        profileCont.style.visibility = "hidden";
+     }
+
+});

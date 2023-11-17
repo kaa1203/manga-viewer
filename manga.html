@@ -682,6 +682,12 @@
                     </svg>
                     Previous Chapter
                 </a>
+                <a href="#" class="next-chapter manga-nav-button link">
+                    Next Chapter
+                    <svg class="icon">
+                        <use href="images/icon.svg#next"></use>
+                    </svg>
+                </a>
                 <a href="manga-description.html" class="manga-nav-button link">
                     <svg class="icon">
                         <use href="images/icon.svg#book-2"></use>
@@ -694,21 +700,13 @@
                     </svg>
                     Chapter List
                 </a>
-                <form action="javascript: void(0);" class="bookmark-form">
-                    <input type="checkbox" id="bookmark" class="bookmark">
-                    <label for="bookmark" class="bookmark-label">
-                        <svg class="icon">
-                            <use href="images/icon.svg#bookmark-2"></use>
-                        </svg>
-                        Bookmark
-                    </label>
-                </form>
-                <a href="#" class="next-chapter manga-nav-button link">
-                    Next Chapter
+                <input type="checkbox" id="bookmark" class="bookmark">
+                <label for="bookmark" class="manga-nav-button bookmark-label">
                     <svg class="icon">
-                        <use href="images/icon.svg#next"></use>
+                        <use href="images/icon.svg#bookmark-2"></use>
                     </svg>
-                </a>
+                    Bookmark
+                </label>
             </div>
 
             <div class="manga-page-wrapper">
@@ -915,11 +913,29 @@
                         <img src="https://fakeimg.pl/200x200" alt="User Profile" class="user image">
                     </div>
                     <div class="user-comment medium-text">
-                        <span class="user-profile">
-                            <a href="#" class="user-profile link">Dolor</a>
-                            <span class="small-text">5 months ago</span>
-        
-                        </span>
+                        <div class="user-profile-wrapper">
+                            <div class="com user-profile">
+                                <a href="#" class="user-profile link">Zed S. Naught</a>
+                                <p class="small-text">5 months ago</p>
+                            </div>
+                            <svg class="com-more icon">
+                                <use href="images/icon.svg#more"></use>
+                            </svg>
+                            <div class="comments-more">
+                                <div class="block-user">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#block"></use>
+                                    </svg>
+                                    Block User
+                                </div>
+                                <div class="report-comment">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#flag"></use>
+                                    </svg>        
+                                    Report Comment
+                                </div>
+                            </div>
+                        </div>
                         <div class="user-post">
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto,
@@ -975,10 +991,29 @@
                                     <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
                                 </div>
                                 <div class="user-comment medium-text">
-                                    <span class="user-profile">
-                                        <a href="#" class="user-profile link">Dolor</a>
-                                        <span class="small-text">5 months ago</span>
-                                    </span>
+                                    <div class="user-profile-wrapper">
+                                        <div class="rep user-profile">
+                                            <a href="#" class="user-profile link">Truck-kun is hart</a>
+                                            <p class="small-text">5 months ago</p>
+                                        </div>
+                                        <svg class="rep-more icon">
+                                            <use href="images/icon.svg#more"></use>
+                                        </svg>
+                                        <div class="rep-comments-more">
+                                            <div class="block-user">
+                                                <svg class="icon">
+                                                    <use href="images/icon.svg#block"></use>
+                                                </svg>
+                                                Block User
+                                            </div>
+                                            <div class="report-comment">
+                                                <svg class="icon">
+                                                    <use href="images/icon.svg#flag"></use>
+                                                </svg>
+                                                Report Comment
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="user-comment">
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam
@@ -1032,10 +1067,29 @@
                                     <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
                                 </div>
                                 <div class="user-comment medium-text">
-                                    <span class="user-profile">
-                                        <a href="#" class="user-profile link">Dolor</a>
-                                        <span class="small-text">5 months ago</span>
-                                    </span>
+                                    <div class="user-profile-wrapper">
+                                        <div class="rep user-profile">
+                                            <a href="#" class="user-profile link">Some Random User</a>
+                                            <p class="small-text">5 months ago</p>
+                                        </div>
+                                        <svg class="rep-more icon">
+                                            <use href="images/icon.svg#more"></use>
+                                        </svg>
+                                        <div class="rep-comments-more">
+                                            <div class="block-user">
+                                                <svg class="icon">
+                                                    <use href="images/icon.svg#block"></use>
+                                                </svg>
+                                                Block User
+                                            </div>
+                                            <div class="report-comment">
+                                                <svg class="icon">
+                                                    <use href="images/icon.svg#flag"></use>
+                                                </svg>
+                                                Report Comment
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="user-comment">
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam
@@ -1093,10 +1147,29 @@
                         <img src="https://fakeimg.pl/200x200" alt="User Profile" class="user image">
                     </div>
                     <div class="user-comment medium-text">
-                        <span class="user-profile">
-                            <a href="#" class="user-profile link">Dolor</a>
-                            <span class="small-text">5 months ago</span>
-                        </span>
+                        <div class="user-profile-wrapper">
+                            <div class="com user-profile">
+                                <a href="#" class="user-profile link">I believe in Loy-ter Supremacy</a>
+                                <p class="small-text">5 months ago</p>
+                            </div>
+                            <svg class="com-more icon">
+                                <use href="images/icon.svg#more"></use>
+                            </svg>
+                            <div class="comments-more">
+                                <div class="block-user">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#block"></use>
+                                    </svg>
+                                    Block User
+                                </div>
+                                <div class="report-comment">
+                                    <svg class="icon">
+                                        <use href="images/icon.svg#flag"></use>
+                                    </svg>
+                                    Report Comment
+                                </div>
+                            </div>
+                        </div>
                         <div class="user-post">
                             <p>
                                 aLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam architecto,
@@ -1162,10 +1235,29 @@
                                     <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
                                 </div>
                                 <div class="user-comment medium-text">
-                                    <span class="user-profile">
-                                        <a href="#" class="user-profile link">Dolor</a>
-                                        <span class="small-text">5 months ago</span>
-                                    </span>
+                                    <div class="user-profile-wrapper">
+                                        <div class="rep user-profile">
+                                            <a href="#" class="user-profile link">Lorem</a>
+                                            <p class="small-text">5 months ago</p>
+                                        </div>
+                                        <svg class="rep-more icon">
+                                            <use href="images/icon.svg#more"></use>
+                                        </svg>
+                                        <div class="rep-comments-more">
+                                            <div class="block-user">
+                                                <svg class="icon">
+                                                    <use href="images/icon.svg#block"></use>
+                                                </svg>
+                                                Block User
+                                            </div>
+                                            <div class="report-comment">
+                                                <svg class="icon">
+                                                    <use href="images/icon.svg#flag"></use>
+                                                </svg>
+                                                Report Comment
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="user-comment">
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam
@@ -1216,10 +1308,29 @@
                                     <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
                                 </div>
                                 <div class="user-comment medium-text">
-                                    <span class="user-profile">
-                                        <a href="#" class="user-profile link">Dolor</a>
-                                        <span class="small-text">5 months ago</span>
-                                    </span>
+                                    <div class="user-profile-wrapper">
+                                        <div class="rep user-profile">
+                                            <a href="#" class="user-profile link">Dolor</a>
+                                            <p class="small-text">5 months ago</p>
+                                        </div>
+                                        <svg class="rep-more icon">
+                                            <use href="images/icon.svg#more"></use>
+                                        </svg>
+                                        <div class="rep-comments-more">
+                                            <div class="block-user">
+                                                <svg class="icon">
+                                                    <use href="images/icon.svg#block"></use>
+                                                </svg>
+                                                Block User
+                                            </div>
+                                            <div class="report-comment">
+                                                <svg class="icon">
+                                                    <use href="images/icon.svg#flag"></use>
+                                                </svg>
+                                                Report Comment
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="user-comment">
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda totam
