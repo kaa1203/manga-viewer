@@ -1,6 +1,8 @@
 const grid = document.getElementById('grid');
 const list = document.getElementById('list');
 const manga = document.getElementsByClassName('favorites-manga-wrapper');
+const mangaMore = document.getElementsByClassName('favorites-more-button');
+const moreCont = document.getElementsByClassName('favorites-more-content');
 const link = document.getElementsByClassName('favorites-link');
 const summary = document.getElementsByClassName('favorites-summary');
 const details = document.getElementsByClassName('favorites-details');
@@ -14,6 +16,7 @@ for (let i = 0; i < manga.length; i++) {
     list.addEventListener('click', function () {
         manga[i].style.flexDirection = "row";
         manga[i].style.width = "100%";
+        moreCont[i].style.top = "17%";
         link[i].style.width = "100%";
         link[i].classList.add('large-text');
         summary[i].style.display = "block";
@@ -26,6 +29,7 @@ for (let i = 0; i < manga.length; i++) {
     
     grid.addEventListener('click', function () {
         manga[i].style.flexDirection = "column";
+        moreCont[i].style.top = "10%";
         link[i].style.width = "calc(100%)";
         link[i].classList.remove('large-text');
         summary[i].style.display = "none";
@@ -45,13 +49,31 @@ for (let i = 0; i < manga.length; i++) {
     
     navMenu.addEventListener('click', function () {
         if (manga[i].style.flexDirection != "row") {
-            if (favCont[0].offsetWidth <= 1144) {
-                 manga[i].style.width = "calc(100% / 5 - 10px)";
-            } else if (favCont[0].offsetWidth >= 905) {
-                 manga[i].style.width = "calc(100% / 4 - 10px)";
-            } else if (favCont[0].offsetWidth <= 905) {
-                manga[i].style.width = "calc(100% / 2 - 10px)";
+            if (window.innerWidth >= 1024) {
+                if (favCont[0].offsetWidth <= 1144) {
+                    //  manga[i].style.width = "calc(100% / 5 - 10px)";
+                } else if (favCont[0].offsetWidth >= 905) {
+                     manga[i].style.width = "calc(100% / 4 - 10px)";
+                } else if (favCont[0].offsetWidth <= 905) {
+                    manga[i].style.width = "calc(100% / 2 - 10px)";
+                }
             }
+        }
+    });
+
+    manga[i].addEventListener('mouseover', function () {
+        mangaMore[i].style.visibility = "visible";
+    });
+
+    manga[i].addEventListener('mouseout', function () {
+        mangaMore[i].style.visibility = "hidden";
+    });
+
+    mangaMore[i].addEventListener('click', function () {
+        if (moreCont[i].style.visibility == "visible") {
+            moreCont[i].style.visibility = "hidden";
+        } else {
+            moreCont[i].style.visibility = "visible";
         }
     });
 

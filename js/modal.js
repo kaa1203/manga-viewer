@@ -151,7 +151,6 @@ for (let i = 0; i < regIcon.length; i++) {
     });
 }
 
-
 window.addEventListener('click', function (event) {
     if (event.target == modal) {
         let favIcon = (favHeader.children[2].children),

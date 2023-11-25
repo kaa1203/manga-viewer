@@ -17,6 +17,8 @@ const comMoreBttn = document.getElementsByClassName('com-more');
 const comMoreCon = document.getElementsByClassName('comments-more');
 const repMoreBttn = document.getElementsByClassName('rep-more');
 const repMoreCon = document.getElementsByClassName('rep-comments-more');
+const recManga = document.getElementsByClassName('image-wrapper');
+
 
 
 // Open/Close reply
@@ -122,3 +124,16 @@ for (let i = 0; i < repMoreBttn.length; i++) {
         }
     });
 }
+
+navMenu.addEventListener('click', function () {
+    if (window.innerWidth >= 1024) {
+        for (let i = 0; i < recManga.length; i++) {    
+            if (cont[1].offsetWidth <= 1144) {
+                recManga[i].style.width = "calc(100% / 5 - 15px)";
+            } else {
+                recManga[i].style.width = "calc(100% / 4 - 15px)";
+            }
+            console.log(cont[1].offsetWidth)
+        }
+    }
+});

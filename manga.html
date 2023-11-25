@@ -28,7 +28,10 @@
         
             <form action="javascript:void(0);" class="nav-form">
                 <label class="nav-label">
-                    <input type="text" class="nav-search-bar" name="nav-search" placeholder="Search..." required>
+                    <input type="text" class="nav-search-bar" id="navSearch" name="nav-search" placeholder="Search..." required>
+                    <svg class="search icon">
+                        <use href="images/icon.svg#close"></use>
+                    </svg>
                 </label>
                 <button class="nav-form-button">
                     <svg class="icon">
@@ -264,7 +267,7 @@
             </ul>
         </div>
         
-        <div class="login-modal is-hidden" id="loginModal">
+        <div class="login-modal" id="loginModal">
             <div class="login-modal-container">
                 <svg class="login-modal-icon icon" id="closeIcon">
                     <use href="images/icon.svg#close"></use>
@@ -688,13 +691,7 @@
                         <use href="images/icon.svg#next"></use>
                     </svg>
                 </a>
-                <a href="manga-description.html" class="manga-nav-button link">
-                    <svg class="icon">
-                        <use href="images/icon.svg#book-2"></use>
-                    </svg>
-                    Manga Title
-                </a>
-                <a href="#" class="manga-nav-button link">
+                <a href="#" class="manga-nav-button link" id="mangaListButton">
                     <svg class="icon">
                         <use href="images/icon.svg#list"></use>
                     </svg>
@@ -707,6 +704,59 @@
                     </svg>
                     Bookmark
                 </label>
+                <a href="manga-description.html" class="manga-nav-button link">
+                    <svg class="icon">
+                        <use href="images/icon.svg#book-2"></use>
+                    </svg>
+                    Manga Title
+                </a>
+            </div>
+
+            <div class="manga-chapter-container" id="mangaList">
+                <div class="manga-chapter-wrapper">
+                    <svg class="close icon" id="chapListClose">
+                        <use href="images/icon.svg#close"></use>
+                    </svg>
+                    <div class="manga-heading">
+                        <svg class="icon">
+                            <use href="images/icon.svg#book-2"></use>
+                        </svg>
+                        <h2>Manga Title</h2>
+                    </div>
+                    <ul class="manga-chapter-list list text-center">
+                        <li class="manga-chapter-item">
+                            <a href="#" class="link">Chapter 01</a>
+                        </li>
+                        <li class="manga-chapter-item">
+                            <a href="#" class="link">Chapter 02</a>
+                        </li>
+                        <li class="manga-chapter-item">
+                            <a href="#" class="link">Chapter 03</a>
+                        </li>
+                        <li class="manga-chapter-item">
+                            <a href="#" class="link">Chapter 04</a>
+                        </li>
+                        <li class="manga-chapter-item">
+                            <a href="#" class="link">Chapter 05</a>
+                        </li>
+                        <li class="manga-chapter-item">
+                            <a href="#" class="link">Chapter 06</a>
+                        </li>
+                        <li class="manga-chapter-item">
+                            <a href="#" class="link">Chapter 07</a>
+                        </li>
+                        <li class="manga-chapter-item">
+                            <a href="#" class="link">Chapter 08</a>
+                        </li>
+                        <li class="manga-chapter-item">
+                            <a href="#" class="link">Chapter 09</a>
+                        </li>
+                        <li class="manga-chapter-item">
+                            <a href="#" class="link">Chapter 10</a>
+                        </li>
+                    </ul>
+                    <div class="manga-chapter-footer"></div>
+                </div>
             </div>
 
             <div class="manga-page-wrapper">
@@ -988,7 +1038,7 @@
                         <div class="post-replies">
                             <div class="post-replies-wrapper">
                                 <div class="user">
-                                    <img src="https://fakeimg.pl/200x200" alt="User Profile" class="reply-user image">
+                                    <img src="images/truck-kun.jpg" alt="User Profile" class="reply-user image">
                                 </div>
                                 <div class="user-comment medium-text">
                                     <div class="user-profile-wrapper">
@@ -1144,7 +1194,7 @@
         
                 <div class="comments-wrapper">
                     <div class="user">
-                        <img src="https://fakeimg.pl/200x200" alt="User Profile" class="user image">
+                        <img src="images/loyter.jpg" alt="User Profile" class="user image">
                     </div>
                     <div class="user-comment medium-text">
                         <div class="user-profile-wrapper">
@@ -1398,6 +1448,7 @@
     </footer>
 
     <script src="js/modal.js"></script>
+    <script src="js/manga.js"></script>
     <script src="js/comment.js"></script>
     <script src="js/hamburger.js"></script>
 </body>

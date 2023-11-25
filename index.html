@@ -27,7 +27,10 @@
             
             <form action="javascript:void(0);" class="nav-form">
                 <label class="nav-label">
-                    <input type="text" class="nav-search-bar" name="nav-search" placeholder="Search..." required>
+                    <input type="text" class="nav-search-bar" id="navSearch" name="nav-search" placeholder="Search..." required>
+                    <svg class="search icon">
+                        <use href="images/icon.svg#close"></use>
+                    </svg>
                 </label>
                 <button class="nav-form-button">
                     <svg class="icon">
@@ -598,8 +601,8 @@
             <div class="side-nav-container">
                 <nav class="side-navbar">
                     <ul class="side-navbar-list list">
-                        <li class="side-navbar-item">
-                            <a href="#" class="side-navbar-link link highlight"> 
+                        <li class="side-navbar-item highlight">
+                            <a href="#" class="side-navbar-link link"> 
                                <svg class="side-navbar-icon">
                                     <use href="images/icon.svg#home"></use>
                                </svg> 
@@ -2121,7 +2124,7 @@
     </footer>
 
     <script src="js/modal.js"></script>
-    <script src="js/content.js"></script>
     <script src="js/hamburger.js"></script>
+    <script src="js/content.js"></script>
 </body>
 </html>

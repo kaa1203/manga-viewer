@@ -3,6 +3,7 @@ const moreCont = document.getElementsByClassName('more-content');
 const upBttn = document.getElementsByClassName('up-button');
 const moreUp = document.getElementsByClassName('more-latest');
 const manga = document.getElementsByClassName('content-item');
+const mangaDetails = document.getElementsByClassName('content-details');
 const latest = document.getElementsByClassName('latest-update-item');
 
 
@@ -33,19 +34,36 @@ for (let i = 0; i < upBttn.length; i++) {
 }
 
 navMenu.addEventListener('click', function () {
-    for (let i = 0; i < manga.length; i++) {
-        if (cont[1].offsetWidth <= 1144) {
-            manga[i].style.width = "calc(100% / 5 - 10px)";
-        } else {
-            manga[i].style.width = "calc(100% / 4 - 10px)";
-        }
+    if (window.innerWidth > 1280) {
+        for (let i = 0; i < manga.length; i++) {
+            if (cont[1].offsetWidth <= 1144) {
+                manga[i].style.width = "calc(100% / 5 - 10px)";
+            } else {
+                manga[i].style.width = "calc(100% / 4 - 10px)";
+            }
 
+        }
+        for (let i = 0; i < latest.length; i++) {
+            if (cont[2].offsetWidth <= 1144) {
+                latest[i].style.width = "calc(100% / 3 - 10px)";
+            } else {
+                latest[i].style.width = "calc(100% / 2 - 10px)";
+            }
+        }
     }
-    for (let i = 0; i < latest.length; i++) {
-        if (cont[2].offsetWidth <= 1144) {
-            latest[i].style.width = "calc(100% / 3 - 10px)";
+});
+
+toggle.addEventListener('click', function () {
+    for (let i = 0; i < mangaDetails.length; i++) {
+        let title = mangaDetails[i].children[0];
+        let chapter = mangaDetails[i].children[1];
+        console.log(title);
+        if (theme.checked == false) {
+            mangaDetails[i].classList.remove('light-orange');
         } else {
-            latest[i].style.width = "calc(100% / 2 - 10px)";
+            mangaDetails[i].classList.add('light-orange');
+            title.classList.add('l-hover');
+            chapter.classList.add('l-hover');
         }
     }
 });

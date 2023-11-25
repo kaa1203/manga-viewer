@@ -8,6 +8,12 @@
     --White-transparent: #ffffff80;
     --Light-red-transparent: #ff4d4d80;
     --Dark-grey-transparent: #33333380;
+    --Mocha: #BFB29E;
+    --Purple: #7071E8;
+    --Light-hover: #f6edce;
+    --Light-bg: #F7EFE5;
+    --Light-color: #2C3333;
+    --Light-orange: #f6d9ce;
 }
 
 * {
@@ -129,7 +135,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 3;
+    z-index: 4;
     background-color: var(--Dark-grey);
     border-bottom: 1px solid var(--Grey);
 }
@@ -155,7 +161,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1px solid var(--Dark-grey);
+    border: 1px solid transparent;
     background-color: var(--Dark-Grey);
 }
 
@@ -182,30 +188,46 @@ body {
     align-items: center;
     padding: 9px;
     width: 50px;
-    color: var(--Grey);
-    background-color: var(--White);
+    color: currentColor;
+    background-color: transparent;
     border: 1px solid var(--Grey);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     cursor: pointer;
 }
 
-.nav-form-button:hover {
-    background-color: var(--Dark-grey);
-    color: var(--White);
+.nav-form-button:hover, 
+.nav-form-button:focus {
+    background-color: var(--Grey);
+    border: 1px solid var(--White);
 }
 
 .nav-search-bar {
     padding: 10px 30px;
-    width: 300px;
+    width: 400px;
+    color: currentColor;
+    background-color: transparent;
+    border: 1px solid var(--Grey);
+    border-right: none;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    border: 1px solid var(--grey);
     transition: width 250ms ease-in;
 }
 
+.search.icon {
+    visibility: hidden;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 11px;
+    right: 55px;
+    cursor: pointer;
+}
+
 .nav-search-bar:focus {
-    width: 450px;
+    color: currentColor;
+    background-color: var(--Grey);
+    border: 1px solid var(--White-transparent);
 }
 
 .nav-button-wrapper {
@@ -219,7 +241,7 @@ body {
     height: 40px;
     padding: 7px;
     border-radius: 50%;
-    background-color: var(--Dark-Grey);
+    background-color: transparent;
     border: 1px solid var(--Grey-transparent);
 }
 
@@ -266,13 +288,13 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 15px;
-    margin-top: 4.5%;
     position: fixed;
-    top: 0;
+    /* position: absolute; */
+    top: 8%;
     right: 3.5%;
-    min-width: 20%;
+    min-width: 25vw;
+    /* min-width: 20%; */
     z-index: 5;
-    /* padding: 20px; */
     border-radius: 10px;
     background-color: var(--Dark-grey);
     border: 1px solid var(--Grey-transparent);
@@ -330,7 +352,7 @@ body {
     width: 40%;
     height: 85%;
     padding: 12px;
-    background-color: var(--Dark-grey);
+    background-color: currentColor;
     transition: transform 250ms ease-in-out;
 }
 
@@ -355,8 +377,7 @@ body {
     flex-direction: column;
     gap: 10px;
     position: fixed;
-    margin-top: 4.5%;
-    top: 0;
+    top: 8%;
     right: 7.5%;
     width: 30%;
     height: 70%;
@@ -411,8 +432,6 @@ body {
     top: 0;
     background-color: var(--Grey);
     padding: 15px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
 }
 
 .more.icon {
@@ -431,7 +450,7 @@ body {
     padding: 7px;
     border-radius: 4px;
     border: 1px solid var(--Grey);
-    background-color: var(--Dark-grey);
+    background-color: transparent;
     color: currentColor;
     cursor: pointer;
 }
@@ -477,6 +496,7 @@ body {
     top: 0;
     overflow: auto;
     scrollbar-width: none;
+    z-index: 3;
 }
 
 .side-nav::-webkit-scrollbar {
@@ -497,6 +517,10 @@ body {
     padding: 15px;
 }
 
+.side-navbar-item {
+    padding: 0 10px;
+}
+
 .side-navbar-item span {
     overflow: hidden;
 }
@@ -505,17 +529,17 @@ body {
     width: 20px;
     height: 20px;
     fill: currentColor;
-    margin-right: 15px;
 }
 
 .side-navbar-link {
     display: flex;
     align-items: center;
+    gap: 15px;
     padding: 8px 5px;
 }
 
-.side-navbar-link:hover,
-.side-navbar-icon:hover,
+.side-navbar-item:hover,
+/* .side-navbar-icon:hover, */
 .highlight {
     background-color: var(--Grey);
     color: var(--Light-red);
@@ -565,6 +589,7 @@ body {
 }
 
 .login-modal-icon:hover,
+.close.icon.icon:hover,
 .register-modal-icon:hover,
 .accordion.icon:hover {
     background-color: var(--Grey);
@@ -890,7 +915,7 @@ body {
 }
 /* Showcase section */
 .carousel-container {
-    margin-top: 13vh;
+    margin-top: 8%;
 }
 
 .carousel-wrapper {
@@ -1065,7 +1090,7 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 240px;
+    width: calc(100%);
     text-align: center;
 }
 
@@ -1124,10 +1149,12 @@ body {
 
 .latest-update-item {
     display: flex;
-    column-gap: 15px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
     width: calc(100% / 2 - 10px);
     overflow: hidden;
-    padding: 10px;
+    padding: 10px 5px;
     border: 1px solid var(--White);
 }
 
@@ -1141,7 +1168,7 @@ body {
 }
 
 .latest-manga-wrapper {
-    width: 75%;
+    width: 70%;
 }
 
 .latest-manga-list {
@@ -1168,7 +1195,8 @@ body {
 }
 
 .time-updated {
-    color: var(--White-transparent);
+    opacity: .75;
+    color: currentColor;
 }
 
 .latest-manga-link {
@@ -2079,7 +2107,7 @@ tr td:first-child {
     align-items: center;
     width: 40px;
     height: 30px;
-    background-color: var(--Dark-grey);
+    background-color: transparent;
     border: 1px solid var(--Grey);
     
 }
@@ -2139,6 +2167,76 @@ tr td:first-child {
 .manga-page-image {
     width: 100%;
 }
+
+.manga-chapter-container {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Grey-transparent);
+    z-index: 5;
+}
+
+.manga-chapter-wrapper .close.icon { 
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid var(--White-transparent);
+    cursor: pointer;
+}
+
+.manga-chapter-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid var(--White-transparent);
+    border-radius: 20px;
+    background-color: var(--Dark-grey); 
+}
+
+.manga-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--Grey-transparent);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 15px 0 5px 0;
+}
+
+.manga-chapter-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 15px;
+    padding: 20px;
+}
+
+.manga-chapter-item {
+    padding: 5px;
+    background-color: var(--Grey);
+    border: 1px solid var(--Grey);
+    width: calc(100% / 2 - 10px);
+}
+
+.manga-chapter-item .link {
+    display: block;
+}
+
+.manga-chapter-footer {
+    padding: 20px;
+    background-color: var(--Grey);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
 /* End of Manga Page */
 
 /* Start Of Favorites Page */
@@ -2165,6 +2263,38 @@ tr td:first-child {
     flex-direction: column;
     width: calc(100% / 4 - 10px);
     background-color: var(--Grey);
+    position: relative;
+}
+
+.favorites-more-button {
+    visibility: hidden;
+    position: absolute;
+    top: 5px; 
+    right: 5px;
+    z-index: 2;
+}
+
+.favorites-more-content {
+    visibility: hidden;
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    background-color: var(--Grey);
+    border: 1px solid var(--White);
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 2;
+}
+
+.favorites-more {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px;
+}
+
+.favorites-checkbox {
+    display: none;
 }
 
 .favorites-menu {
@@ -2227,20 +2357,15 @@ tr td:first-child {
     padding: 8px;
 }
 
-/* .favorites-title {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 240px;
-    margin-bottom: 5px;
-} */
+.favorites-title {
+    text-align: center;
+}
 
 .favorites-title a {
     display: inline-block;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    /* width: 240px; */
     width: calc(100%);
     margin-bottom: 5px;
 }
@@ -2305,6 +2430,29 @@ tr td:first-child {
     height: 32px;
 }
 
+/* Light theme classes */
+.light-container {
+    background-color: var(--Mocha);
+}
+
+.light-bg {
+    background-color: var(--Light-bg);
+    color: var(--Light-color);
+}
+
+.l-highlight,
+.l-side-nav:hover {
+    color: var(--Purple);
+    background-color: var(--Light-hover);
+}
+
+.light-orange {
+    background-color: var(--Light-orange);
+}
+
+.l-hover:hover {
+    color: var(--Purple);
+}
 
 @media (min-width: 320px) and (max-width: 479px){
     body {
@@ -2423,10 +2571,11 @@ tr td:first-child {
    }
 
    .side-nav {
-        max-width: 8%;
+        width: 8%;
    }
    
    .side-navbar-list {
+        margin-top: 15px;
         padding: 2px 4px;
    }
    
@@ -2439,17 +2588,21 @@ tr td:first-child {
    }
 
    .profile-container {
-        margin-top: 8%;
+        /* margin-top: 7%; */
         width: 40vw;
    }
 
    .notif-container {
-        margin-top: 8%;
+        /* margin-top: 7%; */
         width: 50vw;
    }
    
    .content-item {
         width: calc(100% / 3 - 10px);
+   }
+
+   .manga-title {
+        width: 190px;
    }
 
    .latest-update-list {
@@ -2463,9 +2616,9 @@ tr td:first-child {
    .latest-update-item {
         width: calc(100% / 2 - 10px);
    }
-
-   .latest-manga-wrapper {
-        width: 69%;
+   
+   .latest-update-image {
+       width: 90px;
    }
 
    .latest-manga-heading {
@@ -2544,32 +2697,32 @@ tr td:first-child {
     }
 }
 
-/* @media (min-width: 1024px) {
-    body {
-        background-color: var(--Blue);
-     
-    }
-
+@media (min-width: 1024px) and (max-width: 1248px) {
     .container {
         width: 80%;
-        margin-left: 17.5%;
+        margin-left: 15.5%;
     }
 
     .side-nav {
-        width: 15%;
+        width: 10%;
     }
 
     .side-navbar-list {
-        align-items: start;
+        margin-top: 15px;
+        padding: 2px 4px;
     }
 
     .side-navbar-icon {
-        margin-right: 15px;
+        margin: auto;
     }
-    
+
     .side-navbar-item span {
-        display: block;
-        overflow: hidden;
+        display: none;
     }
+
+    /* .content-item {
+        width: calc(100% / 4 - 10px);
+    } */
     
-} */
+    
+}

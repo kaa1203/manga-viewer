@@ -29,7 +29,10 @@
         
             <form action="javascript:void(0);" class="nav-form">
                 <label class="nav-label">
-                    <input type="text" class="nav-search-bar" name="nav-search" placeholder="Search..." required>
+                    <input type="text" class="nav-search-bar" id="navSearch" name="nav-search" placeholder="Search..." required>
+                    <svg class="search icon">
+                        <use href="images/icon.svg#close"></use>
+                    </svg>
                 </label>
                 <button class="nav-form-button">
                     <svg class="icon">
@@ -623,8 +626,8 @@
                                 <span>Home</span>
                             </a>
                         </li>
-                        <li class="side-navbar-item">
-                            <a href="manga-list.html" class="side-navbar-link link highlight">
+                        <li class="side-navbar-item highlight">
+                            <a href="manga-list.html" class="side-navbar-link link">
                                 <svg class="side-navbar-icon">
                                     <use href="images/icon.svg#books"></use>
                                 </svg>
