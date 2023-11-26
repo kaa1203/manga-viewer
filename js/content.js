@@ -5,6 +5,7 @@ const moreUp = document.getElementsByClassName('more-latest');
 const manga = document.getElementsByClassName('content-item');
 const mangaDetails = document.getElementsByClassName('content-details');
 const latest = document.getElementsByClassName('latest-update-item');
+const latestChap = document.getElementsByClassName('latest-manga-item');
 
 
 for (let i = 0; i < popBttn.length; i++) {
@@ -54,16 +55,32 @@ navMenu.addEventListener('click', function () {
 });
 
 toggle.addEventListener('click', function () {
-    for (let i = 0; i < mangaDetails.length; i++) {
-        let title = mangaDetails[i].children[0];
-        let chapter = mangaDetails[i].children[1];
-        console.log(title);
-        if (theme.checked == false) {
+    if (theme.checked == false) {
+        for (let i = 0; i < mangaDetails.length; i++) {
             mangaDetails[i].classList.remove('light-orange');
-        } else {
+        }
+        for (let i = 0; i < latestChap.length; i++) {
+            latestChap[i].classList.remove('l-hover');
+        }
+        for (let i = 0; i < upBttn.length; i++) {
+            upBttn[i].classList.remove('l-hover');
+        }
+        for (let i = 0; i < popBttn.length; i++) {
+            popBttn[i].classList.remove('l-hover');
+        }
+    } else {
+        for (let i = 0; i < mangaDetails.length; i++) {
             mangaDetails[i].classList.add('light-orange');
-            title.classList.add('l-hover');
-            chapter.classList.add('l-hover');
+        }
+        for (let i = 0; i < latestChap.length; i++) {
+            latestChap[i].classList.add('l-hover');
+        }
+        for (let i = 0; i < upBttn.length; i++) {
+            upBttn[i].classList.add('l-hover');
+        }
+        for (let i = 0; i < popBttn.length; i++) {
+            popBttn[i].classList.add('l-hover');
         }
     }
+    
 });

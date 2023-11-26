@@ -10,7 +10,7 @@
     --Dark-grey-transparent: #33333380;
     --Mocha: #BFB29E;
     --Purple: #7071E8;
-    --Light-hover: #f6edce;
+    --Light-yellow: #f6edce;
     --Light-bg: #F7EFE5;
     --Light-color: #2C3333;
     --Light-orange: #f6d9ce;
@@ -166,7 +166,8 @@ body {
 }
 
 .navbar-button:hover {
-    background-color: var(--Grey); 
+    /* background-color: var(--Grey);  */
+    border: 1px solid var(--White-transparent);
     cursor: pointer;
 }
 
@@ -198,7 +199,7 @@ body {
 
 .nav-form-button:hover, 
 .nav-form-button:focus {
-    background-color: var(--Grey);
+    /* background-color: var(--White-transparent); */
     border: 1px solid var(--White);
 }
 
@@ -226,7 +227,6 @@ body {
 
 .nav-search-bar:focus {
     color: currentColor;
-    background-color: var(--Grey);
     border: 1px solid var(--White-transparent);
 }
 
@@ -253,7 +253,7 @@ body {
 
 .profile-picture:hover,
 .bell.icon:hover {
-    background-color: var(--Grey);
+    /* background-color: var(--Grey-transparent); */
     border-color: var(--White);
     cursor: pointer;
 }
@@ -277,8 +277,13 @@ body {
     border-radius: 10px;
 }
 
-.profile-item:not(:first-child):hover {
+.dark:not(:first-child):hover {
     background-color: var(--Grey);
+    cursor: pointer;
+}
+
+.light:not(:first-child):hover {
+    background-color: var(--Light-yellow);
     cursor: pointer;
 }
 
@@ -442,7 +447,8 @@ body {
     border-radius: 50%;
 }
 
-.more.icon:hover {
+/* .more.icon:hover { */
+.more:hover {
     background-color: var(--Dark-grey);
 }
 
@@ -584,7 +590,7 @@ body {
     height: 24px;
     fill: currentColor;
     border-radius: 50%;
-    border: 1px solid var(--White-transparent);
+    border: 1px solid transparent;
     cursor: pointer;
 }
 
@@ -592,7 +598,7 @@ body {
 .close.icon.icon:hover,
 .register-modal-icon:hover,
 .accordion.icon:hover {
-    background-color: var(--Grey);
+    /* background-color: var(--Grey); */
     border: 1px solid var(--White);
 }
 
@@ -640,7 +646,7 @@ body {
     width: 100%;
     padding: 9px 45px;
     margin: 5px 0;
-    color: var(--White);
+    color: currentColor;
     background-color: var(--Dark-Grey);
     border: 1px solid var(--White-transparent);
     border-radius: 4px;
@@ -661,7 +667,7 @@ body {
 
 .form-button:hover {
     background-color: var(--Grey);
-    color: var(--White-transparent);
+    color: currentColor;
 }
 
 .register {
@@ -825,7 +831,8 @@ body {
 }
 
 .accordion-content-item:nth-child(even) {
-    background-color: var(--Grey);
+    /* background-color: var(--Grey); */
+    background-color: transparent;
 }
 
 .accordion-content-item:nth-child(odd) {
@@ -840,7 +847,7 @@ body {
     gap: 5px;
     padding: 5px;
     color: currentColor;
-    background-color: var(--Dark-grey);
+    background-color: transparent;
     border: 1px solid var(--Grey);
 }
 
@@ -913,6 +920,7 @@ body {
     margin: 5px;
     text-align: right;
 }
+
 /* Showcase section */
 .carousel-container {
     margin-top: 8%;
@@ -1018,7 +1026,7 @@ body {
 .dot {
     display: inline-block;
     padding: 9px;
-    background-color: var(--Dark-grey);
+    background-color: transparent;
     border: 1px solid var(--Grey);
     border-radius: 50%;
     cursor: pointer;
@@ -1098,18 +1106,17 @@ body {
     opacity: 0.5;
 }
 
-.content-wrapper .content-link:hover .manga-title, 
-.content-wrapper .content-link:hover .content-manga-chapter {
-    color: var(--Light-red);
+.content-link:hover :not(:last-child)  {
+        color: var(--Light-red);
 }
 
 .more-button {
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 4px;
-    color: var(--White);
+    color: currentColor;
     border: 1px solid var(--Grey);
-    background-color: var(--Dark-grey);
+    background-color: transparent;
     width: 100%;
 }
 
@@ -1819,7 +1826,7 @@ tr td:first-child {
     color: var(--White);
     border-radius: 4px;
     border: 1px solid var(--Grey);
-    background-color: var(--Dark-grey);
+    background-color: transparent;
 }
 
 .table-searchbox:focus {
@@ -1835,10 +1842,10 @@ tr td:first-child {
     column-gap: 5px;
     white-space: nowrap;
     padding: 7px;
-    color: var(--White);
+    color: currentColor;
     border-radius: 4px;
     border: 1px solid var(--Grey);
-    background-color: var(--Dark-grey);
+    background-color: transparent;
 }
 
 .filter-button:focus,
@@ -1849,7 +1856,7 @@ tr td:first-child {
 .advance-search-button:hover,
 .advance-search-button:focus {
     border: 1px solid var(--White-transparent);
-    background-color: var(--Grey);
+    /* background-color: var(--Grey); */
     cursor: pointer;
 }
 
@@ -1986,8 +1993,8 @@ tr td:first-child {
     align-items: center;
     column-gap: 5px;
     padding: 7px;
-    color: var(--White);
-    background-color: var(--Dark-grey);
+    color: currentColor;
+    background-color: transparent;
     border: 1px solid var(--Grey);
     border-radius: 4px;
 }
@@ -2008,8 +2015,8 @@ tr td:first-child {
     justify-content: space-between;
     padding: 8px;
     width: 33%;
-    color: var(--White);
-    background-color: var(--Dark-grey);
+    color: currentColor;
+    background-color: transparent;
     border: 1px solid var(--Grey);
 }
 
@@ -2441,17 +2448,17 @@ tr td:first-child {
 }
 
 .l-highlight,
-.l-side-nav:hover {
-    color: var(--Purple);
-    background-color: var(--Light-hover);
+.l-header,
+.l-hover:hover {
+    background-color: var(--Light-yellow);
+}
+
+.o-hover:hover {
+    background-color: var(--Light-orange);
 }
 
 .light-orange {
     background-color: var(--Light-orange);
-}
-
-.l-hover:hover {
-    color: var(--Purple);
 }
 
 @media (min-width: 320px) and (max-width: 479px){

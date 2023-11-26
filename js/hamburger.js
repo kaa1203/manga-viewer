@@ -16,6 +16,10 @@ const moreWrapper = document.getElementById('moreWrapper');
 const searchBar = document.getElementById('navSearch');
 const searchDel = document.getElementsByClassName('search');
 const highlight = document.getElementsByClassName('highlight');
+const formButton = document.getElementsByClassName('form-button');
+const profileItem = document.getElementsByClassName('profile-item');
+const notifItem = document.getElementsByClassName('notif-item');
+const notifButton = document.getElementsByClassName('notif-button');
 
 // Side nav and content
 navMenu.addEventListener('click', function () {
@@ -115,17 +119,46 @@ toggle.addEventListener('click', function () {
         navCon[0].classList.add('light-container');
         sideNav.classList.add('light-container');
         notifCont.classList.add('light-container');
+        notifCont.children[0].classList.add('l-header');
+        notifButton[0].classList.add('l-hover');
+        notifButton[1].classList.add('l-hover');
+        moreWrapper.classList.add('light-container');
+        moreWrapper.children[0].classList.add('l-hover');
+        moreWrapper.children[1].classList.add('l-hover');
+        moreIcon.classList.add('o-hover');
         profileCont.classList.add('light-container');
-        highlight[0].classList.add('l-highlight');
+        profileCont.children[0].children[0].style.backgroundColor = "var(--Light-orange)";
+        profileItem[1].classList.remove('dark');
+        profileItem[1].classList.add('light');
+        profileItem[2].classList.remove('dark');
+        profileItem[2].classList.add('light');
+        profileItem[3].classList.remove('dark');
+        profileItem[3].classList.add('light');
+        formButton[0].classList.add('l-hover');
+        formButton[1].classList.add('l-hover');
+        loginModal.children[0].classList.add('light-container');
+        loginModal.children[0].children[1].classList.add('l-header');
+        regModal.children[0].classList.add('light-container');
+        regModal.children[0].children[1].classList.add('l-header');
+        modal.children[0].classList.add('light-container');
+        modal.children[0].children[0].classList.add('l-header');
+        favHeader.classList.add('light-orange');
+        hisHeader.classList.add('light-orange');
         document.body.classList.add('light-bg');
         for (let i = 0; i < cont.length; i++) {
             cont[i].classList.add('light-container');
         }
 
         for (let i = 0; i < sideNavItem.length; i++) {
-            sideNavItem[i].classList.add('l-side-nav');
+            sideNavItem[i].classList.add('l-hover');
+            if (sideNavItem[i].classList.contains('highlight')) {
+                highlight[0].classList.add('l-highlight');
+            }
         }
 
+        for (let i = 0; i < notifItem.length; i++) {
+            notifItem[i].classList.add('l-hover');            
+        }
     } else {
         theme.checked = false;
         icon.setAttribute('href', 'images/icon.svg#dark');
@@ -133,15 +166,45 @@ toggle.addEventListener('click', function () {
         navCon[0].classList.remove('light-container');
         sideNav.classList.remove('light-container');
         notifCont.classList.remove('light-container');
+        notifButton[0].classList.remove('l-hover');
+        notifButton[1].classList.remove('l-hover');
+        notifCont.children[0].classList.remove('l-header');
+        moreWrapper.classList.remove('light-container');
+        moreWrapper.children[0].classList.remove('l-hover');
+        moreWrapper.children[1].classList.remove('l-hover');
+        moreIcon.classList.remove('o-hover');
         profileCont.classList.remove('light-container');
-        highlight[0].classList.remove('l-highlight');
+        profileCont.children[0].children[0].style.backgroundColor = "var(--Grey-transparent)";
+        profileItem[1].classList.add('dark');
+        profileItem[1].classList.remove('light');
+        profileItem[2].classList.add('dark');
+        profileItem[2].classList.remove('light');
+        profileItem[3].classList.add('dark');
+        profileItem[3].classList.remove('light');
+        formButton[0].classList.remove('l-hover');
+        formButton[1].classList.remove('l-hover');
+        loginModal.children[0].classList.remove('light-container');
+        loginModal.children[0].children[1].classList.remove('l-header');
+        regModal.children[0].classList.remove('light-container');
+        regModal.children[0].children[1].classList.remove('l-header');
+        modal.children[0].classList.remove('light-container');
+        modal.children[0].children[0].classList.remove('l-header');
+        favHeader.classList.remove('light-orange');
+        hisHeader.classList.remove('light-orange');
         document.body.classList.remove('light-bg');
         for (let i = 0; i < cont.length; i++) {
             cont[i].classList.remove('light-container');
         }
 
         for (let i = 0; i < sideNavItem.length; i++) {
-            sideNavItem[i].classList.remove('l-side-nav');
+            sideNavItem[i].classList.remove('l-hover');
+            if (sideNavItem[i].classList.contains('highlight')) {
+                highlight[0].classList.remove('l-highlight');
+            }
+        }
+
+        for (let i = 0; i < notifItem.length; i++) {
+            notifItem[i].classList.remove('l-hover');            
         }
     }
     
