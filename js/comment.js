@@ -21,6 +21,7 @@ const recManga = document.getElementsByClassName('image-wrapper');
 
 
 
+
 // Open/Close reply
 for (let i = 0; i < repBttn.length; i++) { 
     const reply = userRep[i];
@@ -135,5 +136,53 @@ navMenu.addEventListener('click', function () {
             }
             console.log(cont[1].offsetWidth)
         }
+    }
+});
+
+toggle.addEventListener('click', function () {
+    const details = document.getElementsByClassName('rec-details-wrapper');
+    const buttons = document.getElementsByTagName('button');
+    const comMore = document.getElementsByClassName('com-more');
+    const repMore = document.getElementsByClassName('rep-more');
+    const commentsMore = document.getElementsByClassName('comments-more');
+    const repComMore = document.getElementsByClassName('rep-comments-more');
+    if (theme.checked) {
+        for (let i = 0; i < details.length; i++) {
+            details[i].classList.add('light-orange');
+        } 
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.add('l-hover');
+        } 
+        for (let i = 0; i < comMore.length; i++) {
+            comMore[i].classList.add('l-hover');
+            commentsMore[i].classList.add('light-container');            
+            commentsMore[i].children[0].classList.add('l-hover');            
+            commentsMore[i].children[1].classList.add('l-hover');            
+        } 
+        for (let i = 0; i < repMore.length; i++) {
+            repMore[i].classList.add('l-hover');
+            repComMore[i].classList.add('light-container');            
+            repComMore[i].children[0].classList.add('l-hover');            
+            repComMore[i].children[1].classList.add('l-hover');            
+        } 
+    } else {
+        for (let i = 0; i < details.length; i++) {
+            details[i].classList.remove('light-orange');
+        }
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove('l-hover');
+        } 
+        for (let i = 0; i < comMore.length; i++) {
+            comMore[i].classList.remove('l-hover');
+            commentsMore[i].classList.remove('light-container');            
+            commentsMore[i].children[0].classList.remove('l-hover');            
+            commentsMore[i].children[1].classList.remove('l-hover');   
+        }
+        for (let i = 0; i < repMore.length; i++) {
+            repMore[i].classList.remove('l-hover');
+            repComMore[i].classList.remove('light-container');            
+            repComMore[i].children[0].classList.remove('l-hover');            
+            repComMore[i].children[1].classList.remove('l-hover');            
+        } 
     }
 });

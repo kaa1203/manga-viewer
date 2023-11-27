@@ -8,6 +8,7 @@
     --White-transparent: #ffffff80;
     --Light-red-transparent: #ff4d4d80;
     --Dark-grey-transparent: #33333380;
+    --Light-yellow-transparent: #f6edce80;
     --Mocha: #BFB29E;
     --Purple: #7071E8;
     --Light-yellow: #f6edce;
@@ -199,7 +200,7 @@ body {
 
 .nav-form-button:hover, 
 .nav-form-button:focus {
-    /* background-color: var(--White-transparent); */
+    background-color: var(--Grey);
     border: 1px solid var(--White);
 }
 
@@ -227,6 +228,7 @@ body {
 
 .nav-search-bar:focus {
     color: currentColor;
+    background-color: var(--Grey);
     border: 1px solid var(--White-transparent);
 }
 
@@ -1245,9 +1247,9 @@ body {
     justify-content: center;
     padding: 8px;
     border-radius: 4px;
-    border: 1px solid var(--Dark-grey);
-    color: var(--White);
-    background-color: var(--Grey);
+    border: 1px solid var(--Grey);
+    color: currentColor;
+    background-color: transparent;
     width: 100%;
     cursor: pointer;
 }
@@ -1265,10 +1267,15 @@ body {
     fill: currentColor;
 }
 
-.bookmark-checkbox:checked~.bookmark-button {
+.bookmark-checkbox:checked~.bm-dark,
+.bookmark-button:hover {
     color: var(--Light-red);
-    background-color: var(--Dark-grey);
-    border: 1px solid var(--Grey);
+    background-color: var(--Grey);
+    border: 1px solid var(--White-transparent);
+}
+.bookmark-checkbox:checked~.bm-light {
+    color: var(--Light-red);
+    background-color: var(--Light-yellow);
 }
 
 .manga-rating {
@@ -1278,7 +1285,7 @@ body {
     width: 100%;
     padding: 5px;
     border-radius: 4px;
-    background-color: var(--Grey);
+    background-color: transparent;
 }
 
 .manga-rating .icon {
@@ -1354,16 +1361,16 @@ body {
 
 .chapter {
     padding: 20px;
-    background-color: var(--Grey);
+    background-color: transparent;
     border-radius: 4px;
-    border: 1px solid var(--Dark-grey);
+    border: 1px solid var(--Grey);
     cursor: pointer;
 }
 
 .chapter:hover {
     color: var(--Light-red);
-    background-color: var(--Dark-grey);
-    border: 1px solid var(--Grey);
+    background-color: var(--Grey);
+    border: 1px solid var(--White);
 }
 
 .chapter-list {
@@ -1506,9 +1513,9 @@ body {
 .com-sec-button {
     padding: 8px 20px;
     border-radius: 4px;
-    color: var(--White);
+    color: currentColor;
     border: 1px solid var(--Grey);
-    background-color: var(--Dark-grey);
+    background-color: transparent;
     cursor: pointer;
 }
 
@@ -1551,8 +1558,8 @@ body {
     padding: 5px;
 }
 
-.com-more.icon:hover,
-.rep-more.icon:hover {
+.com-more:hover,
+.rep-more:hover {
     background-color: var(--Grey);
     cursor: pointer;
 }
@@ -1581,8 +1588,8 @@ body {
 
 .user-reply-textbox {
     padding: 8px 0 4px 0;
-    color: var(--White);
-    background-color: var(--Dark-grey);
+    color: currentColor;
+    background-color: transparent;
     border-bottom: 1px solid var(--White-transparent);
     border-top: transparent;
     border-left: transparent;
@@ -1593,8 +1600,8 @@ body {
 .user-reply-button,
 .post-reply-button {
     padding: 5px;
-    color: var(--White);
-    background-color: var(--Dark-grey);
+    color: currentColor;
+    background-color: transparent;
     border: 1px solid var(--Grey);
     border-radius: 4px;
     cursor: pointer;
@@ -1632,7 +1639,7 @@ body {
     margin-left: 10px;
     cursor: pointer;
     padding: 4px 8px;
-    color: var(--White);
+    color: currentColor;
     background-color: var(--Dark-Grey);
     border-radius: 4px;
     border: 1px solid var(--Grey);
@@ -1688,8 +1695,8 @@ body {
 
 .post-reply-textbox {
     padding: 8px 0 4px 0;
-    color: var(--White);
-    background-color: var(--Dark-grey);
+    color: currentColor;
+    background-color: transparent;
     border-bottom: 1px solid var(--White-transparent);
     border-top: transparent;
     border-left: transparent;
@@ -1811,6 +1818,16 @@ tr td:first-child {
     width: 100%;
 }
 
+.adv-del {
+    visibility: hidden;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 11px;
+    right: 27%;
+    cursor: pointer;
+}
+
 .search-icon {
     width: 20px;
     height: 20px;
@@ -1823,7 +1840,7 @@ tr td:first-child {
 .table-searchbox {
     width: 100%;
     padding: 8px 40px;
-    color: var(--White);
+    color: currentColor;
     border-radius: 4px;
     border: 1px solid var(--Grey);
     background-color: transparent;
@@ -1848,15 +1865,13 @@ tr td:first-child {
     background-color: transparent;
 }
 
-.filter-button:focus,
+
 .filter-button:hover, 
 .pagination-link:hover,
-.pagination-link:focus,
 .accordion-filter:hover,
-.advance-search-button:hover,
-.advance-search-button:focus {
+.advance-search-button:hover {
     border: 1px solid var(--White-transparent);
-    /* background-color: var(--Grey); */
+    background-color: var(--Grey);
     cursor: pointer;
 }
 
@@ -1957,7 +1972,7 @@ tr td:first-child {
 
 .text-box {
     color: var(--White);
-    background-color: var(--Dark-grey);
+    background-color: transparent;
     border: 1px solid var(--Grey);
     width: 100%;
     padding: 8px 8px 8px 35px;  
@@ -1976,8 +1991,8 @@ tr td:first-child {
 .adv-search-button {
     padding: 5px 10px;
     cursor: pointer;
-    color: var(--White);
-    background-color: var(--Dark-grey);
+    color: currentColor;
+    background-color: transparent;
     border-radius: 4px;
     border: 1px solid var(--Grey);
 }
@@ -2145,7 +2160,7 @@ tr td:first-child {
     column-gap: 8px;
     width: calc(100% / 2 - 10px);
     padding: 8px;
-    background-color: var(--Dark-grey);
+    background-color: transparent;
     border: 1px solid var(--Grey);
 }
 
@@ -2154,13 +2169,16 @@ tr td:first-child {
 }
 
 .manga-nav-button:hover,
-.manga-nav-button:focus,
 .bookmark-label:hover,
-.bookmark:checked~.bookmark-label {
+.bookmark:checked~.bm-dark {
     color: var(--Light-red);
     border: 1px solid var(--White-transparent);
     background-color: var(--Grey);
     cursor: pointer;
+}
+.bookmark:checked~.bm-light { 
+    color: var(--Light-red);
+    background-color: var(--Light-yellow);
 }
 
 .bookmark {
@@ -2229,9 +2247,15 @@ tr td:first-child {
 
 .manga-chapter-item {
     padding: 5px;
-    background-color: var(--Grey);
+    color: currentColor;
+    background-color: transparent;
     border: 1px solid var(--Grey);
     width: calc(100% / 2 - 10px);
+}
+
+.manga-chapter-item:hover {
+    background-color: var(--Grey);
+    border: 1px solid var(--White);
 }
 
 .manga-chapter-item .link {
@@ -2240,7 +2264,7 @@ tr td:first-child {
 
 .manga-chapter-footer {
     padding: 20px;
-    background-color: var(--Grey);
+    background-color: var(--Grey-transparent);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -2298,6 +2322,11 @@ tr td:first-child {
     align-items: center;
     gap: 8px;
     padding: 5px;
+    cursor: pointer;
+}
+
+.favorites-more:hover {
+    background: var(--Dark-grey);
 }
 
 .favorites-checkbox {
@@ -2306,7 +2335,8 @@ tr td:first-child {
 
 .favorites-menu {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: end;
     align-items: center;
     gap: 5px;
     width: 100%;
@@ -2343,8 +2373,8 @@ tr td:first-child {
     display: inline-flex;
     align-items: center;
     padding: 8px;
-    color: var(--White);
-    background-color: var(--Dark-grey);
+    color: currentColor;
+    background-color: transparent;
     border: 1px solid var(--Grey);
     border-radius: 20px;
 }
@@ -2425,8 +2455,8 @@ tr td:first-child {
     padding-top: 7px;
     height: 32px;
     width: 32px;
-    color: var(--Grey);
-    background-color: var(--White);
+    color: currentColor;
+    background-color: transparent;
     border-radius: 50%;
     border: 1px solid var(--Grey);
 }
@@ -2445,6 +2475,10 @@ tr td:first-child {
 .light-bg {
     background-color: var(--Light-bg);
     color: var(--Light-color);
+}
+
+.l-focus:focus {
+    background-color: var(--Light-yellow-transparent);
 }
 
 .l-highlight,

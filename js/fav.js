@@ -7,9 +7,9 @@ const link = document.getElementsByClassName('favorites-link');
 const summary = document.getElementsByClassName('favorites-summary');
 const details = document.getElementsByClassName('favorites-details');
 const favCont = document.getElementsByClassName('favorites');
+const favCheckBox = document.getElementsByClassName('favorites-checkbox');
 const image = document.getElementsByClassName('favorites-image');
-const search = document.getElementById('favSearchBttn');
-const srchbar = document.getElementById('favSearch');
+const active = document.getElementsByClassName('active');
 
 // View
 for (let i = 0; i < manga.length; i++) {
@@ -23,8 +23,15 @@ for (let i = 0; i < manga.length; i++) {
         image[i].style.width = "20%";
         details[i].style.width = "80%";
         details[i].style.justifyContent = "space-between";
-        list.classList.add('active');
-        grid.classList.remove('active');
+
+        if (theme.checked) {
+            list.classList.add('l-highlight');
+            grid.classList.remove('l-highlight');
+        } else {
+            list.classList.add('active');
+            grid.classList.remove('active');
+        }
+        
     });
     
     grid.addEventListener('click', function () {
@@ -35,8 +42,16 @@ for (let i = 0; i < manga.length; i++) {
         summary[i].style.display = "none";
         details[i].style.width = "100%";
         image[i].style.width = "100%";
-        grid.classList.add('active');
-        list.classList.remove('active');
+        // grid.classList.add('active');
+        // list.classList.remove('active');
+
+        if (theme.checked) {
+            list.classList.remove('l-highlight');
+            grid.classList.add('l-highlight');
+        } else {
+            list.classList.remove('active');
+            grid.classList.add('active');
+        }
 
         if (favCont[0].offsetWidth >= 1300) {
             manga[i].style.width = "calc(100% / 5 - 10px)";
@@ -77,29 +92,51 @@ for (let i = 0; i < manga.length; i++) {
         }
     });
 
+    moreCont[i].children[0].children[0].addEventListener('click', function () {
+        let p = moreCont[i].children[0].children[0].children[2],
+            icon = moreCont[i].children[0].children[0].children[1].children[0];
+        if (favCheckBox[i].checked) {
+            favCheckBox[i].checked = false;
+            p.innerText = 'Notification: Off';
+            icon.setAttribute('href', 'images/icon.svg#notif-2');
+        } else {
+            favCheckBox[i].checked = true;
+            p.innerText = 'Notification: On';
+            icon.setAttribute('href', 'images/icon.svg#notif');
+        }
+    });
+
     // if (favCont[0].offsetWidth <= 905) {
     //     manga[i].style.width = "calc(100% / 2 - 10px)";
     // }
 }
 
-search.addEventListener('click', function () {
-    if (srchbar.style.width != "60%") {
-        search.style.left = "0";
-        search.style.backgroundColor = "var(--Grey)";
-        search.style.border = "1px solid var(--White-transparent)";
-        srchbar.style.width = "60%";
-        srchbar.style.backgroundColor = "var(--Grey)";
-        srchbar.style.transition = "width 250ms linear";
-        srchbar.style.border = "1px solid var(--White-transparent)";
+toggle.addEventListener('click', function () {
+    if (theme.checked == false) { 
+        grid.classList.remove('l-hover');
+        list.classList.remove('l-hover');
+        grid.classList.replace('l-highlight', 'active');
+        list.classList.replace('l-highlight', 'active');
+        
+        for (let i = 0; i < details.length; i++) {
+            details[i].classList.remove('light-orange');
+            mangaMore[i].children[0].classList.remove('l-hover');
+            moreCont[i].classList.remove('light-container');
+            moreCont[i].children[0].children[0].classList.remove('l-hover');
+            moreCont[i].children[0].children[1].classList.remove('l-hover');
+        }
     } else {
-        search.style.left = "7px";
-        search.style.backgroundColor = "var(--Dark-Grey)";
-        search.style.border = "1px solid var(--Grey-transparent)";
-        srchbar.style.width = "1%";
-        srchbar.style.transition = "width 250ms linear";
-        // srchbar.style.backgroundColor = "transparent";
-        // srchbar.style.border = "1px solid transparent";
+        grid.classList.add('l-hover');
+        list.classList.add('l-hover');
+        grid.classList.replace('active', 'l-highlight');
+        list.classList.replace('active', 'l-highlight');
+        
+        for (let i = 0; i < details.length; i++) {
+            details[i].classList.add('light-orange');
+            mangaMore[i].children[0].classList.add('l-hover');
+            moreCont[i].classList.add('light-container');
+            moreCont[i].children[0].children[0].classList.add('l-hover');
+            moreCont[i].children[0].children[1].classList.add('l-hover');
+        }
     }
-    
-
 });

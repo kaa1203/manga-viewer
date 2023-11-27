@@ -1,5 +1,7 @@
 const navMenu = document.getElementById('navMenu');
+const navSearch = document.getElementById('navSearch');
 const sideNav = document.getElementById('sideNav');
+const navSearchButton = document.getElementsByClassName('nav-form-button');
 const sideNavItem = document.getElementsByClassName('side-navbar-item');
 const sideNavList = document.getElementsByClassName('side-navbar-list');
 const navCon = document.getElementsByClassName('nav-container');
@@ -22,6 +24,7 @@ const notifItem = document.getElementsByClassName('notif-item');
 const notifButton = document.getElementsByClassName('notif-button');
 
 // Side nav and content
+// Attempted to create a mobile friendly website but since it's a pain in the ass with js(I'm talking about you accordion modal!!!! IDK what possesed me to do that tsk...) I decided to just do the tablet mode (which is not 100% complete hehe, I guess my future me will decide if I shall make this mobile friendly or not...(GO FUTURE ME!!!))
 navMenu.addEventListener('click', function () {
     let x = sideNav.style.width;
     if (window.innerWidth >= 1249) {
@@ -70,6 +73,7 @@ navMenu.addEventListener('click', function () {
     
 }); 
 
+// Just testing the window status, since I don't know how to remove the styles inserted in elements via js, i decided to reset it on resize not sure if it's right though...
 window.addEventListener('resize', function () {
     if (window.innerWidth <= 1023) { 
         for (let i = 0; i < sideNavItem.length; i++) {
@@ -105,9 +109,10 @@ searchDel[0].addEventListener('click', function () {
     searchBar.value = ''; 
     searchDel[0].style.visibility = "hidden";
 });
+
 // Change Theme
 // Things to figure out:
-// How to retain the "checked" value when going to a different page(is it possible via front end or it can only be done via fetching data from db???)
+// How to retain the "checked" value when going to a different page
 // should I create two css classes??? (dark-theme and light-theme)
 toggle.addEventListener('click', function () {
     const icon = theme.nextElementSibling.childNodes[1].childNodes[1];
@@ -117,6 +122,8 @@ toggle.addEventListener('click', function () {
         icon.setAttribute('href', 'images/icon.svg#light');
         text[0].childNodes[3].innerText = " Light Mode";
         navCon[0].classList.add('light-container');
+        navSearch.classList.add('l-focus');
+        navSearchButton[0].classList.add('l-hover');
         sideNav.classList.add('light-container');
         notifCont.classList.add('light-container');
         notifCont.children[0].classList.add('l-header');
@@ -142,8 +149,11 @@ toggle.addEventListener('click', function () {
         regModal.children[0].children[1].classList.add('l-header');
         modal.children[0].classList.add('light-container');
         modal.children[0].children[0].classList.add('l-header');
+        favCon.children[0].children[0].classList.add('l-hover');
+        favCon.children[0].children[1].classList.add('l-hover');
         favHeader.classList.add('light-orange');
         hisHeader.classList.add('light-orange');
+        toTop.classList.add('l-hover');
         document.body.classList.add('light-bg');
         for (let i = 0; i < cont.length; i++) {
             cont[i].classList.add('light-container');
@@ -164,6 +174,8 @@ toggle.addEventListener('click', function () {
         icon.setAttribute('href', 'images/icon.svg#dark');
         text[0].childNodes[3].innerText = " Dark Mode";
         navCon[0].classList.remove('light-container');
+        navSearch.classList.remove('l-focus');
+        navSearchButton[0].classList.remove('l-hover');
         sideNav.classList.remove('light-container');
         notifCont.classList.remove('light-container');
         notifButton[0].classList.remove('l-hover');
@@ -189,9 +201,12 @@ toggle.addEventListener('click', function () {
         regModal.children[0].children[1].classList.remove('l-header');
         modal.children[0].classList.remove('light-container');
         modal.children[0].children[0].classList.remove('l-header');
+        favCon.children[0].children[0].classList.remove('l-hover');
+        favCon.children[0].children[1].classList.remove('l-hover');
         favHeader.classList.remove('light-orange');
         hisHeader.classList.remove('light-orange');
         document.body.classList.remove('light-bg');
+        toTop.classList.remove('l-hover');
         for (let i = 0; i < cont.length; i++) {
             cont[i].classList.remove('light-container');
         }

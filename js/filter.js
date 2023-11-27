@@ -3,14 +3,18 @@ const filBtn = document.getElementById('filterButton');
 const filWrpr = document.getElementById('filterWrapper');
 const filter = document.getElementsByClassName("table-filter-button");
 const tabFil = document.getElementsByClassName("table-filter");
+const tabFilItem = document.getElementsByClassName("table-filter-item");
 const advBtn = document.getElementById('searchButton');
 const advSrch = document.getElementById('advSearch');
 const srch = document.getElementById('tableSearch');
 const advClose = document.getElementById('closeButton');
+const advDel = document.getElementsByClassName('adv-del');
 const genre = document.getElementsByClassName('search-genre');
 const manga = document.getElementsByClassName('search-manga');
 const accToggle = document.getElementsByClassName('section-heading');
 const radio = document.getElementsByClassName("filter-radio");
+const textBox = document.getElementsByClassName("text-box");
+const pageItem = document.getElementsByClassName("pagination-link");
 
 // Change display of filter
 filBtn.addEventListener('click', function () { 
@@ -115,5 +119,67 @@ accToggle[0].addEventListener('click', function () {
     }
 });
 
+toggle.addEventListener('click', function () {
+    if (theme.checked == false) {
+        srch.classList.remove('l-focus');
+        advBtn.classList.remove('l-hover');
+        advSrch.classList.remove('light-container');
+        advSrch.children[0].children[0].classList.remove('l-hover');
+        advSrch.children[1].children[0].classList.remove('l-hover');
+        advSrch.children[2].children[0].classList.remove('l-hover');
+        advSrch.children[2].children[1].classList.remove('l-hover');
+        filBtn.classList.remove('l-hover');
+        for (let i = 0; i < filter.length; i++) {
+            filter[i].classList.remove('l-hover');
+            tabFil[i].classList.remove('light-container');
+            
+        }
+        for (let i = 0; i < tabFilItem.length; i++) {
+            tabFilItem[i].classList.remove('l-hover');
+        }
+        for (let i = 0; i < textBox.length; i++) {
+            textBox[i].classList.remove('l-focus');
+            textBox[i].classList.remove('l-hover');
+        }
+        for (let i = 0; i < pageItem.length; i++) {
+            pageItem[i].classList.remove('l-hover');
+        }
+    } else {
+        srch.classList.add('l-focus');
+        advBtn.classList.add('l-hover');
+        advSrch.classList.add('light-container');
+        advSrch.children[0].children[0].classList.add('l-hover');
+        advSrch.children[1].children[0].classList.add('l-hover');
+        advSrch.children[2].children[0].classList.add('l-hover');
+        advSrch.children[2].children[1].classList.add('l-hover');
+        filBtn.classList.add('l-hover');
+        for (let i = 0; i < filter.length; i++) {
+            filter[i].classList.add('l-hover');
+            tabFil[i].classList.add('light-container');
+        }
+        for (let i = 0; i < tabFilItem.length; i++) {
+            tabFilItem[i].classList.add('l-hover');
+        }
+        for (let i = 0; i < textBox.length; i++) {
+            textBox[i].classList.add('l-focus');
+            textBox[i].classList.add('l-hover');
+        }
+        for (let i = 0; i < pageItem.length; i++) {
+            pageItem[i].classList.add('l-hover');
+        }
+    }
 
+});
 
+srch.addEventListener('keyup', function () {
+    if (srch.value != '') {
+        advDel[0].style.visibility = "visible";
+    } else {
+        advDel[0].style.visibility = "hidden";
+    }
+});
+
+advDel[0].addEventListener('click', function () {
+    srch.value = ''; 
+    advDel[0].style.visibility = "hidden";
+});
