@@ -937,8 +937,16 @@ body {
 }
 
 .carousel-item {
+    display: none;
     position: relative;
     padding: 20px;
+}
+
+.carousel-manga-title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: calc(100%);
 }
 
 .carousel-manga-details {
@@ -1198,7 +1206,8 @@ body {
     cursor: pointer;
 }
 
-.latest-manga-title:hover {
+.latest-manga-title:hover,
+.carousel-link:hover {
     color: var(--Light-red);
     text-decoration: underline;
 }
@@ -1971,7 +1980,7 @@ tr td:first-child {
 }
 
 .text-box {
-    color: var(--White);
+    color: currentColor;
     background-color: transparent;
     border: 1px solid var(--Grey);
     width: 100%;
@@ -2383,7 +2392,7 @@ tr td:first-child {
 .dot:hover,
 .favorite.icon:hover,
 .favorites-button:hover {
-    background-color: var(--Grey);
+    background-color: var(--White-transparent);
     cursor: pointer;
 }
 

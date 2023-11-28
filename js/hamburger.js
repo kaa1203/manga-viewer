@@ -93,6 +93,22 @@ window.addEventListener('resize', function () {
              cont[i].style.marginBottom = "1%";
             
         }
+    } else {
+         for (let i = 0; i < cont.length; i++) {
+            cont[i].style.width = "80%"; 
+            sideNav.style.width = "15%";
+            cont[i].style.marginLeft = "17.5%";
+        }
+        for (let i = 0; i < sideNavItem.length; i++) {
+            let item = sideNavItem[i];
+            let span = item.children[0].children[1],
+                icon = item.children[0].children[0];
+            sideNavList[0].style.padding = "15px";  
+            sideNavList[0].style.marginTop = "0px";  
+            sideNavList[1].style.padding = "15px"; 
+            span.style.display = "block";
+            icon.style.margin = "0";
+        }
     }
 });
 

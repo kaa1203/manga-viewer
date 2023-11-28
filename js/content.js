@@ -6,6 +6,8 @@ const manga = document.getElementsByClassName('content-item');
 const mangaDetails = document.getElementsByClassName('content-details');
 const latest = document.getElementsByClassName('latest-update-item');
 const latestChap = document.getElementsByClassName('latest-manga-item');
+const carManga = document.getElementsByClassName('carousel-item');
+const dot = document.getElementsByClassName('dot');
 
 
 for (let i = 0; i < popBttn.length; i++) {
@@ -54,6 +56,32 @@ navMenu.addEventListener('click', function () {
     }
 });
 
+// Carousel
+// Since my knowledge is still lacking I'm gonna settle for a clickable slider for now(I swear I'm gonna make you move someday muahahahahahhaha!)
+let slides = 1;
+showSlides(slides);
+
+function currentSlide(n) {
+    showSlides(slides = n);
+}
+
+function showSlides(n) {
+    if (n > carManga.length) {
+        slides = 0;
+    }
+    if (n < 1) {
+        slides = carManga.length;
+    }
+
+    for (let i = 0; i < carManga.length; i++) {
+        carManga[i].style.display = 'none';
+        dot[i].className = dot[i].className.replace(" active", " ");
+    }
+
+    carManga[slides - 1].style.display = "block";
+    dot[slides - 1].className += " active";
+}
+
 toggle.addEventListener('click', function () {
     if (theme.checked == false) {
         for (let i = 0; i < mangaDetails.length; i++) {
@@ -80,7 +108,9 @@ toggle.addEventListener('click', function () {
         }
         for (let i = 0; i < popBttn.length; i++) {
             popBttn[i].classList.add('l-hover');
-        }
+        }   
     }
     
 });
+
+console.log(dot[1].classList.contains('l-hover'));

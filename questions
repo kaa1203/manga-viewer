@@ -1,0 +1,4 @@
+how to retain the status of the theme(Light/Dark) when the user go to another page
+what's the correct way of closing the elements when clicking outside of it(e.g notification, profile)
+how to clear the styles that i put on the elements via js(the sidenav is giving me a problem, whenever i close it and then change the screen size it still retain the styles that I put earlier, so my solution is to put an event listener when changing the screen size), is it only possible manually or is there a way to completely remove it easily???
+What's the best way to style elements? by adding/modifying it's classes via js or by directly changing it's styles??
